@@ -49,7 +49,7 @@ export default function PDFCompressorPage() {
       addDefaultPage: false,
     });
 
-    const blob = new Blob([compressedBytes], { type: "application/pdf" });
+    const blob = new Blob([compressedBytes as BlobPart], { type: "application/pdf" });
 
     return {
       name: file.name,
