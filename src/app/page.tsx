@@ -41,6 +41,8 @@ const categoryColors: Record<ToolCategory, { bg: string; text: string; icon: str
   developer: { bg: "bg-violet-50", text: "text-violet-700", icon: "bg-violet-100 text-violet-600", border: "border-violet-100" },
   generator: { bg: "bg-sky-50", text: "text-sky-700", icon: "bg-sky-100 text-sky-600", border: "border-sky-100" },
   ai: { bg: "bg-pink-50", text: "text-pink-700", icon: "bg-pink-100 text-pink-600", border: "border-pink-100" },
+  converter: { bg: "bg-cyan-50", text: "text-cyan-700", icon: "bg-cyan-100 text-cyan-600", border: "border-cyan-100" },
+  audio: { bg: "bg-orange-50", text: "text-orange-700", icon: "bg-orange-100 text-orange-600", border: "border-orange-100" },
 };
 
 const popularTools = tools.filter((t) => t.isPopular);
