@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/site";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
+import Analytics from "./analytics";
 
 export const metadata: Metadata = {
   title: {
@@ -55,6 +56,7 @@ export default function RootLayout({
         <meta name="google-site-verification" content="6vkJFnHwHifL5TpqvVaG4vZo0dnsW1eJ65qSe0TF8zc" />
       </head>
       <body className="min-h-screen bg-white text-gray-900 antialiased">
+        <Analytics />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
