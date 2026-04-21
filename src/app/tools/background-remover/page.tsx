@@ -64,7 +64,7 @@ export default function BackgroundRemoverPage() {
     if (!resultUrl) return;
     const link = document.createElement("a");
     link.href = resultUrl;
-    link.download = "background-removed-toolspulse.png";
+    link.download = "background-removed-toolsepulse.png";
     link.click();
   };
 

@@ -141,7 +141,7 @@ export default function PDFToWordPage() {
               new Paragraph({
                 children: [
                   new TextRun({
-                    text: "Converted by ToolsPulse.com",
+                    text: "Converted by ToolsePulse.com",
                     size: 16,
                     font: "Calibri",
                     color: "999999",

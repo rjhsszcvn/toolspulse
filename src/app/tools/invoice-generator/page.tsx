@@ -335,7 +335,7 @@ export default function InvoiceGeneratorPage() {
             )}
 
             <div className="mt-10 text-center text-xs text-gray-400">
-              Generated with ToolsPulse.com — Free Online Tools
+              Generated with ToolsePulse.com — Free Online Tools
             </div>
           </div>
         )}

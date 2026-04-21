@@ -70,7 +70,7 @@ export default function QRCodeGeneratorPage() {
 
     if (format === "png") {
       const link = document.createElement("a");
-      link.download = `toolspulse-qrcode.png`;
+      link.download = `toolsepulse-qrcode.png`;
       link.href = canvasRef.current.toDataURL("image/png");
       link.click();
     } else {
@@ -83,7 +83,7 @@ export default function QRCodeGeneratorPage() {
       }).then((svg) => {
         const blob = new Blob([svg], { type: "image/svg+xml" });
         const link = document.createElement("a");
-        link.download = `toolspulse-qrcode.svg`;
+        link.download = `toolsepulse-qrcode.svg`;
         link.href = URL.createObjectURL(blob);
         link.click();
       });

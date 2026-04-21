@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: "ToolsPulse",
+  name: "ToolsePulse",
   description: "Free online tools for PDF, image, text, and more. No signup, no limits. All processing happens in your browser — your files never leave your device.",
-  url: "https://toolspulse.co",
-  ogImage: "https://toolspulse.co/og.png",
-  creator: "ToolsPulse",
+  url: "https://toolsepulse.co",
+  ogImage: "https://toolsepulse.co/og.png",
+  creator: "ToolsePulse",
   keywords: [
     "free online tools",
     "pdf converter",

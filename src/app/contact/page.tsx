@@ -10,7 +10,7 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = () => {
-    const mailtoLink = `mailto:contact@toolspulse.co?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`)}`;
+    const mailtoLink = `mailto:contact@toolsepulse.co?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`)}`;
     window.location.href = mailtoLink;
     setSubmitted(true);
   };
@@ -32,7 +32,7 @@ export default function ContactPage() {
             </svg>
           </div>
           <h2 className="text-lg font-semibold text-green-900">Thanks for reaching out!</h2>
-          <p className="text-sm text-green-700 mt-2">Your email client should have opened with the message. If not, email us directly at contact@toolspulse.co</p>
+          <p className="text-sm text-green-700 mt-2">Your email client should have opened with the message. If not, email us directly at contact@toolsepulse.co</p>
           <button onClick={() => setSubmitted(false)} className="btn-secondary mt-6 py-2.5 px-6">
             Send Another Message
           </button>

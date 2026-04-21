@@ -191,7 +191,7 @@ export default function HomePage() {
           <div className="space-y-6">
             {[
               {
-                q: "Is ToolsPulse really free?",
+                q: "Is ToolsePulse really free?",
                 a: "Yes, 100% free. All tools are available without any signup, subscription, or hidden fees. We sustain the platform through non-intrusive ads.",
               },
               {

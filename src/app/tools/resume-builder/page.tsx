@@ -334,7 +334,7 @@ export default function ResumeBuilderPage() {
               )}
 
               <div style={{ marginTop: "32px", textAlign: "center", fontSize: "8pt", color: "#ccc" }}>
-                Built with ToolsPulse.com
+                Built with ToolsePulse.com
               </div>
             </div>
           </div>

@@ -112,7 +112,7 @@ export default function MergePDFPage() {
 
       const link = document.createElement("a");
       link.href = url;
-      link.download = "merged-toolspulse.pdf";
+      link.download = "merged-toolsepulse.pdf";
       link.click();
       URL.revokeObjectURL(url);
     } catch {

@@ -41,8 +41,8 @@ export default function PDFCompressorPage() {
     newPdf.setAuthor("");
     newPdf.setSubject("");
     newPdf.setKeywords([]);
-    newPdf.setProducer("ToolsPulse.com");
-    newPdf.setCreator("ToolsPulse.com");
+    newPdf.setProducer("ToolsePulse.com");
+    newPdf.setCreator("ToolsePulse.com");
 
     const compressedBytes = await newPdf.save({
       useObjectStreams: true,

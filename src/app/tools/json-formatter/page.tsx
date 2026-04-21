@@ -106,7 +106,7 @@ export default function JSONFormatterPage() {
 
   const loadSample = () => {
     const sample = {
-      name: "ToolsPulse",
+      name: "ToolsePulse",
       version: "1.0.0",
       tools: [
         { id: 1, name: "JSON Formatter", category: "developer" },
