@@ -45,7 +45,7 @@ export default function Header() {
             Categories
           </Link>
           <Link
-            href="/#faq"
+            href="/about"
             className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
           >
             FAQ
@@ -97,7 +97,7 @@ export default function Header() {
             Categories
           </Link>
           <Link
-            href="/#faq"
+            href="/about"
             className="block text-sm font-medium text-gray-600 hover:text-gray-900"
             onClick={() => setMobileMenuOpen(false)}
           >
