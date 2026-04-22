@@ -45,6 +45,61 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default function CategoryLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+export default async function CategoryLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const category = categories[slug as ToolCategory];
+
+  if (!category) return <>{children}</>;
+
+  const categoryTools = tools.filter((t) => t.category === slug);
+  const description = categoryDescriptions[slug] || category.description;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: category.label,
+    description,
+    url: `${siteConfig.url}/category/${slug}`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: categoryTools.length,
+      itemListElement: categoryTools.map((tool, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "WebApplication",
+          name: tool.name,
+          description: tool.shortDescription,
+          url: `${siteConfig.url}/tools/${tool.slug}`,
+          applicationCategory: "UtilitiesApplication",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+          },
+        },
+      })),
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {children}
+    </>
+  );
 }
