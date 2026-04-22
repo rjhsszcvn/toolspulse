@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --brand-blue: #3b82f6;
+  --brand-blue: #2563eb;
   --brand-cyan: #06b6d4;
 }
 
@@ -13,21 +13,54 @@ body {
 }
 
 .tool-card {
-  @apply rounded-xl border border-slate-800 bg-slate-900/60 p-6 transition-all duration-200 hover:border-slate-700 hover:bg-slate-800/60 cursor-pointer;
+  @apply rounded-xl border border-slate-200 bg-white p-6 transition-all duration-200 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-50 cursor-pointer;
 }
 
 .drop-zone {
-  @apply rounded-xl border-2 border-dashed border-slate-700 bg-slate-900/50 p-12 text-center transition-all duration-200 hover:border-blue-500/50 hover:bg-blue-500/5;
+  @apply rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 p-12 text-center transition-all duration-200 hover:border-blue-400 hover:bg-blue-50;
 }
 
 .drop-zone.active {
-  @apply border-blue-500 bg-blue-500/10;
+  @apply border-blue-500 bg-blue-50;
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:from-blue-600 hover:to-cyan-600 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:from-blue-700 hover:to-cyan-600 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-lg border border-slate-700 bg-slate-800 px-6 py-3 text-sm font-semibold text-slate-200 shadow-sm transition-all duration-200 hover:bg-slate-700 hover:shadow-md;
+  @apply inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:shadow-md;
+}
+@import "tailwindcss";
+
+:root {
+  --brand-blue: #2563eb;
+  --brand-cyan: #06b6d4;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tool-card {
+  @apply rounded-xl border border-slate-200 bg-white p-6 transition-all duration-200 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-50 cursor-pointer;
+}
+
+.drop-zone {
+  @apply rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 p-12 text-center transition-all duration-200 hover:border-blue-400 hover:bg-blue-50;
+}
+
+.drop-zone.active {
+  @apply border-blue-500 bg-blue-50;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:from-blue-700 hover:to-cyan-600 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:shadow-md;
 }
