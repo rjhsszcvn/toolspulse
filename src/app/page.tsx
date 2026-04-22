@@ -177,7 +177,7 @@ export default function HomePage() {
       </section>
 
       {/* Tools Section */}
-      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <section id="tools" className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Category Chips */}
         <div className="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap">
           <button

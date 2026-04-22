@@ -42,7 +42,7 @@ export default function Footer() {
               {Object.entries(categories).map(([key, category]) => (
                 <li key={key}>
                   <Link
-                    href={`/#${key}`}
+                    href="/#tools"
                     className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
                   >
                     {category.label}
