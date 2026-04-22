@@ -111,7 +111,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-700" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItSDJ2LTJoMzR6bTAtMzB2Mkgydi0yaDM0em0wIDV2MkgyVjloMzR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30" />
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
               Free Online Tools That Respect Your Privacy
@@ -121,7 +121,7 @@ export default function HomePage() {
             </p>
 
             {/* Search Bar */}
-            <div className="mx-auto mt-8 max-w-xl">
+            <div className="mx-auto mt-6 max-w-xl">
               <div className="relative">
                 <svg className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -147,7 +147,7 @@ export default function HomePage() {
             </div>
 
             {/* Stats */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-blue-200">
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-6 text-sm text-blue-200">
               <span className="flex items-center gap-1.5">
                 <svg className="h-4 w-4 text-green-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
@@ -266,16 +266,15 @@ export default function HomePage() {
                         <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors text-sm">
                           {tool.name}
                         </h3>
-                        {tool.isNew && (
+                        {tool.isNew ? (
                           <span className="rounded-full bg-green-50 px-2 py-0.5 text-[10px] font-bold text-green-700 border border-green-200 uppercase">
                             New
                           </span>
-                        )}
-                        {tool.isPopular && (
+                        ) : tool.isPopular ? (
                           <span className="rounded-full bg-orange-50 px-2 py-0.5 text-[10px] font-bold text-orange-700 border border-orange-200 uppercase">
                             Popular
                           </span>
-                        )}
+                        ) : null}
                       </div>
                       <p className="mt-1 text-xs text-gray-500 line-clamp-2">
                         {tool.shortDescription}
