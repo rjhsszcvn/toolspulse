@@ -33,7 +33,7 @@ export default function AIImageUpscalerPage() {
     reader.onload = (e) => {
       const img = new Image();
       img.onload = () => {
-        setSourceUrl(URL.createObjectURL(file));
+        setSourceUrl(e.target?.result as string);
         setOriginalSize({ w: img.width, h: img.height });
 
         const newW = img.width * scale;
