@@ -23,6 +23,7 @@ export default function MP3ConverterPage() {
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [duration, setDuration] = useState(0);
   const [processing, setProcessing] = useState(false);
+  const [progress, setProgress] = useState("");
   const [resultUrl, setResultUrl] = useState<string | null>(null);
   const [resultSize, setResultSize] = useState(0);
   const [error, setError] = useState("");
@@ -37,8 +38,7 @@ export default function MP3ConverterPage() {
     setError("");
     setFile(audioFile);
     setResultUrl(null);
-    const url = URL.createObjectURL(audioFile);
-    setAudioUrl(url);
+    setAudioUrl(URL.createObjectURL(audioFile));
   }, []);
 
   const handleLoadedMetadata = () => {
@@ -46,32 +46,38 @@ export default function MP3ConverterPage() {
   };
 
   const convertToMP3 = async () => {
-    if (!file || !audioUrl) return;
+    if (!file) return;
     setProcessing(true);
     setError("");
+    setProgress("Decoding audio...");
 
     try {
-      const audioContext = new AudioContext();
+      const audioContext = new AudioContext({ sampleRate: 44100 });
       const arrayBuffer = await file.arrayBuffer();
+      
+      setProgress("Processing audio data...");
       const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+      
+      // Get mono channel data directly — no offline rendering needed
+      const channelData = audioBuffer.numberOfChannels > 1
+        ? (() => {
+            // Mix stereo to mono
+            const left = audioBuffer.getChannelData(0);
+            const right = audioBuffer.getChannelData(1);
+            const mono = new Float32Array(left.length);
+            for (let i = 0; i < left.length; i++) {
+              mono[i] = (left[i] + right[i]) / 2;
+            }
+            return mono;
+          })()
+        : audioBuffer.getChannelData(0);
 
-      const offlineCtx = new OfflineAudioContext(
-        1,
-        audioBuffer.duration * 44100,
-        44100
-      );
-      const source = offlineCtx.createBufferSource();
-      source.buffer = audioBuffer;
-      source.connect(offlineCtx.destination);
-      source.start();
-
-      const renderedBuffer = await offlineCtx.startRendering();
-      const channelData = renderedBuffer.getChannelData(0);
-
+      setProgress("Encoding to MP3...");
+      
       // @ts-ignore
       const lamejs = (await import("lamejs")).default || await import("lamejs");
       // @ts-ignore
-      const encoder = new lamejs.Mp3Encoder(1, 44100, bitrate);
+      const encoder = new lamejs.Mp3Encoder(1, audioBuffer.sampleRate, bitrate);
 
       const samples = new Int16Array(channelData.length);
       for (let i = 0; i < channelData.length; i++) {
@@ -81,11 +87,20 @@ export default function MP3ConverterPage() {
 
       const mp3Chunks: Uint8Array[] = [];
       const blockSize = 1152;
+      const totalBlocks = Math.ceil(samples.length / blockSize);
+      
       for (let i = 0; i < samples.length; i += blockSize) {
         const chunk = samples.subarray(i, i + blockSize);
         const mp3buf = encoder.encodeBuffer(chunk);
         if (mp3buf.length > 0) mp3Chunks.push(new Uint8Array(mp3buf));
+        
+        // Update progress every 100 blocks
+        if ((i / blockSize) % 100 === 0) {
+          const pct = Math.round((i / samples.length) * 100);
+          setProgress(`Encoding... ${pct}%`);
+        }
       }
+      
       const last = encoder.flush();
       if (last.length > 0) mp3Chunks.push(new Uint8Array(last));
 
@@ -95,9 +110,10 @@ export default function MP3ConverterPage() {
       await audioContext.close();
     } catch (err) {
       console.error(err);
-      setError("Failed to convert audio. The file format may not be supported by your browser.");
+      setError("Failed to convert audio. Try a smaller file or a different format.");
     } finally {
       setProcessing(false);
+      setProgress("");
     }
   };
 
@@ -115,6 +131,7 @@ export default function MP3ConverterPage() {
     setResultUrl(null);
     setDuration(0);
     setError("");
+    setProgress("");
   };
 
   return (
@@ -141,7 +158,6 @@ export default function MP3ConverterPage() {
           </div>
         ) : (
           <>
-            {/* File Info & Settings */}
             <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm">
               <div className="flex items-center gap-4 mb-6">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 flex-shrink-0">
@@ -158,12 +174,10 @@ export default function MP3ConverterPage() {
                 <button onClick={reset} className="text-sm text-gray-400 hover:text-gray-600">Change file</button>
               </div>
 
-              {/* Audio Preview */}
               {audioUrl && (
                 <audio ref={audioRef} src={audioUrl} controls onLoadedMetadata={handleLoadedMetadata} className="w-full mb-6 rounded-lg" />
               )}
 
-              {/* Bitrate Selection */}
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-3">Output Bitrate</label>
                 <div className="grid grid-cols-4 gap-2">
@@ -191,7 +205,7 @@ export default function MP3ConverterPage() {
                 {processing ? (
                   <>
                     <div className="mr-2 h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                    Converting...
+                    {progress || "Converting..."}
                   </>
                 ) : (
                   "Convert to MP3"
@@ -201,7 +215,6 @@ export default function MP3ConverterPage() {
 
             {error && <div className="rounded-lg bg-red-50 border border-red-200 p-3 text-sm text-red-600">{error}</div>}
 
-            {/* Result */}
             {resultUrl && (
               <div className="rounded-2xl border border-green-200 bg-green-50 p-6 shadow-sm">
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
