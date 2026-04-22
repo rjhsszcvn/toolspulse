@@ -52,6 +52,12 @@ export default function MP3ConverterPage() {
     setProgress("Decoding audio...");
 
     try {
+      // Warn about large files on mobile
+      if (file.size > 20 * 1024 * 1024 && /Mobi|Android/i.test(navigator.userAgent)) {
+        setError("This file is " + formatSize(file.size) + ". Large files may fail on mobile. Please try on a desktop browser or use a smaller file.");
+        setProcessing(false);
+        return;
+      }
       const audioContext = new AudioContext({ sampleRate: 44100 });
       const arrayBuffer = await file.arrayBuffer();
       
