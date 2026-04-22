@@ -137,7 +137,7 @@ export default function AIImageUpscalerPage() {
                   >
                     <span className="text-2xl font-bold">{s}x</span>
                     <span className="block text-xs mt-1">
-                      {s === 2 ? "Recommended" : s === 3 ? "High quality" : "Maximum"}
+                      {s === 2 ? "Best" : s === 3 ? "Better" : "Max"}
                     </span>
                   </button>
                 ))}
