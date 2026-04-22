@@ -1,4 +1,4 @@
-import { tools } from "@/config/tools";
+import { tools, categories, type ToolCategory } from "@/config/tools";
 import { siteConfig } from "@/config/site";
 import type { MetadataRoute } from "next";
 
@@ -10,6 +10,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: tool.tier === 1 ? 0.9 : tool.tier === 2 ? 0.8 : 0.7,
   }));
 
+  const categoryPages = (Object.keys(categories) as ToolCategory[]).map((key) => ({
+    url: `${siteConfig.url}/category/${key}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  const staticPages = ["about", "contact", "privacy", "terms"].map((page) => ({
+    url: `${siteConfig.url}/${page}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.4,
+  }));
+
   return [
     {
       url: siteConfig.url,
@@ -17,6 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 1,
     },
+    ...categoryPages,
     ...toolPages,
+    ...staticPages,
   ];
 }
