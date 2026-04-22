@@ -6,12 +6,12 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-gray-200 bg-gray-50">
+    <footer className="border-t border-slate-800 bg-slate-900">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500">
                 <svg
                   className="h-4 w-4 text-white"
                   fill="none"
@@ -26,24 +26,24 @@ export default function Footer() {
                   />
                 </svg>
               </div>
-              <span className="text-lg font-bold text-gray-900">
+              <span className="text-lg font-bold text-white">
                 {siteConfig.name}
               </span>
             </Link>
-            <p className="mt-3 text-sm text-gray-500">
+            <p className="mt-3 text-sm text-slate-500">
               Free online tools that respect your privacy. No uploads, no
               signups, no limits.
             </p>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-gray-900">Categories</h3>
+            <h3 className="text-sm font-semibold text-slate-300">Categories</h3>
             <ul className="mt-4 space-y-2">
               {Object.entries(categories).map(([key, category]) => (
                 <li key={key}>
                   <Link
-                    href="/#tools"
-                    className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                    href={`/category/${key}`}
+                    className="text-sm text-slate-500 hover:text-white transition-colors"
                   >
                     {category.label}
                   </Link>
@@ -53,30 +53,30 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-gray-900">Popular Tools</h3>
+            <h3 className="text-sm font-semibold text-slate-300">Popular Tools</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link href="/tools/pdf-to-word" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                <Link href="/tools/pdf-to-word" className="text-sm text-slate-500 hover:text-white transition-colors">
                   PDF to Word
                 </Link>
               </li>
               <li>
-                <Link href="/tools/image-compressor" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                <Link href="/tools/image-compressor" className="text-sm text-slate-500 hover:text-white transition-colors">
                   Image Compressor
                 </Link>
               </li>
               <li>
-                <Link href="/tools/qr-code-generator" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                <Link href="/tools/qr-code-generator" className="text-sm text-slate-500 hover:text-white transition-colors">
                   QR Code Generator
                 </Link>
               </li>
               <li>
-                <Link href="/tools/merge-pdf" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                <Link href="/tools/merge-pdf" className="text-sm text-slate-500 hover:text-white transition-colors">
                   Merge PDF
                 </Link>
               </li>
               <li>
-                <Link href="/tools/background-remover" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                <Link href="/tools/background-remover" className="text-sm text-slate-500 hover:text-white transition-colors">
                   Background Remover
                 </Link>
               </li>
@@ -84,25 +84,25 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-gray-900">Legal</h3>
+            <h3 className="text-sm font-semibold text-slate-300">Legal</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                <Link href="/privacy" className="text-sm text-slate-500 hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                <Link href="/terms" className="text-sm text-slate-500 hover:text-white transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-              <li>
-                <Link href="/about" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                <Link href="/about" className="text-sm text-slate-500 hover:text-white transition-colors">
                   About
                 </Link>
               </li>
-                <Link href="/contact" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+              <li>
+                <Link href="/contact" className="text-sm text-slate-500 hover:text-white transition-colors">
                   Contact
                 </Link>
               </li>
@@ -110,8 +110,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-gray-200 pt-6">
-          <p className="text-center text-sm text-gray-400">
+        <div className="mt-10 border-t border-slate-800 pt-6">
+          <p className="text-center text-sm text-slate-600">
             &copy; {currentYear} {siteConfig.name}. All rights reserved. All
             processing happens locally in your browser.
           </p>

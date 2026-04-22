@@ -55,7 +55,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#2563eb" />
         <meta name="google-site-verification" content="6vkJFnHwHifL5TpqvVaG4vZo0dnsW1eJ65qSe0TF8zc" />
       </head>
-      <body className="min-h-screen bg-white text-gray-900 antialiased">
+      <body className="min-h-screen bg-slate-950 text-slate-100 antialiased">
         <Analytics />
         <Header />
         <main className="flex-1">{children}</main>
