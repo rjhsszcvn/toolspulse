@@ -79,14 +79,14 @@ export default function HomePage() {
         result.sort((a, b) => {
           if (a.isPopular && !b.isPopular) return -1;
           if (!a.isPopular && b.isPopular) return 1;
-          return a.tier - b.tier;
+          return a.name.localeCompare(b.name);
         });
         break;
       case "new":
         result.sort((a, b) => {
           if (a.isNew && !b.isNew) return -1;
           if (!a.isNew && b.isNew) return 1;
-          return 0;
+          return a.name.localeCompare(b.name);
         });
         break;
       case "az":
