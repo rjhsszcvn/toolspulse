@@ -45,6 +45,12 @@ export default function Header() {
             Categories
           </Link>
           <Link
+            href="/blog"
+            className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+          >
+            Blog
+          </Link>
+          <Link
             href="/about"
             className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
           >
@@ -95,6 +101,13 @@ export default function Header() {
             onClick={() => setMobileMenuOpen(false)}
           >
             Categories
+          </Link>
+          <Link
+            href="/blog"
+            className="block text-sm font-medium text-slate-500 hover:text-slate-900"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Blog
           </Link>
           <Link
             href="/about"

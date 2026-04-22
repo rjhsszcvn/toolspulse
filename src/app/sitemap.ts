@@ -1,4 +1,5 @@
 import { tools, categories, type ToolCategory } from "@/config/tools";
+import { getBlogPosts } from "@/config/blog";
 import { siteConfig } from "@/config/site";
 import type { MetadataRoute } from "next";
 
@@ -17,11 +18,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const staticPages = ["about", "contact", "privacy", "terms"].map((page) => ({
+  const blogPages = getBlogPosts().map((post) => ({
+    url: `${siteConfig.url}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  const staticPages = ["about", "contact", "privacy", "terms", "blog"].map((page) => ({
     url: `${siteConfig.url}/${page}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
-    priority: 0.4,
+    priority: page === "blog" ? 0.7 : 0.4,
   }));
 
   return [
@@ -33,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...categoryPages,
     ...toolPages,
+    ...blogPages,
     ...staticPages,
   ];
 }
