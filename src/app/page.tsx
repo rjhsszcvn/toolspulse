@@ -143,10 +143,6 @@ export default function HomePage() {
                 <Link
                   key={key}
                   href={`/category/${key}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.location.href = `/tools/${featured.slug}`;
-                  }}
                   className="group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   style={{ minHeight: "220px" }}
                 >
