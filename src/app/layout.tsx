@@ -7,6 +7,7 @@ import "./globals.css";
 import Analytics from "./analytics";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://toolsepulse.co"),
   title: {
     default: `${siteConfig.name} — Free Online Tools for PDF, Image, Text & More`,
     template: `%s | ${siteConfig.name}`,
