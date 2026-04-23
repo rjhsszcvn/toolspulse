@@ -92,6 +92,19 @@ export const tools: Tool[] = [
     tier: 1,
     keywords: ["pdf splitter", "split pdf", "extract pdf pages", "separate pdf pages", "pdf page extractor"],
   },
+  {
+    id: "pdf-to-jpg",
+    name: "PDF to JPG Converter",
+    description: "Convert PDF pages to high-quality JPG images. Extract all pages as individual images. Free, no upload needed — processed in your browser.",
+    shortDescription: "Convert PDF pages to JPG images",
+    slug: "pdf-to-jpg",
+    category: "pdf",
+    icon: "FileImage",
+    isNew: true,
+    isPopular: false,
+    tier: 1,
+    keywords: ["pdf to jpg", "pdf to image", "convert pdf to jpeg", "pdf to picture", "extract images from pdf"],
+  },
   // Image Tools
   {
     id: "image-compressor",
