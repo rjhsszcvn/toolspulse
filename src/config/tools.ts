@@ -79,6 +79,19 @@ export const tools: Tool[] = [
     tier: 1,
     keywords: ["merge pdf", "combine pdf", "join pdf", "pdf merger"],
   },
+  {
+    id: "pdf-splitter",
+    name: "PDF Splitter",
+    description: "Split PDF files into separate pages or custom page ranges. Extract specific pages from any PDF. Free, private, and runs in your browser.",
+    shortDescription: "Split PDFs into separate pages",
+    slug: "pdf-splitter",
+    category: "pdf",
+    icon: "FileMinus",
+    isNew: true,
+    isPopular: false,
+    tier: 1,
+    keywords: ["pdf splitter", "split pdf", "extract pdf pages", "separate pdf pages", "pdf page extractor"],
+  },
   // Image Tools
   {
     id: "image-compressor",

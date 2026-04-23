@@ -123,6 +123,21 @@ export default function ToolPageLayout({ tool, children }: ToolPageLayoutProps) 
               The entire process happens in your web browser using modern JavaScript APIs, which means there is no server involved
               and your data stays completely private. This also means the tool works offline once the page has loaded.
             </p>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              <Link href={`/tools/${tool.slug}/how-to`} className="rounded-xl border border-gray-200 bg-white p-4 hover:border-blue-300 hover:shadow-md transition-all group">
+                <h4 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600">Step-by-Step Guide</h4>
+                <p className="mt-1 text-xs text-gray-500">Detailed how-to with tips</p>
+              </Link>
+              <Link href={`/tools/${tool.slug}/faq`} className="rounded-xl border border-gray-200 bg-white p-4 hover:border-blue-300 hover:shadow-md transition-all group">
+                <h4 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600">FAQ</h4>
+                <p className="mt-1 text-xs text-gray-500">Common questions answered</p>
+              </Link>
+              <Link href={`/tools/${tool.slug}/alternatives`} className="rounded-xl border border-gray-200 bg-white p-4 hover:border-blue-300 hover:shadow-md transition-all group">
+                <h4 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600">Alternatives</h4>
+                <p className="mt-1 text-xs text-gray-500">Compare with other tools</p>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
