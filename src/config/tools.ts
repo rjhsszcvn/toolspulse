@@ -105,6 +105,19 @@ export const tools: Tool[] = [
     tier: 1,
     keywords: ["pdf to jpg", "pdf to image", "convert pdf to jpeg", "pdf to picture", "extract images from pdf"],
   },
+  {
+    id: "jpg-to-pdf",
+    name: "JPG to PDF Converter",
+    description: "Convert JPG and JPEG images to PDF documents. Combine multiple images into a single PDF. Free, instant, and completely private.",
+    shortDescription: "Convert JPG images to PDF",
+    slug: "jpg-to-pdf",
+    category: "pdf",
+    icon: "FileOutput",
+    isNew: true,
+    isPopular: false,
+    tier: 1,
+    keywords: ["jpg to pdf", "jpeg to pdf", "image to pdf", "convert jpg to pdf", "photo to pdf"],
+  },
   // Image Tools
   {
     id: "image-compressor",
