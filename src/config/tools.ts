@@ -250,6 +250,19 @@ export const tools: Tool[] = [
     tier: 1,
     keywords: ["image to pdf", "jpg to pdf", "png to pdf", "photo to pdf"],
   },
+  {
+    id: "mp4-to-mp3",
+    name: "MP4 to MP3 Converter",
+    description: "Extract audio from any video file and save as MP3. Supports MP4, WebM, MOV. Free, instant, and processed entirely in your browser.",
+    shortDescription: "Extract audio from video as MP3",
+    slug: "mp4-to-mp3",
+    category: "converter",
+    icon: "Music",
+    isNew: true,
+    isPopular: false,
+    tier: 1,
+    keywords: ["mp4 to mp3", "video to audio", "extract audio from video", "convert mp4 to mp3", "video to mp3"],
+  },
   // Audio Tools
   {
     id: "mp3-converter",
