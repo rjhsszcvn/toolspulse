@@ -118,6 +118,19 @@ export const tools: Tool[] = [
     tier: 1,
     keywords: ["jpg to pdf", "jpeg to pdf", "image to pdf", "convert jpg to pdf", "photo to pdf"],
   },
+  {
+    id: "pdf-page-rotator",
+    name: "PDF Page Rotator",
+    description: "Rotate PDF pages 90, 180, or 270 degrees. Fix upside-down or sideways scanned pages. Free, instant, and processed locally in your browser.",
+    shortDescription: "Rotate PDF pages to any angle",
+    slug: "pdf-page-rotator",
+    category: "pdf",
+    icon: "RotateCw",
+    isNew: true,
+    isPopular: false,
+    tier: 2,
+    keywords: ["rotate pdf", "pdf rotator", "rotate pdf pages", "fix pdf orientation", "turn pdf pages"],
+  },
   // Image Tools
   {
     id: "image-compressor",
