@@ -263,6 +263,19 @@ export const tools: Tool[] = [
     tier: 1,
     keywords: ["mp4 to mp3", "video to audio", "extract audio from video", "convert mp4 to mp3", "video to mp3"],
   },
+  {
+    id: "csv-to-json",
+    name: "CSV to JSON Converter",
+    description: "Convert CSV files to JSON format instantly. Paste CSV data or upload a file. Free, private, and processed in your browser.",
+    shortDescription: "Convert CSV data to JSON format",
+    slug: "csv-to-json",
+    category: "converter",
+    icon: "FileJson",
+    isNew: true,
+    isPopular: false,
+    tier: 1,
+    keywords: ["csv to json", "convert csv to json", "csv converter", "csv to json online", "csv parser"],
+  },
   // Audio Tools
   {
     id: "mp3-converter",
