@@ -80,10 +80,9 @@ export default function MP3ConverterPage() {
 
       setProgress("Encoding to MP3...");
       
-      // @ts-ignore
-      const lamejs = (await import("lamejs")).default || await import("lamejs");
-      // @ts-ignore
-      const encoder = new lamejs.Mp3Encoder(1, audioBuffer.sampleRate, bitrate);
+      const lamejsModule = await import("lamejs");
+      const Mp3Encoder = (lamejsModule as any).default?.Mp3Encoder || (lamejsModule as any).Mp3Encoder;
+      const encoder = new Mp3Encoder(1, audioBuffer.sampleRate, bitrate);
 
       const samples = new Int16Array(channelData.length);
       for (let i = 0; i < channelData.length; i++) {

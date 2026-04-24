@@ -23,51 +23,60 @@ function formatSize(bytes: number): string {
 }
 
 async function extractTextFromPDF(data: ArrayBuffer): Promise<{ text: string; pageCount: number }> {
-  const pdf = await PDFDocument.load(data, { ignoreEncryption: true });
-  const pageCount = pdf.getPageCount();
-
-  // Use pdf.js-like text extraction via canvas
-  // Since pdf-lib doesn't extract text directly, we use a raw approach
-  const textDecoder = new TextDecoder("utf-8", { fatal: false });
-  const bytes = new Uint8Array(data);
-  let rawText = textDecoder.decode(bytes);
-
-  // Extract text between BT and ET markers (PDF text objects)
-  const textParts: string[] = [];
-  const btEtRegex = /BT\s([\s\S]*?)ET/g;
-  let match;
-
-  while ((match = btEtRegex.exec(rawText)) !== null) {
-    const block = match[1];
-    // Extract text from Tj and TJ operators
-    const tjRegex = /\(([^)]*)\)\s*Tj/g;
-    let tjMatch;
-    while ((tjMatch = tjRegex.exec(block)) !== null) {
-      textParts.push(tjMatch[1]);
+  try {
+    const pdfjsLib = await import("pdfjs-dist");
+    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+    
+    const pdf = await pdfjsLib.getDocument({ data }).promise;
+    const pageCount = pdf.numPages;
+    const textParts: string[] = [];
+    
+    for (let i = 1; i <= pageCount; i++) {
+      const page = await pdf.getPage(i);
+      const textContent = await page.getTextContent();
+      const pageText = textContent.items
+        .map((item: any) => (item as any).str || "")
+        .join(" ");
+      textParts.push(pageText);
     }
-    // TJ array operator
-    const tjArrayRegex = /\[([^\]]*)\]\s*TJ/g;
-    let tjArrMatch;
-    while ((tjArrMatch = tjArrayRegex.exec(block)) !== null) {
-      const innerRegex = /\(([^)]*)\)/g;
-      let innerMatch;
-      while ((innerMatch = innerRegex.exec(tjArrMatch[1])) !== null) {
-        textParts.push(innerMatch[1]);
+    
+    const text = textParts.join("\n\n").trim();
+    return { text, pageCount };
+  } catch (e) {
+    // Fallback to pdf-lib basic extraction
+    const { PDFDocument: PDFDoc } = await import("pdf-lib");
+    const pdf = await PDFDoc.load(data, { ignoreEncryption: true });
+    const pageCount = pdf.getPageCount();
+    
+    const textDecoder = new TextDecoder("utf-8", { fatal: false });
+    const bytes = new Uint8Array(data);
+    const rawText = textDecoder.decode(bytes);
+    
+    const textParts: string[] = [];
+    const btEtRegex = /BT\s([\s\S]*?)ET/g;
+    let match;
+    
+    while ((match = btEtRegex.exec(rawText)) !== null) {
+      const block = match[1];
+      const tjRegex = /\(([^)]*)\)\s*Tj/g;
+      let tjMatch;
+      while ((tjMatch = tjRegex.exec(block)) !== null) {
+        textParts.push(tjMatch[1]);
+      }
+      const tjArrayRegex = /\[([^\]]*)\]\s*TJ/g;
+      let tjArrMatch;
+      while ((tjArrMatch = tjArrayRegex.exec(block)) !== null) {
+        const innerRegex = /\(([^)]*)\)/g;
+        let innerMatch;
+        while ((innerMatch = innerRegex.exec(tjArrMatch[1])) !== null) {
+          textParts.push(innerMatch[1]);
+        }
       }
     }
+    
+    const extractedText = textParts.join(" ").replace(/\\n/g, "\n").replace(/\\r/g, "").replace(/\s+/g, " ").trim();
+    return { text: extractedText, pageCount };
   }
-
-  let extractedText = textParts.join(" ").replace(/\\n/g, "\n").replace(/\\r/g, "").trim();
-
-  // Clean up common PDF encoding artifacts
-  extractedText = extractedText
-    .replace(/\\(\d{3})/g, (_, oct) => String.fromCharCode(parseInt(oct, 8)))
-    .replace(/\\\(/g, "(")
-    .replace(/\\\)/g, ")")
-    .replace(/\s+/g, " ")
-    .trim();
-
-  return { text: extractedText, pageCount };
 }
 
 export default function PDFToWordPage() {
