@@ -419,6 +419,450 @@ export const toolContentMap: Record<string, ToolContent> = {
   },
 
 
+  "pdf-splitter": {
+    toolSlug: "pdf-splitter",
+    howTo: {
+      title: "How to Split a PDF File Online",
+      steps: [
+        { title: "Open the PDF Splitter", description: "Navigate to the tool page. No login or account creation needed." },
+        { title: "Upload your PDF", description: "Drag and drop your PDF file onto the upload zone, or click to browse. Any PDF size is accepted." },
+        { title: "Choose your split mode", description: "Select Split all pages to create a separate PDF for each page, or Custom range to extract specific pages like 1, 3, 5-8." },
+        { title: "Download your files", description: "Click split and your files download automatically. Each extracted page or range becomes its own PDF document." },
+      ],
+      tips: [
+        "Use Custom range with comma-separated values like 1, 3, 7-12 to extract non-consecutive pages into a single document.",
+        "Splitting preserves the original quality. There is zero quality loss in the output files.",
+        "Page numbers in the range input correspond to the PDF page numbers, not the printed page numbers.",
+        "The output files are named automatically with the original filename plus the page number.",
+      ],
+    },
+    faq: [
+      { question: "Can I extract specific pages from a PDF?", answer: "Yes. Use Custom range mode and enter the page numbers you want. For example, 1, 3, 5-8 will extract those pages into a single new PDF." },
+      { question: "Will splitting affect the quality?", answer: "No. The original content, formatting, images, and fonts are preserved exactly. Splitting is a lossless operation." },
+      { question: "Do you upload my PDF to a server?", answer: "No. Everything is processed locally in your browser. Your files never leave your device." },
+      { question: "Does it work on mobile?", answer: "Yes. The tool works on any device with a modern browser." },
+    ],
+    alternatives: {
+      intro: "PDF splitting is available across many platforms. Here is how they compare for privacy, speed, and features.",
+      tools: [
+        { name: "Adobe Acrobat Pro", description: "Professional PDF suite with page extraction", differentiator: "Requires paid subscription. Powerful but expensive for occasional use." },
+        { name: "Smallpdf", description: "Popular online PDF splitter", differentiator: "Uploads files to cloud servers. Free tier limited to 2 tasks per day." },
+        { name: "iLovePDF", description: "Web-based PDF toolkit", differentiator: "Files are uploaded and processed on remote servers. Ads on free tier." },
+      ],
+      whyUs: "ToolsePulse splits PDFs entirely in your browser. Zero file uploads, zero daily limits, zero watermarks. Your sensitive documents never touch a remote server.",
+    },
+    useCases: [
+      { title: "Extracting chapters from ebooks", description: "Pull specific chapters or sections from a large PDF textbook for focused reading or sharing." },
+      { title: "Separating scanned documents", description: "When you scan a stack of documents into one PDF, split them back into individual files." },
+      { title: "Isolating pages for submission", description: "Extract only the pages you need from a larger document when a form requires specific pages." },
+      { title: "Breaking down large reports", description: "Split annual reports or research papers into manageable sections for team distribution." },
+    ],
+  },
+  "pdf-to-jpg": {
+    toolSlug: "pdf-to-jpg",
+    howTo: {
+      title: "How to Convert PDF to JPG Images Online",
+      steps: [
+        { title: "Open the PDF to JPG Converter", description: "Go to the tool page. No account or installation needed." },
+        { title: "Upload your PDF", description: "Drag and drop your PDF file or click to select it. Any page count is accepted." },
+        { title: "Choose quality settings", description: "Select image quality (60% to 95%) and resolution (1x to 3x). Higher settings produce larger, sharper images." },
+        { title: "Download JPG images", description: "Each page is converted and downloaded as a separate JPG file." },
+      ],
+      tips: [
+        "Use 2x resolution for most purposes. It provides sharp images suitable for screens and printing.",
+        "For web use, 1x resolution at 80% quality keeps file sizes small while maintaining readability.",
+        "3x ultra resolution is ideal for high-quality printing or zooming into fine details.",
+        "For PDFs with mostly text, even lower quality settings produce excellent results.",
+      ],
+    },
+    faq: [
+      { question: "What quality should I use?", answer: "For most purposes, Good (92%) at 2x resolution gives excellent results. Use High (95%) at 3x for print quality." },
+      { question: "Can I convert a PDF with many pages?", answer: "Yes. Each page is converted individually. Large PDFs may take longer since each page is rendered in your browser." },
+      { question: "Does it preserve colors and graphics?", answer: "Yes. The converter renders each page exactly as it appears in the PDF, including colors, images, and charts." },
+    ],
+    alternatives: {
+      intro: "Converting PDF pages to images is useful for presentations, social media, and archival.",
+      tools: [
+        { name: "Adobe Acrobat", description: "Export PDF pages as images", differentiator: "Paid subscription required. Best quality but expensive." },
+        { name: "Zamzar", description: "Online file converter", differentiator: "Uploads files to servers. Free tier has file size limits." },
+      ],
+      whyUs: "Convert unlimited PDF pages to high-resolution JPG images for free. No file uploads, no daily limits. Choose your exact quality and resolution settings.",
+    },
+    useCases: [
+      { title: "Social media sharing", description: "Convert PDF flyers or infographics into JPG images for posting on social platforms." },
+      { title: "Embedding in documents", description: "Convert PDF charts or diagrams to images for inserting into Word or PowerPoint." },
+      { title: "Creating thumbnails", description: "Generate preview images of PDF documents for websites or file managers." },
+    ],
+  },
+  "jpg-to-pdf": {
+    toolSlug: "jpg-to-pdf",
+    howTo: {
+      title: "How to Convert JPG Images to PDF Online",
+      steps: [
+        { title: "Open the JPG to PDF Converter", description: "Navigate to the tool. Works instantly with no signup." },
+        { title: "Upload your images", description: "Drag and drop one or multiple JPG, PNG, or WebP images." },
+        { title: "Arrange the page order", description: "Images appear as thumbnails with page numbers. Each image becomes one page." },
+        { title: "Convert and download", description: "Click convert and your multi-page PDF downloads immediately." },
+      ],
+      tips: [
+        "Higher resolution source images produce sharper PDFs. Use the best quality originals available.",
+        "The tool supports mixed formats. You can combine JPG, PNG, and WebP images in a single PDF.",
+        "Each image becomes a full page, sized to match the image dimensions.",
+        "For scanned documents, make sure your scans are straight and well-lit for the best output.",
+      ],
+    },
+    faq: [
+      { question: "Can I combine multiple images into one PDF?", answer: "Yes. Upload as many images as you need and they each become a separate page in a single PDF." },
+      { question: "Will my image quality be reduced?", answer: "No. Images are embedded at their original quality. There is no compression during conversion." },
+      { question: "What formats are supported?", answer: "JPG, PNG, and WebP. You can mix different formats in the same PDF." },
+    ],
+    alternatives: {
+      intro: "Converting images to PDF is needed for creating photo documents, digitizing papers, and building portfolios.",
+      tools: [
+        { name: "Adobe Acrobat", description: "Professional PDF creation from images", differentiator: "Paid subscription. Overkill for simple conversion." },
+        { name: "iLovePDF", description: "Online image to PDF converter", differentiator: "Uploads images to servers. Ads on free tier." },
+      ],
+      whyUs: "Combine unlimited images into a PDF for free. No file uploads, no watermarks, no quality loss. Everything stays private in your browser.",
+    },
+    useCases: [
+      { title: "Creating photo albums", description: "Compile photos into a single PDF for easy sharing and printing." },
+      { title: "Digitizing scanned documents", description: "Combine scanned page images into a properly ordered multi-page PDF." },
+      { title: "Building portfolios", description: "Create professional PDF portfolios from design work or photography." },
+      { title: "Archiving receipts", description: "Photograph paper receipts and convert them to a single PDF for expense tracking." },
+    ],
+  },
+  "pdf-page-rotator": {
+    toolSlug: "pdf-page-rotator",
+    howTo: {
+      title: "How to Rotate PDF Pages Online",
+      steps: [
+        { title: "Open the PDF Page Rotator", description: "Go to the tool page. No login or installation needed." },
+        { title: "Upload your PDF", description: "Drag and drop your PDF file or click to browse. The tool shows page count and file size." },
+        { title: "Choose rotation settings", description: "Select the rotation angle (90, 180, or 270 degrees) and whether to apply to all pages or specific ones." },
+        { title: "Download the rotated PDF", description: "Click rotate and download your corrected PDF with all original content preserved." },
+      ],
+      tips: [
+        "90 degree clockwise rotation fixes pages scanned in landscape orientation.",
+        "180 degrees fixes pages scanned upside down.",
+        "Use Specific pages when only certain pages need rotation, common with mixed-orientation scans.",
+        "The rotation is additive to any existing rotation in the PDF.",
+      ],
+    },
+    faq: [
+      { question: "Does rotation affect content quality?", answer: "No. Rotation only changes the page orientation metadata. All text, images, and formatting remain exactly the same." },
+      { question: "Can I rotate individual pages?", answer: "Yes. Switch to Specific pages mode and enter the page numbers you want to rotate." },
+      { question: "Does it work with scanned PDFs?", answer: "Yes. Scanned PDFs rotate just like any other PDF." },
+    ],
+    alternatives: {
+      intro: "Fixing PDF page orientation is a common need, especially with scanned documents.",
+      tools: [
+        { name: "Adobe Acrobat", description: "Professional PDF rotation", differentiator: "Paid subscription. Offers per-page rotation with visual preview." },
+        { name: "Smallpdf", description: "Online PDF rotator", differentiator: "Uploads files to cloud. Daily limits on free tier." },
+      ],
+      whyUs: "Rotate PDF pages instantly in your browser. Apply to all pages or specific ones. No file uploads, no limits, no watermarks.",
+    },
+    useCases: [
+      { title: "Fixing scanned documents", description: "Correct pages fed into the scanner sideways or upside down." },
+      { title: "Preparing for printing", description: "Ensure all pages are in the correct orientation before printing." },
+      { title: "Standardizing orientation", description: "When combining PDFs from different sources, rotate pages so everything reads the same direction." },
+    ],
+  },
+  "mp4-to-mp3": {
+    toolSlug: "mp4-to-mp3",
+    howTo: {
+      title: "How to Convert MP4 Video to MP3 Audio Online",
+      steps: [
+        { title: "Open the MP4 to MP3 Converter", description: "Navigate to the tool. No software installation or account needed." },
+        { title: "Upload your video file", description: "Drag and drop an MP4, WebM, or MOV video file. Duration is detected automatically." },
+        { title: "Wait for processing", description: "The tool extracts the audio track, decodes it, and re-encodes it as MP3 at 128kbps." },
+        { title: "Download your MP3", description: "The converted audio file downloads automatically with an .mp3 extension." },
+      ],
+      tips: [
+        "The output MP3 is encoded at 128kbps, a good balance of quality and file size.",
+        "Longer videos take proportionally longer to convert since the entire audio stream is processed.",
+        "For music extraction, audio quality depends on the original video audio track.",
+        "The tool extracts all audio channels. Stereo video audio produces stereo MP3.",
+      ],
+    },
+    faq: [
+      { question: "What video formats are supported?", answer: "Any format your browser can play, typically MP4, WebM, MOV, and OGG." },
+      { question: "Does this upload my video?", answer: "No. The entire conversion happens locally in your browser using the Web Audio API." },
+      { question: "Is there a duration limit?", answer: "No hard limit, but very long videos (over 2 hours) may be slow since everything runs in browser memory." },
+      { question: "Why is conversion slow on my phone?", answer: "Audio encoding is CPU-intensive. Desktop computers process faster than phones." },
+    ],
+    alternatives: {
+      intro: "MP4 to MP3 conversion is one of the most searched-for file conversions online.",
+      tools: [
+        { name: "VLC Media Player", description: "Free desktop media player with conversion", differentiator: "Requires software installation. Complex interface for simple conversions." },
+        { name: "CloudConvert", description: "Online file converter", differentiator: "Uploads files to servers. Free tier limited to 25 conversions per day." },
+        { name: "FFmpeg", description: "Command-line audio/video tool", differentiator: "Requires technical knowledge and software installation." },
+      ],
+      whyUs: "Extract audio from any video entirely in your browser. No uploads, no software to install, no daily limits. Your videos stay private on your device.",
+    },
+    useCases: [
+      { title: "Extracting music from videos", description: "Pull audio from music videos or concert recordings to listen offline as MP3." },
+      { title: "Creating podcast audio", description: "Extract audio from video podcast recordings for audio-only platforms." },
+      { title: "Saving lecture audio", description: "Convert video lectures to MP3 for listening during commutes." },
+      { title: "Making ringtones", description: "Extract audio from a video clip for use as a phone ringtone." },
+    ],
+  },
+  "csv-to-json": {
+    toolSlug: "csv-to-json",
+    howTo: {
+      title: "How to Convert CSV to JSON Online",
+      steps: [
+        { title: "Open the CSV to JSON Converter", description: "Navigate to the tool. No account or login required." },
+        { title: "Upload or paste your CSV", description: "Drop a .csv file or paste CSV data directly. The first row is treated as column headers." },
+        { title: "View the JSON output", description: "The tool instantly parses your CSV and displays the equivalent JSON array." },
+        { title: "Copy or download", description: "Click Copy for clipboard or Download .json to save as a file." },
+      ],
+      tips: [
+        "The first row of your CSV must contain column headers. These become the JSON object keys.",
+        "Quoted fields with commas inside them are handled correctly.",
+        "Empty cells become empty strings in the JSON output.",
+        "The JSON output uses 2-space indentation for readability.",
+      ],
+    },
+    faq: [
+      { question: "How does the conversion work?", answer: "The first row becomes column headers (JSON keys). Each subsequent row becomes a JSON object with values mapped to their header." },
+      { question: "Does it handle quoted fields?", answer: "Yes. Fields in double quotes are parsed correctly, including fields containing commas and escaped quotes." },
+      { question: "Can I convert large CSV files?", answer: "Yes. Processing is local so the limit is your browser memory. Files with thousands of rows work fine." },
+    ],
+    alternatives: {
+      intro: "CSV to JSON conversion is essential for developers working with APIs, databases, and data pipelines.",
+      tools: [
+        { name: "ConvertCSV.com", description: "Online CSV converter", differentiator: "Uploads data to servers. Limited formatting options." },
+        { name: "Python/Pandas", description: "Programming library", differentiator: "Requires coding knowledge and Python installation." },
+      ],
+      whyUs: "Convert CSV to JSON instantly in your browser. No uploads, no coding needed. Handles quoted fields and large files. Copy or download with one click.",
+    },
+    useCases: [
+      { title: "API development", description: "Convert spreadsheet data to JSON for REST APIs, mock servers, or database seeding." },
+      { title: "Frontend development", description: "Transform CSV datasets into JSON for React, Vue, or Angular applications." },
+      { title: "Data migration", description: "Convert exported CSV data from one system into JSON for importing into another." },
+    ],
+  },
+  "json-to-csv": {
+    toolSlug: "json-to-csv",
+    howTo: {
+      title: "How to Convert JSON to CSV Online",
+      steps: [
+        { title: "Open the JSON to CSV Converter", description: "Go to the tool page. No signup or installation needed." },
+        { title: "Upload or paste your JSON", description: "Drop a .json file or paste a JSON array of objects into the text area." },
+        { title: "View the CSV output", description: "The tool extracts all unique keys as columns and maps each object to a row." },
+        { title: "Copy or download", description: "Copy to clipboard or download as a .csv file ready for any spreadsheet app." },
+      ],
+      tips: [
+        "Your JSON must be an array of objects. A single object is automatically wrapped in an array.",
+        "All unique keys across all objects are used as columns.",
+        "Values containing commas or quotes are automatically escaped in the CSV output.",
+        "The downloaded CSV file opens directly in Excel, Google Sheets, and Numbers.",
+      ],
+    },
+    faq: [
+      { question: "What JSON structure is required?", answer: "An array of objects. Single objects are auto-wrapped. Primitive arrays are not supported." },
+      { question: "How are nested objects handled?", answer: "Nested objects and arrays are converted to their JSON string representation in the CSV cell." },
+      { question: "Can I open the output in Excel?", answer: "Yes. The downloaded .csv file opens directly in Excel, Google Sheets, and LibreOffice Calc." },
+    ],
+    alternatives: {
+      intro: "JSON to CSV conversion is needed when moving data from APIs and databases into spreadsheets.",
+      tools: [
+        { name: "ConvertCSV.com", description: "Online JSON converter", differentiator: "Uploads data to servers. Ads on the page." },
+        { name: "Excel Power Query", description: "Built-in Excel feature", differentiator: "Windows only. Requires Excel license." },
+      ],
+      whyUs: "Convert JSON to CSV instantly in your browser. No uploads, no coding. Handles mixed schemas and special characters. One-click download.",
+    },
+    useCases: [
+      { title: "API data analysis", description: "Export API response data to CSV for analysis in Excel or Google Sheets." },
+      { title: "Database exports", description: "Convert JSON database exports to CSV for reporting." },
+      { title: "Client reporting", description: "Transform JSON data into spreadsheet format for non-technical stakeholders." },
+    ],
+  },
+  "video-to-gif": {
+    toolSlug: "video-to-gif",
+    howTo: {
+      title: "How to Convert Video to GIF Online",
+      steps: [
+        { title: "Open the Video to GIF Converter", description: "Navigate to the tool. No installation or signup needed." },
+        { title: "Upload your video", description: "Drag and drop an MP4, WebM, or MOV file." },
+        { title: "Adjust settings", description: "Choose FPS, maximum width, and duration limit. Lower values produce smaller files." },
+        { title: "Download your GIF", description: "The tool captures frames, encodes them, and downloads the result automatically." },
+      ],
+      tips: [
+        "10 FPS is the sweet spot for most GIFs. Smooth enough to look good, small enough to share.",
+        "Keep GIFs under 10 seconds for social media. Platforms often have file size limits.",
+        "480px width is ideal for messaging and social media.",
+        "Lower FPS (5) creates smaller files perfect for reaction GIFs.",
+      ],
+    },
+    faq: [
+      { question: "Why is my GIF file so large?", answer: "GIF is inefficient for video content. Reduce duration, width, or FPS to shrink the file size." },
+      { question: "What video formats work?", answer: "Any format your browser supports, typically MP4, WebM, and MOV." },
+      { question: "Can I control the GIF quality?", answer: "Yes. Adjust width and FPS. Higher values produce smoother, sharper GIFs but larger files." },
+    ],
+    alternatives: {
+      intro: "Creating GIFs from videos is popular for social media, messaging, and documentation.",
+      tools: [
+        { name: "Giphy", description: "GIF platform with creation tools", differentiator: "Uploads videos to servers. Created GIFs are public. Requires account." },
+        { name: "Ezgif", description: "Online GIF maker", differentiator: "Uploads files to servers. Ad-heavy interface." },
+        { name: "FFmpeg", description: "Command-line video tool", differentiator: "Best quality but requires technical command-line knowledge." },
+      ],
+      whyUs: "Convert videos to GIFs entirely in your browser. No uploads, no account, no watermarks. Full control over FPS, resolution, and duration.",
+    },
+    useCases: [
+      { title: "Social media content", description: "Create eye-catching GIFs from video clips for Twitter, Reddit, and Tumblr." },
+      { title: "Product demos", description: "Convert short screen recordings into GIFs for documentation or landing pages." },
+      { title: "Tutorial snippets", description: "Create animated step-by-step GIFs from screen recordings for how-to articles." },
+      { title: "Messaging reactions", description: "Make custom reaction GIFs from movie scenes or personal videos." },
+    ],
+  },
+  "image-cropper": {
+    toolSlug: "image-cropper",
+    howTo: {
+      title: "How to Crop an Image Online",
+      steps: [
+        { title: "Open the Image Cropper", description: "Navigate to the tool. No account or installation needed." },
+        { title: "Upload your image", description: "Drag and drop a JPG, PNG, or WebP image, or click to browse." },
+        { title: "Select your crop area", description: "Click and drag on the image to define the crop region. Use preset aspect ratios or crop freely." },
+        { title: "Download the cropped image", description: "Click Crop and Download to save your cropped image in the same format." },
+      ],
+      tips: [
+        "Use the 1:1 preset for profile pictures and social media avatars.",
+        "16:9 is the standard ratio for YouTube thumbnails and widescreen displays.",
+        "You can type exact pixel values in the X, Y, Width, and Height fields for precise cropping.",
+        "4:3 works well for traditional prints and document photos.",
+      ],
+    },
+    faq: [
+      { question: "Does cropping reduce image quality?", answer: "No. The tool extracts the selected region at the original resolution with no compression or quality loss." },
+      { question: "Can I crop to exact dimensions?", answer: "Yes. Enter exact pixel values for X, Y, Width, and Height in the input fields." },
+      { question: "What aspect ratio presets are available?", answer: "Free (any ratio), 1:1 (square), 4:3 (traditional), 16:9 (widescreen), 3:2 (classic photo), and 2:3 (portrait)." },
+    ],
+    alternatives: {
+      intro: "Image cropping is one of the most basic and frequently needed image editing operations.",
+      tools: [
+        { name: "Photoshop", description: "Professional image editor", differentiator: "Expensive subscription. Far more than needed for simple cropping." },
+        { name: "Canva", description: "Online design tool", differentiator: "Requires account. Free tier has limitations." },
+      ],
+      whyUs: "Crop images instantly in your browser with pixel-perfect precision. Preset aspect ratios for common uses. No uploads, no account, no quality loss.",
+    },
+    useCases: [
+      { title: "Profile pictures", description: "Crop photos to square for social media profiles and avatars." },
+      { title: "Social media posts", description: "Crop images to platform-specific ratios for Instagram, Twitter, and Facebook." },
+      { title: "Product photos", description: "Crop product images to consistent dimensions for e-commerce listings." },
+      { title: "Document preparation", description: "Crop screenshots or scanned documents to remove unwanted borders." },
+    ],
+  },
+  "barcode-generator": {
+    toolSlug: "barcode-generator",
+    howTo: {
+      title: "How to Generate a Barcode Online",
+      steps: [
+        { title: "Open the Barcode Generator", description: "Navigate to the tool. Ready to use immediately." },
+        { title: "Select the barcode format", description: "Choose from Code 128, EAN-13, UPC-A, Code 39, or ITF-14." },
+        { title: "Enter your data", description: "Type or paste the text or numbers to encode. The barcode updates in real-time." },
+        { title: "Download your barcode", description: "Save as PNG for standard use or SVG for scalable vector output." },
+      ],
+      tips: [
+        "Code 128 is the most versatile format. It supports all ASCII characters.",
+        "EAN-13 requires exactly 13 digits and is the global retail standard.",
+        "Always test your barcode with a scanner before printing in bulk.",
+        "Download the SVG version for print materials. It scales to any size without losing clarity.",
+      ],
+    },
+    faq: [
+      { question: "Which barcode format should I use?", answer: "Code 128 for general purpose. EAN-13 for retail products worldwide. UPC-A for US/Canadian retail. Code 39 for industrial. ITF-14 for shipping." },
+      { question: "Do the barcodes actually scan?", answer: "Yes. They follow industry standards and scan correctly with any standard barcode scanner or smartphone app." },
+      { question: "What is the difference between PNG and SVG?", answer: "PNG is a raster image at fixed resolution. SVG is a vector format that scales perfectly to any size." },
+    ],
+    alternatives: {
+      intro: "Barcode generation is essential for retail, inventory management, shipping, and product labeling.",
+      tools: [
+        { name: "Barcode.tec-it.com", description: "Online barcode generator", differentiator: "Feature-rich but cluttered. Some formats require paid access." },
+        { name: "Avery", description: "Label printing with barcode generation", differentiator: "Tied to Avery label products. Requires account." },
+      ],
+      whyUs: "Generate industry-standard barcodes instantly in your browser. Download as print-ready PNG or SVG. No watermarks, no signup, no limits.",
+    },
+    useCases: [
+      { title: "Product labeling", description: "Generate EAN-13 or UPC barcodes for retail products and merchandise." },
+      { title: "Inventory management", description: "Create Code 128 barcodes for warehouse items and asset tracking." },
+      { title: "Shipping labels", description: "Generate ITF-14 barcodes for shipping cartons and logistics." },
+      { title: "Event tickets", description: "Generate unique barcodes for event tickets and admission control." },
+    ],
+  },
+  "text-diff-checker": {
+    toolSlug: "text-diff-checker",
+    howTo: {
+      title: "How to Compare Two Texts and Find Differences",
+      steps: [
+        { title: "Open the Text Diff Checker", description: "Navigate to the tool. No account or installation needed." },
+        { title: "Paste your texts", description: "Enter the original text in the left panel and the modified text in the right panel." },
+        { title: "Click Compare", description: "The tool analyzes both texts line by line and highlights all differences." },
+        { title: "Review the results", description: "Green shows added lines, red shows removed lines, white shows unchanged lines." },
+      ],
+      tips: [
+        "Use the Swap button to quickly reverse which text is treated as original vs modified.",
+        "The diff is computed line by line. Each line is compared as a whole unit.",
+        "For code comparison, ensure consistent line endings to avoid false differences.",
+        "The statistics bar shows totals of added, removed, and unchanged lines at a glance.",
+      ],
+    },
+    faq: [
+      { question: "How does the comparison work?", answer: "The tool uses the Longest Common Subsequence algorithm to find the optimal alignment, then highlights additions and removals." },
+      { question: "Can I compare code files?", answer: "Yes. The tool uses monospace font and preserves whitespace, making it suitable for code and config files." },
+      { question: "Is there a text length limit?", answer: "No hard limit. Very large texts may take a moment to process since the diff algorithm runs in your browser." },
+    ],
+    alternatives: {
+      intro: "Text comparison is essential for developers, writers, and anyone working with document revisions.",
+      tools: [
+        { name: "DiffChecker.com", description: "Popular online diff tool", differentiator: "Uploads text to servers. Free tier has ads and limited history." },
+        { name: "VS Code", description: "Code editor with built-in diff", differentiator: "Requires software installation. Overkill for quick text comparison." },
+      ],
+      whyUs: "Compare texts instantly in your browser. No uploads, no account, no software. Color-coded results with line numbers. Works on any device.",
+    },
+    useCases: [
+      { title: "Code review", description: "Compare two versions of source code to see exactly what changed between revisions." },
+      { title: "Document revisions", description: "See what was added or changed between two drafts of a document or contract." },
+      { title: "Configuration debugging", description: "Compare two config files to find the setting causing different behavior." },
+    ],
+  },
+  "base64-encoder": {
+    toolSlug: "base64-encoder",
+    howTo: {
+      title: "How to Encode and Decode Base64 Online",
+      steps: [
+        { title: "Open the Base64 Encoder/Decoder", description: "Navigate to the tool. Works instantly with no login." },
+        { title: "Choose your mode", description: "Click Encode to convert text to Base64, or Decode to convert Base64 back to text." },
+        { title: "Enter your data", description: "Type or paste your input. The output updates in real-time as you type." },
+        { title: "Copy the result", description: "Click Copy to copy the output. Use Swap to quickly switch between encode and decode." },
+      ],
+      tips: [
+        "Base64 encoding increases data size by approximately 33 percent. This is normal.",
+        "The tool handles UTF-8 characters correctly, including emojis and non-Latin scripts.",
+        "Use the Swap button to quickly decode something you just encoded.",
+        "Invalid Base64 strings will show an error when decoding.",
+      ],
+    },
+    faq: [
+      { question: "What is Base64 encoding?", answer: "Base64 encodes binary data using 64 printable ASCII characters. It is used to safely transmit data through text-only channels like email, URLs, and JSON." },
+      { question: "Does it support Unicode?", answer: "Yes. The tool properly handles all UTF-8 characters including emojis, Chinese characters, and Arabic script." },
+      { question: "Is Base64 encryption?", answer: "No. Base64 is encoding, not encryption. Anyone can decode it. It provides no security, only data transport compatibility." },
+    ],
+    alternatives: {
+      intro: "Base64 encoding and decoding is a fundamental developer utility used daily in web development and API work.",
+      tools: [
+        { name: "base64encode.org", description: "Dedicated Base64 website", differentiator: "Uploads data to servers. Ads on the page." },
+        { name: "Browser DevTools Console", description: "Built-in btoa/atob functions", differentiator: "Requires JavaScript knowledge. No UTF-8 support without workarounds." },
+      ],
+      whyUs: "Encode and decode Base64 instantly in your browser. Full UTF-8 support, real-time conversion, one-click copy. No uploads, no ads, no account.",
+    },
+    useCases: [
+      { title: "API development", description: "Encode authentication tokens and API keys in Base64 for HTTP headers." },
+      { title: "Data URIs", description: "Create Base64 data URIs for embedding small images and fonts in HTML and CSS." },
+      { title: "Debugging", description: "Decode Base64 strings found in logs, API responses, or configuration files." },
+      { title: "JWT inspection", description: "Decode the Base64-encoded payload of JSON Web Tokens to inspect claims." },
+    ],
+  },
 };
 
 // Generate content for tools that don't have custom entries
