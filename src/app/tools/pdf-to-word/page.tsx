@@ -26,16 +26,12 @@ async function extractTextFromPDF(data: ArrayBuffer): Promise<{ text: string; pa
   const pdfjsLib = await import("pdfjs-dist");
   
   // Use fake worker to avoid CORS issues
-  pdfjsLib.GlobalWorkerOptions.workerSrc = "";
+  pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
+    "pdfjs-dist/build/pdf.worker.mjs",
+    import.meta.url
+  ).toString();
   
-  const loadingTask = pdfjsLib.getDocument({
-    data: new Uint8Array(data),
-    useWorkerFetch: false,
-    isEvalSupported: false,
-    useSystemFonts: true,
-  } as any);
-  
-  const pdf = await loadingTask.promise;
+  const pdf = await pdfjsLib.getDocument(new Uint8Array(data)).promise;
   const pageCount = pdf.numPages;
   const textParts: string[] = [];
   
