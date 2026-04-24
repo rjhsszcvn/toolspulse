@@ -85,6 +85,34 @@ export default function ToolPageLayout({ tool, children }: ToolPageLayoutProps) 
         <ToolUseTracker />
       </div>
 
+      {/* Visual Banner */}
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-4">
+        <div className="rounded-2xl bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-500 p-6 sm:p-8 text-white relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "16px 16px" }} />
+          <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm flex-shrink-0">
+              <svg className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <h2 className="text-lg font-bold">{tool.name} runs 100% in your browser</h2>
+              <p className="mt-1 text-sm text-white/80">Your files are never uploaded to any server. All processing happens locally on your device using modern browser technology. Private, fast, and free.</p>
+            </div>
+            <div className="hidden sm:flex gap-3 text-xs font-semibold">
+              <div className="rounded-lg bg-white/20 px-3 py-2 text-center">
+                <p className="text-lg font-extrabold">0</p>
+                <p className="text-white/70">Uploads</p>
+              </div>
+              <div className="rounded-lg bg-white/20 px-3 py-2 text-center">
+                <p className="text-lg font-extrabold">0</p>
+                <p className="text-white/70">Stored</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Rich SEO Content */}
       {content && (
         <div className="border-t border-gray-100 bg-gray-50">
@@ -118,6 +146,27 @@ export default function ToolPageLayout({ tool, children }: ToolPageLayoutProps) 
                   </ul>
                 </div>
               )}
+            </div>
+
+            {/* Who Needs This */}
+            <div className="mb-12">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">Who needs {tool.name}?</h2>
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {[
+                  { icon: "M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5", label: "Students", desc: "Academic work and assignments" },
+                  { icon: "M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0", label: "Professionals", desc: "Business and office tasks" },
+                  { icon: "M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42", label: "Creatives", desc: "Design and content creation" },
+                  { icon: "M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z", label: "Everyone", desc: "Personal everyday tasks" },
+                ].map((persona) => (
+                  <div key={persona.label} className="rounded-xl border border-gray-200 bg-white p-4 text-center">
+                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600 mb-2">
+                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d={persona.icon} /></svg>
+                    </div>
+                    <h3 className="text-xs font-bold text-gray-900">{persona.label}</h3>
+                    <p className="text-[10px] text-gray-500 mt-0.5">{persona.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Use Cases */}
@@ -177,6 +226,27 @@ export default function ToolPageLayout({ tool, children }: ToolPageLayoutProps) 
                 </div>
               </div>
             )}
+
+            {/* Limitations - Transparency builds trust */}
+            <div className="mb-12">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">Good to know</h2>
+              <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-5">
+                <ul className="space-y-2.5">
+                  <li className="flex gap-2.5 text-sm text-amber-900">
+                    <svg className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></svg>
+                    <span>All processing happens in your browser. Very large files may be slower on mobile devices or older computers.</span>
+                  </li>
+                  <li className="flex gap-2.5 text-sm text-amber-900">
+                    <svg className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></svg>
+                    <span>Results depend on the quality and format of your input. For best results, use high-quality source files.</span>
+                  </li>
+                  <li className="flex gap-2.5 text-sm text-amber-900">
+                    <svg className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></svg>
+                    <span>Once you close the browser tab, all data is gone. Make sure to download your results before closing.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
             {/* Key Features */}
             <div className="mb-12">
