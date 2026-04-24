@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { type Tool, categories, getToolBySlug } from "@/config/tools";
 import ToolJsonLd from "./ToolJsonLd";
+import ToolUseTracker from "./ToolUseTracker";
 import { getToolContent } from "@/config/tool-content";
 
 const categoryIconColors: Record<string, string> = {
@@ -81,6 +82,7 @@ export default function ToolPageLayout({ tool, children }: ToolPageLayoutProps) 
       {/* Tool Content */}
       <div className="mx-auto max-w-4xl px-4 pb-8 sm:px-6 lg:px-8">
         {children}
+        <ToolUseTracker />
       </div>
 
       {/* Rich SEO Content */}

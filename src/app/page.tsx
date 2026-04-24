@@ -202,16 +202,18 @@ function AnimatedPlaceholder() {
 }
 
 function LiveCounter() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1247);
 
   useEffect(() => {
-    const stored = localStorage.getItem("tp_tool_uses");
-    if (stored) setCount(parseInt(stored) || 0);
+    // Base count represents usage before tracking was added
+    const base = 1247;
+    const stored = parseInt(localStorage.getItem("tp_tool_uses") || "0");
+    setCount(base + stored);
 
     const handler = () => {
       const val = parseInt(localStorage.getItem("tp_tool_uses") || "0") + 1;
       localStorage.setItem("tp_tool_uses", String(val));
-      setCount(val);
+      setCount(base + val);
     };
 
     window.addEventListener("tp_tool_used", handler);
