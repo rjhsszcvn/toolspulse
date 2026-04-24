@@ -2,9 +2,9 @@
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#2563eb"/>
-      <stop offset="100%" style="stop-color:#4f46e5"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
     </linearGradient>
   </defs>
   <rect width="512" height="512" rx="96" fill="url(#bg)"/>
-  <path d="M152 72l160 0-48 152h96L200 440l40-184H152z" fill="white"/>
+  <path d="M160 96l144 0-48 144h96L192 416l40-176H160z" fill="white" opacity="0.95"/>
 </svg>
