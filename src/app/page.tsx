@@ -195,7 +195,7 @@ function AnimatedPlaceholder() {
   }, [index, typing]);
 
   return (
-    <span className="absolute left-12 text-sm text-slate-400 pointer-events-none">
+    <span className="text-sm text-slate-400 pointer-events-none absolute left-12 top-1/2 -translate-y-1/2 whitespace-nowrap overflow-hidden">
       {text}<span className="animate-pulse">|</span>
     </span>
   );
@@ -285,7 +285,7 @@ export default function HomePage() {
 
             {/* Animated Search */}
             <div className="mx-auto mt-8 max-w-lg">
-              <div className="flex items-center rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-100 transition-all">
+              <div className="relative flex items-center rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-100 transition-all">
                 <svg className="h-5 w-5 text-slate-400 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
