@@ -417,6 +417,8 @@ export const toolContentMap: Record<string, ToolContent> = {
       { title: "Portfolio creation", description: "Create PDF portfolios from design work, photography, or artwork." },
     ],
   },
+
+
 };
 
 // Generate content for tools that don't have custom entries
