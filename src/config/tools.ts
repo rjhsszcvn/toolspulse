@@ -461,6 +461,19 @@ export const tools: Tool[] = [
     tier: 2,
     keywords: ["youtube thumbnail downloader", "download thumbnail", "youtube thumbnail", "video thumbnail"],
   },
+  {
+    id: "barcode-generator",
+    name: "Barcode Generator",
+    description: "Generate barcodes in Code 128, EAN-13, UPC-A, Code 39, and ITF-14 formats. Download as PNG or SVG. Free, instant, no signup.",
+    shortDescription: "Generate barcodes in multiple formats",
+    slug: "barcode-generator",
+    category: "generator",
+    icon: "ScanLine",
+    isNew: true,
+    isPopular: false,
+    tier: 1,
+    keywords: ["barcode generator", "create barcode", "barcode maker", "ean barcode", "upc barcode", "code 128"],
+  },
   // Developer Tools
   {
     id: "json-formatter",
