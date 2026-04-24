@@ -58,7 +58,7 @@ export default function MP3ConverterPage() {
         setProcessing(false);
         return;
       }
-      const audioContext = new AudioContext({ sampleRate: 44100 });
+      const audioContext = new AudioContext();
       const arrayBuffer = await file.arrayBuffer();
       
       setProgress("Processing audio data...");
@@ -80,9 +80,18 @@ export default function MP3ConverterPage() {
 
       setProgress("Encoding to MP3...");
       
-      const lamejsModule = await import("lamejs");
-      const Mp3Encoder = (lamejsModule as any).default?.Mp3Encoder || (lamejsModule as any).Mp3Encoder;
-      const encoder = new Mp3Encoder(1, audioBuffer.sampleRate, bitrate);
+      const lamejsModule = await import("lamejs") as any;
+      let Mp3Enc: any;
+      if (lamejsModule.default && lamejsModule.default.Mp3Encoder) {
+        Mp3Enc = lamejsModule.default.Mp3Encoder;
+      } else if (lamejsModule.Mp3Encoder) {
+        Mp3Enc = lamejsModule.Mp3Encoder;
+      } else if (typeof lamejsModule.default === "function") {
+        Mp3Enc = lamejsModule.default;
+      } else {
+        throw new Error("Could not load MP3 encoder");
+      }
+      const encoder = new Mp3Enc(1, audioBuffer.sampleRate, bitrate);
 
       const samples = new Int16Array(channelData.length);
       for (let i = 0; i < channelData.length; i++) {
