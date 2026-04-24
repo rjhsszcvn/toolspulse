@@ -2,6 +2,9 @@ import { siteConfig } from "@/config/site";
 
 export const metadata = {
   title: "Terms of Service",
+  alternates: {
+    canonical: `${siteConfig.url}/terms`,
+  },
   description: `Terms of Service for ${siteConfig.name}.`,
 };
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { siteConfig } from "@/config/site";
 
 export default function ContactPage() {
   const [name, setName] = useState("");

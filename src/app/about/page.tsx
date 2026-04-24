@@ -3,6 +3,9 @@ import { tools, categories } from "@/config/tools";
 
 export const metadata = {
   title: "About",
+  alternates: {
+    canonical: `${siteConfig.url}/about`,
+  },
   description: `About ${siteConfig.name} — free online tools for PDF, image, audio, and text processing. Built with privacy first.`,
 };
 
