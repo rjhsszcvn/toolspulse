@@ -117,7 +117,7 @@ export default function MP3ConverterPage() {
       await audioContext.close();
     } catch (err) {
       console.error(err);
-      setError("Failed to convert audio. Try a smaller file or a different format.");
+      setError("Failed to convert: " + (err instanceof Error ? err.message : String(err)));
     } finally {
       setProcessing(false);
       setProgress("");
