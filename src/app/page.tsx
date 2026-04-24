@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { tools, categories, type ToolCategory } from "@/config/tools";
 import { siteConfig } from "@/config/site";
@@ -104,6 +104,142 @@ const searchIconStyle: Record<ToolCategory, { bg: string; text: string }> = {
   ai: { bg: "bg-pink-100", text: "text-pink-600" },
 };
 
+
+const rotatingWords = [
+  "right in your browser.",
+  "without uploading files.",
+  "with total privacy.",
+  "free, forever.",
+  "no signup needed.",
+  "instantly.",
+];
+
+function RotatingText() {
+  const [index, setIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % rotatingWords.length);
+        setFade(true);
+      }, 300);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <span className={"inline-block transition-opacity duration-300 " + (fade ? "opacity-100" : "opacity-0")}>
+      {rotatingWords[index]}
+    </span>
+  );
+}
+
+const searchPrompts = [
+  "Compress a PDF...",
+  "Convert image to PNG...",
+  "Remove background...",
+  "Merge PDF files...",
+  "Generate QR code...",
+  "Convert MP4 to MP3...",
+  "Resize an image...",
+  "Extract text from image...",
+  "Create an invoice...",
+  "Format JSON...",
+  "Build a resume...",
+  "Generate password...",
+  "Convert HEIC to JPG...",
+  "Split PDF pages...",
+  "Trim audio file...",
+  "Create barcode...",
+  "Compare two texts...",
+  "Convert CSV to JSON...",
+];
+
+function AnimatedPlaceholder() {
+  const [index, setIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [typing, setTyping] = useState(true);
+
+  useEffect(() => {
+    const currentPrompt = searchPrompts[index];
+    let charIndex = 0;
+    let timer: ReturnType<typeof setTimeout>;
+
+    if (typing) {
+      timer = setInterval(() => {
+        if (charIndex <= currentPrompt.length) {
+          setText(currentPrompt.slice(0, charIndex));
+          charIndex++;
+        } else {
+          clearInterval(timer);
+          setTimeout(() => setTyping(false), 1500);
+        }
+      }, 60);
+    } else {
+      timer = setInterval(() => {
+        if (charIndex > 0) {
+          charIndex--;
+          setText(currentPrompt.slice(0, charIndex));
+        } else {
+          clearInterval(timer);
+          setIndex((i) => (i + 1) % searchPrompts.length);
+          setTyping(true);
+        }
+      }, 30);
+      charIndex = currentPrompt.length;
+    }
+
+    return () => clearInterval(timer);
+  }, [index, typing]);
+
+  return (
+    <span className="absolute left-12 text-sm text-slate-400 pointer-events-none">
+      {text}<span className="animate-pulse">|</span>
+    </span>
+  );
+}
+
+function LiveCounter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("tp_tool_uses");
+    if (stored) setCount(parseInt(stored) || 0);
+
+    const handler = () => {
+      const val = parseInt(localStorage.getItem("tp_tool_uses") || "0") + 1;
+      localStorage.setItem("tp_tool_uses", String(val));
+      setCount(val);
+    };
+
+    window.addEventListener("tp_tool_used", handler);
+    return () => window.removeEventListener("tp_tool_used", handler);
+  }, []);
+
+  return (
+    <>
+      <div className="rounded-xl bg-white/5 border border-white/10 p-5 text-center">
+        <p className="text-3xl font-extrabold text-white sm:text-4xl">{tools.length}+</p>
+        <p className="mt-1 text-[10px] text-slate-400 font-medium uppercase tracking-wider">Free Tools</p>
+      </div>
+      <div className="rounded-xl bg-white/5 border border-white/10 p-5 text-center">
+        <p className="text-3xl font-extrabold text-emerald-400 sm:text-4xl">{count.toLocaleString()}</p>
+        <p className="mt-1 text-[10px] text-slate-400 font-medium uppercase tracking-wider">Files Processed</p>
+      </div>
+      <div className="rounded-xl bg-white/5 border border-white/10 p-5 text-center">
+        <p className="text-3xl font-extrabold text-white sm:text-4xl">0</p>
+        <p className="mt-1 text-[10px] text-slate-400 font-medium uppercase tracking-wider">Files Uploaded</p>
+      </div>
+      <div className="rounded-xl bg-white/5 border border-white/10 p-5 text-center">
+        <p className="text-3xl font-extrabold text-blue-400 sm:text-4xl">100%</p>
+        <p className="mt-1 text-[10px] text-slate-400 font-medium uppercase tracking-wider">Client-Side</p>
+      </div>
+    </>
+  );
+}
+
 export default function HomePage() {
   const [search, setSearch] = useState("");
 
@@ -130,26 +266,29 @@ export default function HomePage() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
               </span>
-              <span className="text-xs font-semibold text-slate-600">{tools.length} tools &mdash; free forever</span>
+              <span className="text-xs font-semibold text-slate-600">{tools.length} tools — free forever</span>
             </div>
 
             <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl leading-[1.08]">
               The tools you need,
               <br />
-              <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-500 bg-clip-text text-transparent">right in your browser.</span>
+              <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-500 bg-clip-text text-transparent">
+                <RotatingText />
+              </span>
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-sm text-slate-500 leading-relaxed sm:text-base">
               {tools.length} professional-grade tools for PDF, image, audio, and developer tasks.
-              Everything processes on your device &mdash; nothing is ever uploaded.
+              Everything processes on your device — nothing is ever uploaded.
             </p>
 
-            {/* Search */}
+            {/* Animated Search */}
             <div className="mx-auto mt-8 max-w-lg">
               <div className="flex items-center rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-100 transition-all">
                 <svg className="h-5 w-5 text-slate-400 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
-                <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={"Search " + tools.length + " tools…"} className="w-full bg-transparent text-sm text-slate-900 placeholder-slate-400 outline-none" />
+                <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} className="w-full bg-transparent text-sm text-slate-900 placeholder-slate-400 outline-none" />
+                {!search && <AnimatedPlaceholder />}
                 {search && (
                   <button onClick={() => setSearch("")} className="text-slate-400 hover:text-slate-600 ml-2">
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
@@ -293,37 +432,41 @@ export default function HomePage() {
       )}
 
       {/* ===== PRIVACY PROMISE ===== */}
-      {!search.trim() && (
-        <section className="border-t border-slate-100 bg-slate-900 text-white py-12 sm:py-16">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6">
-            <div className="grid gap-8 sm:grid-cols-2 items-center">
-              <div>
-                <h2 className="text-xl font-bold sm:text-2xl">Your files never leave your device.</h2>
-                <p className="mt-3 text-sm text-slate-400 leading-relaxed">
-                  Every tool on {siteConfig.name} runs entirely in your browser using JavaScript, WebAssembly, and the Canvas API.
-                  We don't have servers that process your files. We don't store anything. We physically cannot see your data.
-                </p>
-                <p className="mt-3 text-sm text-slate-400 leading-relaxed">
-                  This isn't a marketing promise — it's how the technology works. Open your browser's developer tools and watch the network tab. Zero file uploads.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { value: tools.length + "+", label: "Free Tools" },
-                  { value: "0", label: "Files Uploaded" },
-                  { value: "0", label: "Data Stored" },
-                  { value: "100%", label: "Client-Side" },
-                ].map((stat) => (
-                  <div key={stat.label} className="rounded-xl bg-white/5 border border-white/10 p-4 text-center">
-                    <p className="text-2xl font-extrabold text-white">{stat.value}</p>
-                    <p className="mt-1 text-[10px] text-slate-400 font-medium uppercase tracking-wider">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
+      <section className="border-t border-slate-100 bg-slate-900 text-white py-14 sm:py-20 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-500/10 rounded-full blur-[100px]" />
+
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 mb-5">
+              <svg className="h-4 w-4 text-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" /></svg>
+              <span className="text-xs font-semibold text-slate-300">Privacy by design</span>
             </div>
+            <h2 className="text-2xl font-bold sm:text-3xl">Your files never leave your device.</h2>
+            <p className="mt-3 text-sm text-slate-400 leading-relaxed max-w-xl mx-auto">
+              Every tool runs in your browser using JavaScript and WebAssembly. We have no servers that process your files. We store nothing. We see nothing.
+            </p>
           </div>
-        </section>
-      )}
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <LiveCounter />
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {[
+              { icon: "M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z", title: "Zero server uploads", desc: "Files are processed locally using browser APIs. Check your network tab." },
+              { icon: "M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88", title: "No tracking or analytics on files", desc: "We track page visits for improvement, never your files or data." },
+              { icon: "M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z", title: "Nothing stored, ever", desc: "When you close the tab, everything is gone. No cookies, no cache, no trace." },
+            ].map((f) => (
+              <div key={f.title} className="rounded-xl bg-white/5 border border-white/10 p-5">
+                <svg className="h-5 w-5 text-blue-400 mb-3" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d={f.icon} /></svg>
+                <h3 className="text-sm font-semibold text-white">{f.title}</h3>
+                <p className="mt-1 text-xs text-slate-400 leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ===== ALL TOOLS ===== */}
       {!search.trim() && (
