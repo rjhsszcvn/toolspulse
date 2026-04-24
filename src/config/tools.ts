@@ -171,6 +171,19 @@ export const tools: Tool[] = [
     tier: 1,
     keywords: ["background remover", "remove background", "transparent background", "bg remover"],
   },
+  {
+    id: "image-cropper",
+    name: "Image Cropper",
+    description: "Crop images to any size or aspect ratio. Supports preset ratios like 1:1, 4:3, 16:9. Free, instant, and processed in your browser.",
+    shortDescription: "Crop images to any size or ratio",
+    slug: "image-cropper",
+    category: "image",
+    icon: "Crop",
+    isNew: true,
+    isPopular: false,
+    tier: 1,
+    keywords: ["image cropper", "crop image online", "crop photo", "resize crop image", "image crop tool"],
+  },
   // File Converters
   {
     id: "jpg-to-png",
