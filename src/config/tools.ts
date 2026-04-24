@@ -289,6 +289,19 @@ export const tools: Tool[] = [
     tier: 1,
     keywords: ["json to csv", "convert json to csv", "json converter", "json to csv online", "json to spreadsheet"],
   },
+  {
+    id: "video-to-gif",
+    name: "Video to GIF Converter",
+    description: "Convert video clips to animated GIFs. Adjust FPS, resolution, and duration. Free, private, and processed entirely in your browser.",
+    shortDescription: "Convert video clips to animated GIFs",
+    slug: "video-to-gif",
+    category: "converter",
+    icon: "Film",
+    isNew: true,
+    isPopular: false,
+    tier: 1,
+    keywords: ["video to gif", "mp4 to gif", "convert video to gif", "gif maker", "video gif converter"],
+  },
   // Audio Tools
   {
     id: "mp3-converter",
