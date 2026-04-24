@@ -514,6 +514,19 @@ export const tools: Tool[] = [
     tier: 3,
     keywords: ["favicon generator", "create favicon", "ico generator", "website icon"],
   },
+  {
+    id: "text-diff-checker",
+    name: "Text Diff Checker",
+    description: "Compare two texts side by side and see the differences highlighted. Find added, removed, and unchanged lines instantly. Free, private, no signup.",
+    shortDescription: "Compare two texts and find differences",
+    slug: "text-diff-checker",
+    category: "developer",
+    icon: "GitCompare",
+    isNew: true,
+    isPopular: false,
+    tier: 1,
+    keywords: ["text diff", "compare text", "diff checker", "text compare online", "find differences in text"],
+  },
   // AI Tools
   {
     id: "ai-text-rewriter",
