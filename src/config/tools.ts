@@ -276,6 +276,19 @@ export const tools: Tool[] = [
     tier: 1,
     keywords: ["csv to json", "convert csv to json", "csv converter", "csv to json online", "csv parser"],
   },
+  {
+    id: "json-to-csv",
+    name: "JSON to CSV Converter",
+    description: "Convert JSON arrays to CSV format instantly. Paste JSON data or upload a file. Free, private, and processed in your browser.",
+    shortDescription: "Convert JSON data to CSV format",
+    slug: "json-to-csv",
+    category: "converter",
+    icon: "FileSpreadsheet",
+    isNew: true,
+    isPopular: false,
+    tier: 1,
+    keywords: ["json to csv", "convert json to csv", "json converter", "json to csv online", "json to spreadsheet"],
+  },
   // Audio Tools
   {
     id: "mp3-converter",
