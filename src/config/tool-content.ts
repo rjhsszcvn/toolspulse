@@ -863,6 +863,742 @@ export const toolContentMap: Record<string, ToolContent> = {
       { title: "JWT inspection", description: "Decode the Base64-encoded payload of JSON Web Tokens to inspect claims." },
     ],
   },
+  "jpg-to-png": {
+    toolSlug: "jpg-to-png",
+    howTo: {
+      title: "How to Convert JPG to PNG Online",
+      steps: [
+        { title: "Open the JPG to PNG Converter", description: "Navigate to the tool. No signup or installation required." },
+        { title: "Upload your JPG image", description: "Drag and drop your JPEG file or click to browse. The tool accepts any JPG image." },
+        { title: "Convert automatically", description: "The tool converts your image to PNG format instantly, preserving all visual quality." },
+        { title: "Download your PNG", description: "Save the converted PNG file to your device. The output supports transparency if needed." },
+      ],
+      tips: [
+        "PNG is lossless, so converting from JPG to PNG will not improve the original quality, but it will prevent further quality loss from re-saving.",
+        "PNG supports transparency. If you need a transparent background, remove the background first, then save as PNG.",
+        "PNG files are typically larger than JPG files. Use PNG when you need lossless quality or transparency.",
+        "For screenshots, logos, and graphics with text, PNG produces much sharper results than JPG.",
+      ],
+    },
+    faq: [
+      { question: "Does converting JPG to PNG improve quality?", answer: "No. The conversion preserves the existing quality but cannot recover detail lost during the original JPG compression. It does prevent further quality loss from future edits." },
+      { question: "Why would I convert JPG to PNG?", answer: "PNG is better for images needing transparency, graphics with sharp edges or text, screenshots, and any image you plan to edit repeatedly without quality degradation." },
+      { question: "Will the file size increase?", answer: "Usually yes. PNG uses lossless compression which produces larger files than JPG. The tradeoff is perfect quality preservation." },
+      { question: "Does it support batch conversion?", answer: "Currently the tool converts one image at a time for the best quality output." },
+    ],
+    alternatives: {
+      intro: "JPG to PNG conversion is needed when you require lossless quality or transparency support.",
+      tools: [
+        { name: "Photoshop", description: "Professional image editor", differentiator: "Expensive subscription. Overkill for format conversion." },
+        { name: "CloudConvert", description: "Online file converter", differentiator: "Uploads files to servers. Daily conversion limits on free tier." },
+      ],
+      whyUs: "Convert JPG to PNG instantly in your browser. No uploads, no quality loss, no account needed. Your images stay completely private.",
+    },
+    useCases: [
+      { title: "Preparing images for editing", description: "Convert to PNG before editing to prevent cumulative JPG compression artifacts." },
+      { title: "Web graphics", description: "Convert logos, icons, and graphics to PNG for crisp display on websites." },
+      { title: "Transparency needs", description: "Convert to PNG as a first step before removing backgrounds, since PNG supports transparency." },
+    ],
+  },
+  "png-to-jpg": {
+    toolSlug: "png-to-jpg",
+    howTo: {
+      title: "How to Convert PNG to JPG Online",
+      steps: [
+        { title: "Open the PNG to JPG Converter", description: "Go to the tool page. Works instantly without any signup." },
+        { title: "Upload your PNG image", description: "Drag and drop your PNG file or click to select it from your device." },
+        { title: "Convert automatically", description: "The tool converts your PNG to JPG format, replacing any transparency with a white background." },
+        { title: "Download your JPG", description: "Save the smaller JPG file to your device." },
+      ],
+      tips: [
+        "Transparent areas in your PNG will become white in the JPG output since JPG does not support transparency.",
+        "JPG files are significantly smaller than PNG files, making them ideal for sharing and uploading.",
+        "For photographs, JPG at high quality is visually identical to PNG but at a fraction of the file size.",
+        "If your PNG has transparency that you need to keep, do not convert to JPG. Use WebP instead.",
+      ],
+    },
+    faq: [
+      { question: "What happens to transparency?", answer: "JPG does not support transparency. Any transparent areas in your PNG will be filled with white in the converted JPG." },
+      { question: "Will there be quality loss?", answer: "Minimal. The conversion uses high quality JPG compression. For photographs, the difference is imperceptible." },
+      { question: "How much smaller will the file be?", answer: "Typically 50-80% smaller. A 5MB PNG photo might become a 1MB JPG with no visible quality difference." },
+    ],
+    alternatives: {
+      intro: "PNG to JPG conversion reduces file sizes dramatically while maintaining visual quality for photographs.",
+      tools: [
+        { name: "Windows Photos", description: "Built-in image viewer with Save As", differentiator: "Windows only. Limited quality control." },
+        { name: "TinyPNG", description: "Online image optimizer", differentiator: "Uploads to servers. Free tier limited to 20 images per batch." },
+      ],
+      whyUs: "Convert PNG to JPG instantly with no uploads. Dramatically smaller files with minimal quality loss. Works on any device.",
+    },
+    useCases: [
+      { title: "Reducing file sizes for email", description: "Convert large PNG screenshots or photos to smaller JPG files for email attachments." },
+      { title: "Website optimization", description: "Convert PNG photos to JPG to reduce page load times and bandwidth usage." },
+      { title: "Social media uploads", description: "Convert to JPG for faster uploading and broader platform compatibility." },
+    ],
+  },
+  "webp-to-png": {
+    toolSlug: "webp-to-png",
+    howTo: {
+      title: "How to Convert WebP to PNG Online",
+      steps: [
+        { title: "Open the WebP to PNG Converter", description: "Navigate to the tool. No installation or account needed." },
+        { title: "Upload your WebP image", description: "Drag and drop your .webp file or click to browse your device." },
+        { title: "Convert instantly", description: "The tool converts your WebP image to universal PNG format in your browser." },
+        { title: "Download your PNG", description: "Save the converted file. It works everywhere PNG is supported." },
+      ],
+      tips: [
+        "WebP is a modern format that not all software supports. Converting to PNG ensures universal compatibility.",
+        "Transparency in WebP images is preserved when converting to PNG.",
+        "PNG files will be larger than the original WebP since WebP has better compression.",
+        "For batch conversion, process images one at a time for the best results.",
+      ],
+    },
+    faq: [
+      { question: "Why convert WebP to PNG?", answer: "Many older applications, email clients, and image editors do not support WebP. PNG is universally compatible across all platforms and software." },
+      { question: "Is transparency preserved?", answer: "Yes. If your WebP image has transparent areas, they are preserved in the PNG output." },
+      { question: "Will the file size change?", answer: "PNG files are typically larger than WebP since WebP uses more efficient compression. The visual quality remains identical." },
+    ],
+    alternatives: {
+      intro: "WebP is gaining support but many tools and platforms still require PNG or JPG format.",
+      tools: [
+        { name: "Squoosh (Google)", description: "Browser-based image converter", differentiator: "Single image at a time. No batch support." },
+        { name: "CloudConvert", description: "Online file converter", differentiator: "Uploads files to servers. Daily limits on free tier." },
+      ],
+      whyUs: "Convert WebP to PNG instantly in your browser. Transparency preserved. No uploads, no limits, no account needed.",
+    },
+    useCases: [
+      { title: "Opening downloaded images", description: "Convert WebP images saved from websites into PNG format that any image viewer can open." },
+      { title: "Editing in older software", description: "Convert WebP files to PNG for editing in applications that do not support WebP natively." },
+      { title: "Printing", description: "Many print services require PNG or JPG. Convert WebP files before submitting for printing." },
+    ],
+  },
+  "svg-to-png": {
+    toolSlug: "svg-to-png",
+    howTo: {
+      title: "How to Convert SVG to PNG Online",
+      steps: [
+        { title: "Open the SVG to PNG Converter", description: "Go to the tool page. Ready to use with no signup." },
+        { title: "Upload your SVG file", description: "Drag and drop your .svg file or click to select it." },
+        { title: "Choose output size", description: "Select the resolution for your PNG output. Higher values produce larger, sharper images." },
+        { title: "Download your PNG", description: "Save the rasterized PNG image to your device." },
+      ],
+      tips: [
+        "SVG is a vector format that scales infinitely. Choose a high resolution for print use and lower for web.",
+        "The PNG output will have a transparent background if the SVG has no background fill.",
+        "Complex SVGs with many elements may take a moment to render at very high resolutions.",
+        "For icons and logos, 512x512 or 1024x1024 are common output sizes.",
+      ],
+    },
+    faq: [
+      { question: "What resolution should I use?", answer: "For web use, 1x or 2x is sufficient. For print, use 3x or higher. For app icons, export at the exact dimensions required." },
+      { question: "Is the background transparent?", answer: "If your SVG has no background rectangle, the PNG output will have a transparent background." },
+      { question: "Can I convert complex SVGs?", answer: "Yes. The tool renders SVGs using the browser engine, which handles gradients, filters, text, and complex paths." },
+    ],
+    alternatives: {
+      intro: "SVG to PNG conversion is needed when you need raster images from vector sources for specific platforms or uses.",
+      tools: [
+        { name: "Inkscape", description: "Free vector editor with PNG export", differentiator: "Requires software installation. Full vector editor overkill for simple conversion." },
+        { name: "Adobe Illustrator", description: "Professional vector editor", differentiator: "Expensive subscription. Far more than needed for format conversion." },
+      ],
+      whyUs: "Convert SVG to PNG instantly at any resolution in your browser. Transparent backgrounds preserved. No software to install, no account needed.",
+    },
+    useCases: [
+      { title: "App icon generation", description: "Convert SVG logos to PNG at specific dimensions for iOS, Android, and web app icons." },
+      { title: "Social media graphics", description: "Convert vector designs to PNG for uploading to social platforms that do not support SVG." },
+      { title: "Email signatures", description: "Convert SVG logos to PNG for use in email signatures, which do not support SVG format." },
+      { title: "Print preparation", description: "Rasterize SVG artwork to high-resolution PNG for print-ready files." },
+    ],
+  },
+  "mp3-converter": {
+    toolSlug: "mp3-converter",
+    howTo: {
+      title: "How to Convert Audio Files to MP3 Online",
+      steps: [
+        { title: "Open the MP3 Converter", description: "Navigate to the tool. No installation or account needed." },
+        { title: "Upload your audio file", description: "Drag and drop a WAV, OGG, FLAC, or other audio file." },
+        { title: "Convert to MP3", description: "The tool decodes your audio and re-encodes it as an MP3 file in your browser." },
+        { title: "Download your MP3", description: "Save the converted MP3 file to your device." },
+      ],
+      tips: [
+        "128kbps is standard quality suitable for most listening. 192kbps or higher is better for music.",
+        "Converting from a lossy format like OGG to MP3 will not improve quality since both are lossy.",
+        "WAV and FLAC to MP3 conversion is the most common use case since it dramatically reduces file size.",
+        "The converted MP3 is compatible with virtually every device, player, and platform.",
+      ],
+    },
+    faq: [
+      { question: "What audio formats can I convert?", answer: "Any format your browser supports, including WAV, OGG, FLAC, AAC, and WebM audio." },
+      { question: "What bitrate is the output?", answer: "The output is 128kbps MP3, which is good quality for most uses including music and speech." },
+      { question: "Will there be quality loss?", answer: "MP3 is a lossy format. Converting from lossless formats like WAV or FLAC will reduce quality slightly, but at 128kbps the difference is minimal for most listeners." },
+    ],
+    alternatives: {
+      intro: "MP3 remains the most universally compatible audio format across all devices and platforms.",
+      tools: [
+        { name: "Audacity", description: "Free audio editor", differentiator: "Requires software installation. Powerful but complex for simple conversion." },
+        { name: "Online Audio Converter", description: "Web-based converter", differentiator: "Uploads files to servers. Ad-heavy interface." },
+      ],
+      whyUs: "Convert any audio to MP3 instantly in your browser. No uploads, no software installation. Universal compatibility guaranteed.",
+    },
+    useCases: [
+      { title: "Device compatibility", description: "Convert audio files to MP3 for playback on devices that only support MP3 format." },
+      { title: "Reducing file sizes", description: "Convert large WAV or FLAC files to compact MP3 for easier storage and sharing." },
+      { title: "Podcast distribution", description: "Convert recorded audio to MP3, the standard format for podcast hosting platforms." },
+    ],
+  },
+  "wav-converter": {
+    toolSlug: "wav-converter",
+    howTo: {
+      title: "How to Convert Audio Files to WAV Online",
+      steps: [
+        { title: "Open the WAV Converter", description: "Go to the tool page. Works instantly with no signup." },
+        { title: "Upload your audio file", description: "Drag and drop an MP3, OGG, or other audio file." },
+        { title: "Convert to WAV", description: "The tool decodes your audio and saves it in uncompressed WAV format." },
+        { title: "Download your WAV", description: "Save the lossless WAV file to your device." },
+      ],
+      tips: [
+        "WAV is uncompressed and lossless. It preserves every detail of the audio signal.",
+        "WAV files are much larger than MP3. A 3-minute song is about 30MB in WAV vs 3MB in MP3.",
+        "Use WAV when you need the highest quality for editing, mastering, or professional audio work.",
+        "Converting from MP3 to WAV does not restore lost quality. The WAV will contain the same audio as the MP3.",
+      ],
+    },
+    faq: [
+      { question: "Why convert to WAV?", answer: "WAV is the standard uncompressed format used in professional audio editing, music production, and broadcasting. It ensures no quality loss during editing." },
+      { question: "Will converting MP3 to WAV improve quality?", answer: "No. The conversion preserves the existing quality but cannot recover detail lost during MP3 compression. It does prevent further compression artifacts from future edits." },
+      { question: "Why are WAV files so large?", answer: "WAV stores audio uncompressed. Every sample is preserved at full fidelity, which requires significantly more storage than compressed formats." },
+    ],
+    alternatives: {
+      intro: "WAV is the industry standard for uncompressed audio used in professional production.",
+      tools: [
+        { name: "Audacity", description: "Free audio editor with export", differentiator: "Requires installation. More than needed for simple conversion." },
+        { name: "FFmpeg", description: "Command-line audio tool", differentiator: "Requires technical knowledge and terminal access." },
+      ],
+      whyUs: "Convert any audio to lossless WAV instantly in your browser. No uploads, no software. Perfect for professional audio workflows.",
+    },
+    useCases: [
+      { title: "Audio editing preparation", description: "Convert compressed audio to WAV before editing in a DAW to prevent quality degradation." },
+      { title: "Music production", description: "Import audio samples and stems as WAV for mixing and mastering projects." },
+      { title: "Archival", description: "Store important audio recordings in lossless WAV format for long-term preservation." },
+    ],
+  },
+  "audio-trimmer": {
+    toolSlug: "audio-trimmer",
+    howTo: {
+      title: "How to Trim Audio Files Online",
+      steps: [
+        { title: "Open the Audio Trimmer", description: "Navigate to the tool. No account or installation needed." },
+        { title: "Upload your audio file", description: "Drag and drop an MP3, WAV, or OGG file." },
+        { title: "Set trim points", description: "Use the start and end sliders or enter exact timestamps to define the section you want to keep." },
+        { title: "Download the trimmed audio", description: "Click trim and download your shortened audio file." },
+      ],
+      tips: [
+        "Preview the selection before trimming to make sure you have the exact section you want.",
+        "For precise cuts, type exact timestamps in seconds rather than using the slider.",
+        "The output format matches your input format. Upload MP3, get trimmed MP3.",
+        "Trimming is non-destructive to quality. The selected portion is extracted without re-encoding when possible.",
+      ],
+    },
+    faq: [
+      { question: "What audio formats are supported?", answer: "MP3, WAV, OGG, and any other format your browser supports. The output matches the input format." },
+      { question: "Can I trim to exact timestamps?", answer: "Yes. Enter precise start and end times in seconds for frame-accurate trimming." },
+      { question: "Does trimming reduce audio quality?", answer: "The tool preserves the original quality of the selected portion. There is no additional compression applied." },
+    ],
+    alternatives: {
+      intro: "Audio trimming is one of the most common audio editing tasks for ringtones, clips, and content creation.",
+      tools: [
+        { name: "Audacity", description: "Free audio editor", differentiator: "Requires software installation. Full editor overkill for simple trimming." },
+        { name: "mp3cut.net", description: "Online audio cutter", differentiator: "Uploads files to servers. Ads on the interface." },
+      ],
+      whyUs: "Trim audio files instantly in your browser. Precise timestamp control. No uploads, no quality loss, no account needed.",
+    },
+    useCases: [
+      { title: "Creating ringtones", description: "Trim songs to the perfect 30-second clip for custom phone ringtones." },
+      { title: "Podcast editing", description: "Cut intros, outros, or unwanted segments from podcast recordings." },
+      { title: "Music samples", description: "Extract specific sections from songs for DJ sets, mashups, or music production." },
+      { title: "Voice memos", description: "Trim the beginning and end of voice recordings to remove silence or irrelevant content." },
+    ],
+  },
+  "screenshot-to-text": {
+    toolSlug: "screenshot-to-text",
+    howTo: {
+      title: "How to Extract Text from Screenshots Online",
+      steps: [
+        { title: "Open the Screenshot to Text tool", description: "Navigate to the tool. Works instantly with no signup." },
+        { title: "Upload your screenshot", description: "Drag and drop a screenshot or photo containing text." },
+        { title: "OCR processes automatically", description: "The AI reads the text in your image using optical character recognition." },
+        { title: "Copy or download the text", description: "Review the extracted text, make any corrections, and copy or download it." },
+      ],
+      tips: [
+        "Clear, high-resolution screenshots produce the most accurate text extraction.",
+        "The tool works best with printed text. Handwriting recognition is less reliable.",
+        "Crop your screenshot to just the text area for better accuracy.",
+        "Supports multiple languages. The OCR engine detects the language automatically.",
+      ],
+    },
+    faq: [
+      { question: "How accurate is the text extraction?", answer: "Very accurate for printed text in clear screenshots. Accuracy depends on image quality, font size, and contrast." },
+      { question: "Does it work with handwriting?", answer: "It can extract some handwritten text, but accuracy is significantly lower than for printed text." },
+      { question: "What image formats are supported?", answer: "JPG, PNG, WebP, and any image format your browser supports." },
+      { question: "Does it support multiple languages?", answer: "Yes. The OCR engine supports many languages and detects them automatically." },
+    ],
+    alternatives: {
+      intro: "OCR (Optical Character Recognition) converts images of text into editable, searchable text.",
+      tools: [
+        { name: "Google Lens", description: "Mobile OCR tool", differentiator: "Requires Google app on mobile. Not available as a web tool." },
+        { name: "Adobe Acrobat", description: "PDF OCR scanning", differentiator: "Paid subscription. Designed for PDFs, not screenshots." },
+      ],
+      whyUs: "Extract text from any screenshot instantly in your browser. No uploads to servers, no app to install. Works on any device.",
+    },
+    useCases: [
+      { title: "Digitizing printed documents", description: "Extract text from photos of printed pages, receipts, or labels." },
+      { title: "Copying text from images", description: "Get editable text from screenshots, infographics, or social media images." },
+      { title: "Data entry", description: "Extract information from scanned forms, business cards, or ID documents." },
+    ],
+  },
+  "image-to-text": {
+    toolSlug: "image-to-text",
+    howTo: {
+      title: "How to Extract Text from Images Online (OCR)",
+      steps: [
+        { title: "Open the Image to Text tool", description: "Navigate to the tool. No signup or software needed." },
+        { title: "Upload your image", description: "Drag and drop any image containing text. Supports JPG, PNG, and WebP." },
+        { title: "AI extracts the text", description: "The OCR engine scans your image and identifies all readable text content." },
+        { title: "Copy or use the text", description: "The extracted text appears in an editable area. Copy it to your clipboard or download as a file." },
+      ],
+      tips: [
+        "Higher resolution images produce better OCR results. Use the highest quality source image available.",
+        "Good contrast between text and background improves accuracy significantly.",
+        "For multi-column documents, the tool extracts text in reading order from left to right, top to bottom.",
+        "If extraction misses text, try cropping the image to focus on the specific area you need.",
+      ],
+    },
+    faq: [
+      { question: "What is OCR?", answer: "OCR (Optical Character Recognition) is the technology that converts images of text into machine-readable text that you can edit, search, and copy." },
+      { question: "How accurate is it?", answer: "Very accurate for clear, printed text with good contrast. Accuracy decreases with low resolution, unusual fonts, or poor lighting." },
+      { question: "Can it read text in photos?", answer: "Yes. It can extract text from photographs of signs, documents, screens, and any other image containing readable text." },
+    ],
+    alternatives: {
+      intro: "OCR technology is available across many platforms for converting images to editable text.",
+      tools: [
+        { name: "Google Keep", description: "Note app with OCR feature", differentiator: "Requires Google account. Limited to text extraction within the app." },
+        { name: "Microsoft OneNote", description: "Note app with OCR", differentiator: "Requires Microsoft account. Integrated into the OneNote ecosystem." },
+      ],
+      whyUs: "Extract text from any image instantly in your browser. No accounts, no uploads to servers. Works with photos, screenshots, and scanned documents.",
+    },
+    useCases: [
+      { title: "Digitizing printed text", description: "Convert printed documents, book pages, or articles into editable digital text." },
+      { title: "Extracting data from photos", description: "Pull phone numbers, addresses, or other data from photographed business cards and signs." },
+      { title: "Accessibility", description: "Make text in images accessible for screen readers and text-to-speech tools." },
+    ],
+  },
+  "word-counter": {
+    toolSlug: "word-counter",
+    howTo: {
+      title: "How to Count Words and Characters Online",
+      steps: [
+        { title: "Open the Word Counter", description: "Navigate to the tool. Works instantly with no signup." },
+        { title: "Paste or type your text", description: "Enter your text in the input area. Statistics update in real-time as you type." },
+        { title: "View your statistics", description: "See word count, character count, sentence count, paragraph count, and estimated reading time." },
+        { title: "Copy results if needed", description: "Use the statistics for your assignment, SEO content, or social media post planning." },
+      ],
+      tips: [
+        "Most social media platforms have character limits. Twitter is 280 characters, Instagram captions are 2200.",
+        "Academic essays typically require specific word counts. This tool helps you track progress.",
+        "Average reading speed is about 200-250 words per minute. The tool estimates reading time based on this.",
+        "SEO content typically performs best at 1000-2000 words for blog posts and 300+ words for product pages.",
+      ],
+    },
+    faq: [
+      { question: "How are words counted?", answer: "Words are counted by splitting text on whitespace. Hyphenated words count as one word. Numbers count as words." },
+      { question: "Does it count characters with or without spaces?", answer: "The tool shows both. Characters with spaces and characters without spaces are displayed separately." },
+      { question: "Is there a text length limit?", answer: "No practical limit. The tool handles texts of any length since all processing happens locally in your browser." },
+    ],
+    alternatives: {
+      intro: "Word counting is essential for writers, students, content creators, and SEO professionals.",
+      tools: [
+        { name: "Microsoft Word", description: "Built-in word count feature", differentiator: "Requires Word license and software installation." },
+        { name: "Google Docs", description: "Built-in word count", differentiator: "Requires Google account and internet connection." },
+        { name: "WordCounter.net", description: "Online word counter", differentiator: "Uploads text to servers. Ads on the page." },
+      ],
+      whyUs: "Count words, characters, sentences, and paragraphs instantly. Real-time updates as you type. No uploads, no account, completely private.",
+    },
+    useCases: [
+      { title: "Academic writing", description: "Track word count for essays, dissertations, and assignments with specific length requirements." },
+      { title: "SEO content", description: "Ensure blog posts and web pages meet recommended word count targets for search engine ranking." },
+      { title: "Social media", description: "Check character counts before posting to platforms with character limits like Twitter." },
+      { title: "Professional writing", description: "Track word count for articles, reports, and marketing copy with client-specified lengths." },
+    ],
+  },
+  "invoice-generator": {
+    toolSlug: "invoice-generator",
+    howTo: {
+      title: "How to Create a Professional Invoice Online",
+      steps: [
+        { title: "Open the Invoice Generator", description: "Navigate to the tool. No account or software needed." },
+        { title: "Enter your business details", description: "Add your company name, address, and contact information." },
+        { title: "Add line items", description: "Enter each product or service with quantity, rate, and description. Totals calculate automatically." },
+        { title: "Download your invoice", description: "Save your professional invoice as a PDF ready to send to your client." },
+      ],
+      tips: [
+        "Include a unique invoice number for your records and your client's accounting.",
+        "Set clear payment terms (Net 30, Net 15, Due on Receipt) to avoid payment delays.",
+        "Add your bank details or payment link to make it easy for clients to pay.",
+        "Keep a copy of every invoice for your tax records.",
+      ],
+    },
+    faq: [
+      { question: "Is the invoice legally valid?", answer: "The generated invoice contains all standard fields required for a commercial invoice. Check your local regulations for any additional requirements." },
+      { question: "Can I add my logo?", answer: "The tool generates clean, professional invoices. Logo support depends on the current version of the tool." },
+      { question: "What format is the output?", answer: "Invoices are generated as PDF files, the universal standard for professional documents." },
+      { question: "Can I create recurring invoices?", answer: "Each invoice is created individually. Save your details and create new invoices as needed." },
+    ],
+    alternatives: {
+      intro: "Invoice generation is essential for freelancers, small businesses, and independent contractors.",
+      tools: [
+        { name: "FreshBooks", description: "Accounting software with invoicing", differentiator: "Paid subscription. Full accounting suite beyond just invoicing." },
+        { name: "Wave", description: "Free accounting with invoicing", differentiator: "Requires account creation. Stores your financial data in the cloud." },
+        { name: "PayPal", description: "Payment platform with invoicing", differentiator: "Requires PayPal account. Takes a percentage of payments." },
+      ],
+      whyUs: "Create professional invoices instantly with no account. Download as PDF, send to clients. Your financial data stays on your device.",
+    },
+    useCases: [
+      { title: "Freelance billing", description: "Create professional invoices for freelance projects, consulting work, and contract assignments." },
+      { title: "Small business", description: "Generate invoices for products sold or services rendered to business clients." },
+      { title: "One-time projects", description: "Create a quick invoice for a single project without signing up for invoicing software." },
+    ],
+  },
+  "resume-builder": {
+    toolSlug: "resume-builder",
+    howTo: {
+      title: "How to Build a Professional Resume Online",
+      steps: [
+        { title: "Open the Resume Builder", description: "Navigate to the tool. No account or signup needed." },
+        { title: "Enter your information", description: "Fill in your contact details, work experience, education, skills, and any other relevant sections." },
+        { title: "Choose a template", description: "Select from available professional templates that suit your industry and experience level." },
+        { title: "Download your resume", description: "Save your polished resume as a PDF ready for job applications." },
+      ],
+      tips: [
+        "Keep your resume to one page for early career, two pages maximum for experienced professionals.",
+        "Use action verbs to describe achievements: Led, Developed, Increased, Managed, Created.",
+        "Quantify your achievements with numbers: Increased sales by 25%, Managed team of 12.",
+        "Tailor your resume to each job by emphasizing relevant skills and experience.",
+        "Use a clean, professional font. Avoid decorative fonts that are hard to read.",
+      ],
+    },
+    faq: [
+      { question: "What format is the output?", answer: "Resumes are generated as PDF files, which is the format preferred by most employers and applicant tracking systems (ATS)." },
+      { question: "Is it ATS-friendly?", answer: "The generated resumes use clean formatting that is readable by applicant tracking systems used by large employers." },
+      { question: "Can I edit my resume after downloading?", answer: "You would need to re-enter the information in the tool to make changes. Save your content separately for future edits." },
+      { question: "Do you store my personal information?", answer: "No. All data stays in your browser. Nothing is uploaded or stored on any server." },
+    ],
+    alternatives: {
+      intro: "A well-formatted resume is critical for job applications. Here is how different resume tools compare.",
+      tools: [
+        { name: "Indeed Resume Builder", description: "Job platform with resume tool", differentiator: "Requires Indeed account. Resume is tied to the Indeed platform." },
+        { name: "Canva", description: "Design tool with resume templates", differentiator: "Requires account. Premium templates behind paywall." },
+        { name: "Microsoft Word", description: "Word processor with templates", differentiator: "Requires Office license. Templates are limited." },
+      ],
+      whyUs: "Build a professional resume instantly with no account. ATS-friendly PDF output. Your personal data never leaves your device.",
+    },
+    useCases: [
+      { title: "Job applications", description: "Create a polished resume for submitting to potential employers." },
+      { title: "Career changes", description: "Build a new resume highlighting transferable skills for a different industry." },
+      { title: "First resume", description: "Create your first professional resume as a student or recent graduate." },
+    ],
+  },
+  "password-generator": {
+    toolSlug: "password-generator",
+    howTo: {
+      title: "How to Generate a Strong Password Online",
+      steps: [
+        { title: "Open the Password Generator", description: "Navigate to the tool. Works instantly with no signup." },
+        { title: "Set your preferences", description: "Choose password length and which character types to include: uppercase, lowercase, numbers, symbols." },
+        { title: "Generate your password", description: "Click generate to create a cryptographically random password that meets your requirements." },
+        { title: "Copy and use", description: "Copy the password to your clipboard and save it in your password manager." },
+      ],
+      tips: [
+        "Use at least 16 characters for important accounts. Longer passwords are exponentially harder to crack.",
+        "Include all character types (uppercase, lowercase, numbers, symbols) for maximum security.",
+        "Never reuse passwords across different accounts. Generate a unique password for each.",
+        "Store generated passwords in a password manager. Do not write them on sticky notes.",
+        "The passwords are generated using your browser's cryptographic random number generator, not predictable algorithms.",
+      ],
+    },
+    faq: [
+      { question: "How strong are the generated passwords?", answer: "Very strong. They use cryptographically secure random generation. A 16-character password with all character types has over 95 bits of entropy." },
+      { question: "Are the passwords stored anywhere?", answer: "No. Passwords are generated locally in your browser and are never transmitted or stored. We have no way to see your passwords." },
+      { question: "What length should I use?", answer: "At least 12 characters for general accounts, 16+ for important accounts like email and banking, 20+ for master passwords." },
+      { question: "Why not just use a memorable password?", answer: "Memorable passwords are predictable. Attackers use dictionaries, common patterns, and personal information to guess passwords. Random generation eliminates these vulnerabilities." },
+    ],
+    alternatives: {
+      intro: "Strong unique passwords are the foundation of online security.",
+      tools: [
+        { name: "1Password", description: "Password manager with generator", differentiator: "Paid subscription. Full password management suite." },
+        { name: "LastPass", description: "Password manager with generator", differentiator: "Requires account. Free tier has device limitations." },
+        { name: "Bitwarden", description: "Open-source password manager", differentiator: "Requires account and setup. Includes password generator." },
+      ],
+      whyUs: "Generate cryptographically secure passwords instantly. No account, no data stored, completely private. Use it alongside your preferred password manager.",
+    },
+    useCases: [
+      { title: "New account creation", description: "Generate a unique strong password every time you sign up for a new service." },
+      { title: "Password rotation", description: "Generate new passwords when updating credentials for security compliance." },
+      { title: "API keys and tokens", description: "Generate random strings for API keys, secret tokens, and authentication credentials." },
+    ],
+  },
+  "youtube-thumbnail-downloader": {
+    toolSlug: "youtube-thumbnail-downloader",
+    howTo: {
+      title: "How to Download YouTube Thumbnails Online",
+      steps: [
+        { title: "Open the YouTube Thumbnail Downloader", description: "Navigate to the tool. No account or extension needed." },
+        { title: "Paste the video URL", description: "Copy the YouTube video URL from your browser and paste it into the input field." },
+        { title: "View available thumbnails", description: "The tool fetches all available thumbnail resolutions for that video." },
+        { title: "Download your preferred size", description: "Click download on the resolution you need. Available sizes include default, medium, high, and maximum resolution." },
+      ],
+      tips: [
+        "Maximum resolution thumbnails are typically 1280x720 pixels, perfect for most design uses.",
+        "YouTube generates multiple sizes for each video. Choose the highest resolution for print or design work.",
+        "The thumbnail URL pattern is predictable. This tool just makes it easy to access without memorizing the pattern.",
+        "Thumbnails are publicly accessible images. Downloading them for reference or study is generally acceptable.",
+      ],
+    },
+    faq: [
+      { question: "What resolutions are available?", answer: "YouTube generates thumbnails at several sizes: default (120x90), medium (320x180), high (480x360), standard (640x480), and maxres (1280x720)." },
+      { question: "Does this work with any YouTube video?", answer: "Yes, as long as the video is public or unlisted. Private videos do not have accessible thumbnails." },
+      { question: "Is downloading thumbnails legal?", answer: "YouTube thumbnails are publicly accessible images. Downloading them for personal reference, analysis, or study is generally acceptable. Using them commercially may require permission from the creator." },
+    ],
+    alternatives: {
+      intro: "YouTube thumbnail downloading is useful for content creators, designers, and researchers.",
+      tools: [
+        { name: "Browser extensions", description: "Chrome/Firefox thumbnail extensions", differentiator: "Requires installation. May have privacy concerns with browser permissions." },
+        { name: "Manual URL editing", description: "Edit the YouTube thumbnail URL directly", differentiator: "Requires knowing the URL pattern. Error-prone and inconvenient." },
+      ],
+      whyUs: "Download YouTube thumbnails in all available resolutions with one click. No extension to install, no account needed. Just paste the URL.",
+    },
+    useCases: [
+      { title: "Thumbnail inspiration", description: "Study successful video thumbnails to improve your own thumbnail design strategy." },
+      { title: "Content creation", description: "Use video thumbnails as reference material when creating related content or presentations." },
+      { title: "Research and analysis", description: "Collect thumbnails for visual analysis, trend research, or academic studies on media." },
+    ],
+  },
+  "json-formatter": {
+    toolSlug: "json-formatter",
+    howTo: {
+      title: "How to Format and Validate JSON Online",
+      steps: [
+        { title: "Open the JSON Formatter", description: "Navigate to the tool. No signup needed." },
+        { title: "Paste your JSON", description: "Paste minified, unformatted, or messy JSON into the input area." },
+        { title: "Format instantly", description: "The tool validates your JSON and formats it with proper indentation and syntax highlighting." },
+        { title: "Copy or download", description: "Copy the formatted JSON to your clipboard or download it as a .json file." },
+      ],
+      tips: [
+        "The tool validates your JSON as it formats. If there are syntax errors, it will tell you exactly where.",
+        "Use this to debug API responses by pasting the raw JSON and seeing the structured output.",
+        "Minified JSON can be formatted to make it human-readable for debugging and code review.",
+        "The formatter uses 2-space indentation by default, which is the most common convention.",
+      ],
+    },
+    faq: [
+      { question: "Does it validate JSON?", answer: "Yes. The tool checks for valid JSON syntax and reports any errors with their location in the text." },
+      { question: "Can it minify JSON?", answer: "The primary function is formatting/beautifying. To minify, you can use the formatted output and remove whitespace." },
+      { question: "Is there a size limit?", answer: "No practical limit. Large JSON documents may take a moment to format but will work since processing is local." },
+    ],
+    alternatives: {
+      intro: "JSON formatting and validation is a daily task for web developers working with APIs and data.",
+      tools: [
+        { name: "VS Code", description: "Code editor with JSON formatting", differentiator: "Requires software installation. Full IDE for a simple formatting task." },
+        { name: "JSONLint", description: "Online JSON validator", differentiator: "Uploads data to servers. Limited formatting options." },
+      ],
+      whyUs: "Format and validate JSON instantly in your browser. Syntax error detection with line numbers. No uploads, no account. Your data stays private.",
+    },
+    useCases: [
+      { title: "API debugging", description: "Format raw API responses to inspect data structure and find issues." },
+      { title: "Code review", description: "Format JSON configuration files for easier reading during code reviews." },
+      { title: "Data inspection", description: "Format database exports or log entries to understand complex data structures." },
+    ],
+  },
+  "color-picker": {
+    toolSlug: "color-picker",
+    howTo: {
+      title: "How to Pick and Convert Colors Online",
+      steps: [
+        { title: "Open the Color Picker", description: "Navigate to the tool. Works instantly with no signup." },
+        { title: "Select a color", description: "Use the color wheel, sliders, or enter a specific color code in HEX, RGB, or HSL format." },
+        { title: "View all formats", description: "The tool displays your selected color in HEX, RGB, HSL, and other formats simultaneously." },
+        { title: "Copy the color code", description: "Click on any format to copy it to your clipboard for use in your code or design tool." },
+      ],
+      tips: [
+        "HEX codes are most common in web development. RGB is standard for digital design. HSL is intuitive for adjusting hue and saturation.",
+        "Use the eyedropper feature (if available) to pick colors from anywhere on your screen.",
+        "Save frequently used colors by copying their HEX codes to a text file for your project.",
+        "When choosing colors for accessibility, ensure sufficient contrast between text and background colors.",
+      ],
+    },
+    faq: [
+      { question: "What color formats are supported?", answer: "HEX, RGB, HSL, and other common formats. The tool converts between all formats instantly." },
+      { question: "Can I pick colors from images?", answer: "The tool provides a color wheel and input fields. For picking colors from images, upload the image to our image tools first." },
+      { question: "How do I ensure color accessibility?", answer: "Check the contrast ratio between your text and background colors. WCAG recommends a minimum ratio of 4.5:1 for normal text." },
+    ],
+    alternatives: {
+      intro: "Color picking and conversion is essential for designers and developers working on digital projects.",
+      tools: [
+        { name: "Adobe Color", description: "Professional color tool", differentiator: "Requires Adobe account. Advanced features for color theory." },
+        { name: "Coolors", description: "Color palette generator", differentiator: "Requires account for saving palettes. Free tier has limitations." },
+      ],
+      whyUs: "Pick colors and convert between formats instantly. No account, no uploads. Copy any format with one click.",
+    },
+    useCases: [
+      { title: "Web development", description: "Get HEX or RGB codes for CSS styling of websites and web applications." },
+      { title: "Graphic design", description: "Find exact color values for maintaining brand consistency across design projects." },
+      { title: "UI design", description: "Choose and convert colors for interface elements, buttons, and text." },
+    ],
+  },
+  "favicon-generator": {
+    toolSlug: "favicon-generator",
+    howTo: {
+      title: "How to Generate a Favicon Online",
+      steps: [
+        { title: "Open the Favicon Generator", description: "Navigate to the tool. No account needed." },
+        { title: "Upload your image or logo", description: "Drag and drop a PNG, JPG, or SVG image that you want to use as your favicon." },
+        { title: "Generate favicon sizes", description: "The tool creates all necessary favicon sizes: 16x16, 32x32, 48x48, and more." },
+        { title: "Download the favicon package", description: "Download all sizes and the HTML code needed to add the favicon to your website." },
+      ],
+      tips: [
+        "Use a simple, recognizable image. Favicons are displayed at very small sizes so detail is lost.",
+        "Square images work best. Non-square images will be cropped or padded.",
+        "SVG input produces the sharpest results since it scales perfectly to all sizes.",
+        "Include multiple sizes in your HTML for the best display across all browsers and devices.",
+      ],
+    },
+    faq: [
+      { question: "What sizes do I need?", answer: "At minimum: 16x16 (browser tab), 32x32 (taskbar), and 180x180 (Apple touch icon). The tool generates all common sizes." },
+      { question: "What image format should I upload?", answer: "PNG or SVG for best results. JPG works but may have compression artifacts at small sizes." },
+      { question: "How do I add the favicon to my website?", answer: "Add the generated HTML link tags to the head section of your HTML. The tool provides the exact code you need." },
+    ],
+    alternatives: {
+      intro: "Every website needs a favicon. It appears in browser tabs, bookmarks, and search results.",
+      tools: [
+        { name: "RealFaviconGenerator", description: "Comprehensive favicon generator", differentiator: "Uploads images to servers. More options but more complex." },
+        { name: "Favicon.io", description: "Simple favicon generator", differentiator: "Uploads to servers. Can generate from text or emoji." },
+      ],
+      whyUs: "Generate all favicon sizes instantly from any image. No uploads, no account. Download the complete package with HTML code included.",
+    },
+    useCases: [
+      { title: "New website launch", description: "Generate favicons for a new website using your logo or brand mark." },
+      { title: "Rebranding", description: "Update all favicon sizes when refreshing your brand identity." },
+      { title: "PWA development", description: "Generate all icon sizes needed for Progressive Web App manifests." },
+    ],
+  },
+  "ai-text-rewriter": {
+    toolSlug: "ai-text-rewriter",
+    howTo: {
+      title: "How to Rewrite Text with AI Online",
+      steps: [
+        { title: "Open the AI Text Rewriter", description: "Navigate to the tool. No account or API key needed." },
+        { title: "Paste your text", description: "Enter the text you want to rewrite in a different style or tone." },
+        { title: "Choose rewrite style", description: "Select the tone you want: professional, casual, simplified, expanded, or other options." },
+        { title: "Get your rewritten text", description: "The AI generates an alternative version maintaining the original meaning with your chosen style." },
+      ],
+      tips: [
+        "Provide clear, complete sentences for the best rewrite results.",
+        "Try different styles to find the tone that best fits your audience.",
+        "Review and edit the AI output. It captures meaning well but may need minor adjustments.",
+        "For long texts, rewrite in sections for more consistent results.",
+      ],
+    },
+    faq: [
+      { question: "Does it change the meaning?", answer: "The AI preserves the core meaning while changing the wording, structure, and tone. Always review the output to ensure accuracy." },
+      { question: "Is the output unique?", answer: "Yes. The AI generates original phrasing each time, producing text that is distinct from the input." },
+      { question: "What languages are supported?", answer: "The tool works best with English but can handle other major languages." },
+    ],
+    alternatives: {
+      intro: "AI text rewriting helps writers adjust tone, simplify language, or create alternative versions of content.",
+      tools: [
+        { name: "QuillBot", description: "Dedicated paraphrasing tool", differentiator: "Requires account. Premium features behind paywall." },
+        { name: "ChatGPT", description: "General AI assistant", differentiator: "Requires OpenAI account. Not specialized for rewriting." },
+      ],
+      whyUs: "Rewrite text instantly with AI. Multiple tone options. No account, no usage limits. Your text stays private.",
+    },
+    useCases: [
+      { title: "Professional emails", description: "Rewrite casual draft emails into professional business communication." },
+      { title: "Content adaptation", description: "Adjust blog posts or articles for different audiences or reading levels." },
+      { title: "Academic writing", description: "Rephrase content to avoid repetition and improve clarity in academic papers." },
+    ],
+  },
+  "ai-image-upscaler": {
+    toolSlug: "ai-image-upscaler",
+    howTo: {
+      title: "How to Upscale Images with AI Online",
+      steps: [
+        { title: "Open the AI Image Upscaler", description: "Navigate to the tool. No account or software needed." },
+        { title: "Upload your image", description: "Drag and drop a low-resolution image. Supports JPG, PNG, and WebP." },
+        { title: "Choose upscale factor", description: "Select 2x or 4x enlargement. Higher factors produce larger images with more AI-generated detail." },
+        { title: "Download the upscaled image", description: "Save your enhanced, higher-resolution image." },
+      ],
+      tips: [
+        "2x upscaling doubles the width and height, resulting in 4 times as many pixels.",
+        "The AI adds realistic detail that does not exist in the original. It works best on photos and natural images.",
+        "For best results, start with the highest quality source image you have, even if it is small.",
+        "Illustrations and line art may not upscale as well as photographs.",
+      ],
+    },
+    faq: [
+      { question: "How does AI upscaling work?", answer: "The AI model has been trained on millions of images to understand patterns, textures, and details. It uses this knowledge to intelligently fill in new pixels when enlarging an image." },
+      { question: "Is the quality really better than regular resizing?", answer: "Yes, significantly. Regular resizing just interpolates between existing pixels, producing blurry results. AI upscaling generates realistic new detail." },
+      { question: "What images work best?", answer: "Photographs and natural images upscale best. The AI understands faces, landscapes, textures, and objects well." },
+    ],
+    alternatives: {
+      intro: "AI image upscaling uses machine learning to enhance image resolution beyond what traditional methods can achieve.",
+      tools: [
+        { name: "Topaz Gigapixel", description: "Professional AI upscaler", differentiator: "Paid desktop software. Best quality but expensive." },
+        { name: "Let's Enhance", description: "Online AI upscaler", differentiator: "Uploads to servers. Requires account. Free tier has limits." },
+      ],
+      whyUs: "Upscale images with AI directly in your browser. No uploads to servers, no account needed. Your images stay completely private.",
+    },
+    useCases: [
+      { title: "Enhancing old photos", description: "Upscale old, low-resolution family photos and vintage images to modern quality levels." },
+      { title: "Print preparation", description: "Upscale web-resolution images to print-quality dimensions without the usual blurriness." },
+      { title: "Social media content", description: "Enhance small images to meet the higher resolution requirements of social media platforms." },
+    ],
+  },
+  "grammar-checker": {
+    toolSlug: "grammar-checker",
+    howTo: {
+      title: "How to Check Grammar Online",
+      steps: [
+        { title: "Open the Grammar Checker", description: "Navigate to the tool. No installation or account needed." },
+        { title: "Paste or type your text", description: "Enter the text you want to check for grammar, spelling, and punctuation errors." },
+        { title: "Review suggestions", description: "The tool highlights errors and provides correction suggestions with explanations." },
+        { title: "Apply corrections", description: "Click on suggestions to apply them, or manually edit the text based on the recommendations." },
+      ],
+      tips: [
+        "Check your text before sending important emails, submitting assignments, or publishing content.",
+        "Read through all suggestions carefully. Automated tools can sometimes flag correct usage.",
+        "The tool catches common errors like subject-verb agreement, missing commas, and incorrect word usage.",
+        "For the best results, check one paragraph at a time rather than very long documents.",
+      ],
+    },
+    faq: [
+      { question: "What types of errors does it catch?", answer: "Spelling mistakes, grammar errors (subject-verb agreement, tense consistency), punctuation issues, and common word usage mistakes." },
+      { question: "Does it support multiple languages?", answer: "The tool is primarily designed for English text. Support for other languages may be limited." },
+      { question: "Is it better than my word processor's spell check?", answer: "It catches grammar and style issues that basic spell checkers miss, including contextual errors and sentence structure problems." },
+    ],
+    alternatives: {
+      intro: "Grammar checking is essential for professional communication, academic writing, and content creation.",
+      tools: [
+        { name: "Grammarly", description: "Popular grammar checking tool", differentiator: "Requires account and browser extension. Premium features behind paywall." },
+        { name: "ProWritingAid", description: "Writing analysis tool", differentiator: "Requires account. Free tier has word count limits." },
+        { name: "Microsoft Editor", description: "Built into Microsoft products", differentiator: "Requires Microsoft account and Office products." },
+      ],
+      whyUs: "Check grammar instantly in your browser. No extension to install, no account to create. Your text is never uploaded or stored anywhere.",
+    },
+    useCases: [
+      { title: "Email proofreading", description: "Check important business emails for grammar and spelling before sending." },
+      { title: "Academic writing", description: "Proofread essays, papers, and assignments before submission." },
+      { title: "Content creation", description: "Polish blog posts, articles, and marketing copy before publishing." },
+      { title: "Non-native speakers", description: "Help non-native English speakers identify and correct common grammar mistakes." },
+    ],
+  },
 };
 
 // Generate content for tools that don't have custom entries
