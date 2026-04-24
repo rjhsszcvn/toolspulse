@@ -284,18 +284,30 @@ export default function ToolPageLayout({ tool, children }: ToolPageLayoutProps) 
             </div>
 
             {/* Deep links to subpages */}
-            <div className="grid gap-3 sm:grid-cols-3">
-              <Link href={`/tools/${tool.slug}/how-to`} className="rounded-xl border border-gray-200 bg-white p-5 hover:border-blue-300 hover:shadow-md transition-all group">
+            <div className="grid gap-4 sm:grid-cols-3">
+              <Link href={`/tools/${tool.slug}/how-to`} className="rounded-2xl border border-gray-200 bg-white p-6 hover:border-blue-300 hover:shadow-lg hover:-translate-y-0.5 transition-all group">
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100 text-blue-600 mb-4">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" /></svg>
+                </div>
                 <h4 className="text-sm font-bold text-gray-900 group-hover:text-blue-600">Full Step-by-Step Guide</h4>
-                <p className="mt-1 text-xs text-gray-500">Detailed walkthrough with screenshots and pro tips for getting the best results.</p>
+                <p className="mt-2 text-xs text-gray-500 leading-relaxed">Detailed walkthrough with pro tips and best practices for getting the best results every time.</p>
+                <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 group-hover:gap-2 transition-all">Read guide <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg></span>
               </Link>
-              <Link href={`/tools/${tool.slug}/faq`} className="rounded-xl border border-gray-200 bg-white p-5 hover:border-blue-300 hover:shadow-md transition-all group">
-                <h4 className="text-sm font-bold text-gray-900 group-hover:text-blue-600">All FAQ</h4>
-                <p className="mt-1 text-xs text-gray-500">Every common question answered — file limits, privacy, compatibility, and more.</p>
+              <Link href={`/tools/${tool.slug}/faq`} className="rounded-2xl border border-gray-200 bg-white p-6 hover:border-blue-300 hover:shadow-lg hover:-translate-y-0.5 transition-all group">
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 mb-4">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" /></svg>
+                </div>
+                <h4 className="text-sm font-bold text-gray-900 group-hover:text-blue-600">Frequently Asked Questions</h4>
+                <p className="mt-2 text-xs text-gray-500 leading-relaxed">Every common question answered — file limits, privacy, supported formats, compatibility, and more.</p>
+                <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 group-hover:gap-2 transition-all">View FAQ <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg></span>
               </Link>
-              <Link href={`/tools/${tool.slug}/alternatives`} className="rounded-xl border border-gray-200 bg-white p-5 hover:border-blue-300 hover:shadow-md transition-all group">
+              <Link href={`/tools/${tool.slug}/alternatives`} className="rounded-2xl border border-gray-200 bg-white p-6 hover:border-blue-300 hover:shadow-lg hover:-translate-y-0.5 transition-all group">
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-violet-100 text-violet-600 mb-4">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" /></svg>
+                </div>
                 <h4 className="text-sm font-bold text-gray-900 group-hover:text-blue-600">Compare Alternatives</h4>
-                <p className="mt-1 text-xs text-gray-500">See how {tool.name} compares to paid and free alternatives.</p>
+                <p className="mt-2 text-xs text-gray-500 leading-relaxed">See how {tool.name} stacks up against Adobe, Smallpdf, and other paid and free alternatives.</p>
+                <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 group-hover:gap-2 transition-all">Compare now <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg></span>
               </Link>
             </div>
 
