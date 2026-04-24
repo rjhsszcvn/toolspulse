@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
+import { saveAs } from "file-saver";
 import { getToolBySlug } from "@/config/tools";
 import ToolPageLayout from "@/components/tools/ToolPageLayout";
 
@@ -64,9 +66,114 @@ export default function ResumeBuilderPage() {
     setEducation(education.filter((e) => e.id !== id));
   };
 
-  const handlePrint = () => {
-    setShowPreview(true);
-    setTimeout(() => window.print(), 300);
+  const handlePrint = async () => {
+    const pdfDoc = await PDFDocument.create();
+    const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+    const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+    const page = pdfDoc.addPage([595, 842]);
+    const { width, height } = page.getSize();
+    let y = height - 50;
+    const margin = 50;
+
+    if (name) {
+      page.drawText(name, { x: margin, y, font: fontBold, size: 22, color: rgb(0.1, 0.1, 0.1) });
+      y -= 28;
+    }
+
+    const contactParts = [email, phone, location].filter(Boolean);
+    if (contactParts.length > 0) {
+      page.drawText(contactParts.join("  |  "), { x: margin, y, font, size: 9, color: rgb(0.4, 0.4, 0.4) });
+      y -= 20;
+    }
+
+    if (summary) {
+      page.drawLine({ start: { x: margin, y: y + 4 }, end: { x: width - margin, y: y + 4 }, thickness: 0.5, color: rgb(0.8, 0.8, 0.8) });
+      y -= 16;
+      page.drawText("PROFESSIONAL SUMMARY", { x: margin, y, font: fontBold, size: 10, color: rgb(0.2, 0.2, 0.2) });
+      y -= 16;
+      const words = summary.split(" ");
+      let line = "";
+      for (const word of words) {
+        if (font.widthOfTextAtSize(line + " " + word, 9) > width - margin * 2) {
+          page.drawText(line.trim(), { x: margin, y, font, size: 9, color: rgb(0.3, 0.3, 0.3) });
+          y -= 13;
+          line = word;
+        } else {
+          line += " " + word;
+        }
+      }
+      if (line.trim()) { page.drawText(line.trim(), { x: margin, y, font, size: 9, color: rgb(0.3, 0.3, 0.3) }); y -= 13; }
+      y -= 6;
+    }
+
+    const validExp = experiences.filter((e) => e.company || e.title);
+    if (validExp.length > 0) {
+      page.drawLine({ start: { x: margin, y: y + 4 }, end: { x: width - margin, y: y + 4 }, thickness: 0.5, color: rgb(0.8, 0.8, 0.8) });
+      y -= 16;
+      page.drawText("EXPERIENCE", { x: margin, y, font: fontBold, size: 10, color: rgb(0.2, 0.2, 0.2) });
+      y -= 18;
+      for (const exp of validExp) {
+        if (exp.title) { page.drawText(exp.title, { x: margin, y, font: fontBold, size: 10 }); y -= 14; }
+        const compLine = [exp.company, exp.period].filter(Boolean).join("  |  ");
+        if (compLine) { page.drawText(compLine, { x: margin, y, font, size: 9, color: rgb(0.4, 0.4, 0.4) }); y -= 14; }
+        if (exp.description) {
+          const words2 = exp.description.split(" ");
+          let line2 = "";
+          for (const word of words2) {
+            if (font.widthOfTextAtSize(line2 + " " + word, 8) > width - margin * 2 - 8) {
+              page.drawText(line2.trim(), { x: margin + 8, y, font, size: 8, color: rgb(0.3, 0.3, 0.3) });
+              y -= 12;
+              line2 = word;
+            } else {
+              line2 += " " + word;
+            }
+          }
+          if (line2.trim()) { page.drawText(line2.trim(), { x: margin + 8, y, font, size: 8, color: rgb(0.3, 0.3, 0.3) }); y -= 12; }
+        }
+        y -= 8;
+        if (y < 100) break;
+      }
+    }
+
+    const validEdu = education.filter((e) => e.school || e.degree);
+    if (validEdu.length > 0) {
+      page.drawLine({ start: { x: margin, y: y + 4 }, end: { x: width - margin, y: y + 4 }, thickness: 0.5, color: rgb(0.8, 0.8, 0.8) });
+      y -= 16;
+      page.drawText("EDUCATION", { x: margin, y, font: fontBold, size: 10, color: rgb(0.2, 0.2, 0.2) });
+      y -= 18;
+      for (const edu of validEdu) {
+        if (edu.degree) { page.drawText(edu.degree, { x: margin, y, font: fontBold, size: 10 }); y -= 14; }
+        const schoolLine = [edu.school, edu.year].filter(Boolean).join("  |  ");
+        if (schoolLine) { page.drawText(schoolLine, { x: margin, y, font, size: 9, color: rgb(0.4, 0.4, 0.4) }); y -= 14; }
+        y -= 6;
+        if (y < 80) break;
+      }
+    }
+
+    if (skills.trim()) {
+      page.drawLine({ start: { x: margin, y: y + 4 }, end: { x: width - margin, y: y + 4 }, thickness: 0.5, color: rgb(0.8, 0.8, 0.8) });
+      y -= 16;
+      page.drawText("SKILLS", { x: margin, y, font: fontBold, size: 10, color: rgb(0.2, 0.2, 0.2) });
+      y -= 16;
+      const skillWords = skills.split(" ");
+      let skillLine = "";
+      for (const word of skillWords) {
+        if (font.widthOfTextAtSize(skillLine + " " + word, 9) > width - margin * 2) {
+          page.drawText(skillLine.trim(), { x: margin, y, font, size: 9, color: rgb(0.3, 0.3, 0.3) });
+          y -= 13;
+          skillLine = word;
+        } else {
+          skillLine += " " + word;
+        }
+      }
+      if (skillLine.trim()) { page.drawText(skillLine.trim(), { x: margin, y, font, size: 9, color: rgb(0.3, 0.3, 0.3) }); }
+    }
+
+    page.drawText("Generated by ToolsePulse.co", { x: margin, y: 30, font, size: 7, color: rgb(0.7, 0.7, 0.7) });
+
+    const pdfBytes = await pdfDoc.save();
+    const blob = new Blob([pdfBytes as BlobPart], { type: "application/pdf" });
+    saveAs(blob, (name || "resume").replace(/\s+/g, "_") + "_resume.pdf");
   };
 
   const inputClass = "w-full rounded-xl border-2 border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-blue-400 transition-colors";
