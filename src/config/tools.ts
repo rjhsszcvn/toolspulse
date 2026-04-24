@@ -527,6 +527,19 @@ export const tools: Tool[] = [
     tier: 1,
     keywords: ["text diff", "compare text", "diff checker", "text compare online", "find differences in text"],
   },
+  {
+    id: "base64-encoder",
+    name: "Base64 Encoder/Decoder",
+    description: "Encode text to Base64 or decode Base64 back to text instantly. Supports UTF-8 characters. Free, private, no signup needed.",
+    shortDescription: "Encode and decode Base64 strings",
+    slug: "base64-encoder",
+    category: "developer",
+    icon: "Binary",
+    isNew: true,
+    isPopular: false,
+    tier: 2,
+    keywords: ["base64 encode", "base64 decode", "base64 converter", "base64 online", "encode base64"],
+  },
   // AI Tools
   {
     id: "ai-text-rewriter",

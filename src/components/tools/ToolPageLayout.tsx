@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { type Tool, categories } from "@/config/tools";
 import ToolJsonLd from "./ToolJsonLd";
+import { getToolContent } from "@/config/tool-content";
 
 const categoryIconColors: Record<string, string> = {
   pdf: "bg-red-100 text-red-600",
@@ -19,6 +20,8 @@ interface ToolPageLayoutProps {
 }
 
 export default function ToolPageLayout({ tool, children }: ToolPageLayoutProps) {
+  const content = getToolContent(tool.slug);
+
   return (
     <div className="min-h-[80vh]">
       <ToolJsonLd tool={tool} />
@@ -31,7 +34,7 @@ export default function ToolPageLayout({ tool, children }: ToolPageLayoutProps) 
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
             </svg>
-            <Link href={`/#${tool.category}`} className="hover:text-gray-900 transition-colors">
+            <Link href={`/category/${tool.category}`} className="hover:text-gray-900 transition-colors">
               {categories[tool.category].label}
             </Link>
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -80,67 +83,153 @@ export default function ToolPageLayout({ tool, children }: ToolPageLayoutProps) 
         {children}
       </div>
 
-      {/* SEO Content Section */}
-      <div className="border-t border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="space-y-6 text-sm text-gray-600 leading-relaxed">
-            <h2 className="text-xl font-bold text-gray-900">About {tool.name}</h2>
-            <p>
-              {tool.name} by ToolsePulse is a free online tool that lets you {tool.shortDescription.toLowerCase()} directly in your browser.
-              Unlike other services, your files are never uploaded to any server — all processing happens locally on your device,
-              ensuring complete privacy and security.
-            </p>
-            <h3 className="text-lg font-semibold text-gray-900">Key Features</h3>
-            <ul className="space-y-2">
-              <li className="flex items-start gap-2">
-                <svg className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg>
-                <span><strong>100% Free</strong> — No hidden fees, no premium tiers, no limits on usage.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <svg className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg>
-                <span><strong>Complete Privacy</strong> — Your files never leave your device. We cannot access your data.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <svg className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg>
-                <span><strong>No Registration</strong> — Start using the tool immediately. No account or email required.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <svg className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                </svg>
-                <span><strong>Works Everywhere</strong> — Compatible with Chrome, Firefox, Safari, Edge on desktop and mobile.</span>
-              </li>
-            </ul>
-            <h3 className="text-lg font-semibold text-gray-900">How It Works</h3>
-            <p>
-              Simply upload your file using the tool above, adjust any settings to your preference, and download the result.
-              The entire process happens in your web browser using modern JavaScript APIs, which means there is no server involved
-              and your data stays completely private. This also means the tool works offline once the page has loaded.
-            </p>
+      {/* Rich SEO Content */}
+      {content && (
+        <div className="border-t border-gray-100 bg-gray-50">
+          <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              <Link href={`/tools/${tool.slug}/how-to`} className="rounded-xl border border-gray-200 bg-white p-4 hover:border-blue-300 hover:shadow-md transition-all group">
-                <h4 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600">Step-by-Step Guide</h4>
-                <p className="mt-1 text-xs text-gray-500">Detailed how-to with tips</p>
+            {/* How To Section */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{content.howTo.title}</h2>
+              <div className="space-y-4">
+                {content.howTo.steps.map((step: { title: string; description: string }, i: number) => (
+                  <div key={i} className="flex gap-4 rounded-xl border border-gray-200 bg-white p-5">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-100 text-blue-700 text-sm font-bold flex-shrink-0">{i + 1}</div>
+                    <div>
+                      <h3 className="text-sm font-bold text-gray-900">{step.title}</h3>
+                      <p className="mt-1 text-sm text-gray-600 leading-relaxed">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {content.howTo.tips.length > 0 && (
+                <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-5">
+                  <h3 className="text-sm font-bold text-amber-800 mb-3">Pro Tips</h3>
+                  <ul className="space-y-2">
+                    {content.howTo.tips.map((tip: string, i: number) => (
+                      <li key={i} className="flex gap-2 text-sm text-amber-900">
+                        <span className="text-amber-500 flex-shrink-0">•</span>
+                        {tip}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {/* Use Cases */}
+            {content.useCases.length > 0 && (
+              <div className="mb-12">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">When to Use {tool.name}</h2>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {content.useCases.map((uc: { title: string; description: string }, i: number) => (
+                    <div key={i} className="rounded-xl border border-gray-200 bg-white p-5">
+                      <h3 className="text-sm font-bold text-gray-900">{uc.title}</h3>
+                      <p className="mt-1 text-sm text-gray-600 leading-relaxed">{uc.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* FAQ Section */}
+            {content.faq.length > 0 && (
+              <div className="mb-12">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <div className="space-y-2">
+                  {content.faq.map((item: { question: string; answer: string }, i: number) => (
+                    <details key={i} className="group rounded-xl border border-gray-200 bg-white">
+                      <summary className="flex cursor-pointer items-center justify-between p-4 text-sm font-semibold text-gray-900">
+                        {item.question}
+                        <svg className="h-4 w-4 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                      </summary>
+                      <p className="px-4 pb-4 text-sm text-gray-600 leading-relaxed">{item.answer}</p>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Alternatives Section */}
+            {content.alternatives.tools.length > 0 && (
+              <div className="mb-12">
+                <h2 className="text-xl font-bold text-gray-900 mb-2">{tool.name} vs Alternatives</h2>
+                <p className="text-sm text-gray-600 mb-4">{content.alternatives.intro}</p>
+                <div className="space-y-3">
+                  {content.alternatives.tools.map((alt: { name: string; description: string; differentiator: string }, i: number) => (
+                    <div key={i} className="rounded-xl border border-gray-200 bg-white p-4">
+                      <h3 className="text-sm font-bold text-gray-900">{alt.name}</h3>
+                      <p className="text-sm text-gray-600 mt-0.5">{alt.description}</p>
+                      <p className="text-xs text-gray-500 mt-2 bg-gray-50 rounded-lg p-2 border border-gray-100">
+                        <span className="font-medium text-gray-700">Key difference:</span> {alt.differentiator}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4 rounded-xl border-2 border-blue-200 bg-blue-50 p-5">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="rounded-full bg-blue-600 px-2.5 py-0.5 text-[9px] font-bold text-white uppercase">Our advantage</span>
+                  </div>
+                  <p className="text-sm text-gray-700 leading-relaxed">{content.alternatives.whyUs}</p>
+                </div>
+              </div>
+            )}
+
+            {/* Key Features */}
+            <div className="mb-12">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">Key Features</h2>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="rounded-xl border border-gray-200 bg-white p-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <svg className="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                    <h3 className="text-sm font-bold text-gray-900">100% Free</h3>
+                  </div>
+                  <p className="text-sm text-gray-600">No hidden fees, no premium tiers, no limits on how much you use it. Free today, free tomorrow, free forever.</p>
+                </div>
+                <div className="rounded-xl border border-gray-200 bg-white p-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <svg className="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                    <h3 className="text-sm font-bold text-gray-900">Complete Privacy</h3>
+                  </div>
+                  <p className="text-sm text-gray-600">Your files never leave your device. Everything is processed locally in your browser — we physically cannot access your data.</p>
+                </div>
+                <div className="rounded-xl border border-gray-200 bg-white p-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <svg className="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                    <h3 className="text-sm font-bold text-gray-900">No Registration</h3>
+                  </div>
+                  <p className="text-sm text-gray-600">Start using the tool immediately. No account, no email, no personal information required. Just open and use.</p>
+                </div>
+                <div className="rounded-xl border border-gray-200 bg-white p-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <svg className="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                    <h3 className="text-sm font-bold text-gray-900">Works Everywhere</h3>
+                  </div>
+                  <p className="text-sm text-gray-600">Compatible with Chrome, Firefox, Safari, and Edge on desktop and mobile. Works offline once the page has loaded.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Deep links to subpages */}
+            <div className="grid gap-3 sm:grid-cols-3">
+              <Link href={`/tools/${tool.slug}/how-to`} className="rounded-xl border border-gray-200 bg-white p-5 hover:border-blue-300 hover:shadow-md transition-all group">
+                <h4 className="text-sm font-bold text-gray-900 group-hover:text-blue-600">Full Step-by-Step Guide</h4>
+                <p className="mt-1 text-xs text-gray-500">Detailed walkthrough with screenshots and pro tips for getting the best results.</p>
               </Link>
-              <Link href={`/tools/${tool.slug}/faq`} className="rounded-xl border border-gray-200 bg-white p-4 hover:border-blue-300 hover:shadow-md transition-all group">
-                <h4 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600">FAQ</h4>
-                <p className="mt-1 text-xs text-gray-500">Common questions answered</p>
+              <Link href={`/tools/${tool.slug}/faq`} className="rounded-xl border border-gray-200 bg-white p-5 hover:border-blue-300 hover:shadow-md transition-all group">
+                <h4 className="text-sm font-bold text-gray-900 group-hover:text-blue-600">All FAQ</h4>
+                <p className="mt-1 text-xs text-gray-500">Every common question answered — file limits, privacy, compatibility, and more.</p>
               </Link>
-              <Link href={`/tools/${tool.slug}/alternatives`} className="rounded-xl border border-gray-200 bg-white p-4 hover:border-blue-300 hover:shadow-md transition-all group">
-                <h4 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600">Alternatives</h4>
-                <p className="mt-1 text-xs text-gray-500">Compare with other tools</p>
+              <Link href={`/tools/${tool.slug}/alternatives`} className="rounded-xl border border-gray-200 bg-white p-5 hover:border-blue-300 hover:shadow-md transition-all group">
+                <h4 className="text-sm font-bold text-gray-900 group-hover:text-blue-600">Compare Alternatives</h4>
+                <p className="mt-1 text-xs text-gray-500">See how {tool.name} compares to paid and free alternatives.</p>
               </Link>
             </div>
+
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
