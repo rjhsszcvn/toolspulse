@@ -420,23 +420,7 @@ export default function HomePage() {
       )}
 
       {/* Ad - between popular and how it works */}
-      {!search.trim() && (
-        <section className="py-4">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6">
-            <AdBanner type="native" />
-          </div>
-        </section>
-      )}
-
-      {/* Ad - between popular and how it works */}
-      {!search.trim() && (
-        <section className="py-4">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6">
-            <AdBanner type="native" />
-          </div>
-        </section>
-      )}
-
+      
       {/* ===== HOW IT WORKS ===== */}
       {!search.trim() && (
         <section className="py-12 sm:py-16 border-t border-slate-100">

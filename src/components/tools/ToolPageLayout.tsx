@@ -221,9 +221,7 @@ export default function ToolPageLayout({ tool, children }: ToolPageLayoutProps) 
             </div>
 
             {/* Ad - between FAQ and alternatives */}
-            <div className="mb-12">
-              <AdBanner type="native" />
-            </div>
+            
 
             {/* Alternatives Section */}
             {content.alternatives.tools.length > 0 && (
