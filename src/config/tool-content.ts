@@ -1599,6 +1599,226 @@ export const toolContentMap: Record<string, ToolContent> = {
       { title: "Non-native speakers", description: "Help non-native English speakers identify and correct common grammar mistakes." },
     ],
   },
+  "pdf-editor": {
+    toolSlug: "pdf-editor",
+    howTo: {
+      title: "How to Edit a PDF Online",
+      steps: [
+        { title: "Open the PDF Editor", description: "Navigate to the tool. No account or installation needed." },
+        { title: "Upload your PDF", description: "Drag and drop your PDF file or click to browse. Any PDF size is accepted." },
+        { title: "Add text and annotations", description: "Type your text, choose font size, color, and position on the page. Add as many annotations as you need." },
+        { title: "Download the edited PDF", description: "Click save and your edited PDF downloads with all annotations embedded." },
+      ],
+      tips: [
+        "Use the X and Y position fields to place text precisely. Y=750 is near the top of an A4 page, Y=50 is near the bottom.",
+        "Add multiple text annotations before saving. Each one is tracked separately so you can remove individual changes.",
+        "Choose a contrasting color for your annotations so they stand out from the original document content.",
+        "The editor preserves all original PDF content. Your annotations are added on top without modifying existing text.",
+      ],
+    },
+    faq: [
+      { question: "Can I edit existing text in the PDF?", answer: "This tool adds new text on top of the existing PDF. To modify original text, convert the PDF to Word first, edit, then convert back." },
+      { question: "Will the original content be affected?", answer: "No. All original text, images, and formatting are preserved exactly. Your annotations are layered on top." },
+      { question: "Can I add text to specific pages?", answer: "Yes. Select the page number for each annotation. You can add different text to different pages." },
+      { question: "Does it work with scanned PDFs?", answer: "Yes. The editor adds text on top of any PDF regardless of how it was created." },
+    ],
+    alternatives: {
+      intro: "PDF editing is one of the most common document tasks. Here is how available options compare.",
+      tools: [
+        { name: "Adobe Acrobat Pro", description: "Professional PDF editor", differentiator: "Paid subscription. Full editing capability but expensive." },
+        { name: "Smallpdf", description: "Online PDF editor", differentiator: "Uploads files to servers. Limited free usage per day." },
+      ],
+      whyUs: "Edit PDFs instantly in your browser. Add text with precise positioning and color control. No uploads, no account, no watermarks.",
+    },
+    useCases: [
+      { title: "Adding notes to documents", description: "Annotate contracts, reports, or academic papers with comments and corrections." },
+      { title: "Filling in forms", description: "Add text to PDF forms that do not have fillable fields." },
+      { title: "Adding headers or footers", description: "Place page numbers, dates, or labels on PDF documents." },
+    ],
+  },
+  "pdf-signer": {
+    toolSlug: "pdf-signer",
+    howTo: {
+      title: "How to Sign a PDF Online",
+      steps: [
+        { title: "Open the PDF Signer", description: "Navigate to the tool. No account or software needed." },
+        { title: "Upload your PDF", description: "Drag and drop the document you need to sign." },
+        { title: "Create your signature", description: "Type your name for a text signature, or draw your signature with your mouse or finger." },
+        { title: "Download the signed PDF", description: "Your signature is embedded on the last page with a date stamp. Download the signed document." },
+      ],
+      tips: [
+        "Use the draw option for a more authentic-looking signature that matches your handwriting.",
+        "The signature is placed on the last page by default, which is where most documents require signatures.",
+        "A date stamp is automatically added below your signature for documentation purposes.",
+        "Your signature data never leaves your browser. The signing happens entirely on your device.",
+      ],
+    },
+    faq: [
+      { question: "Is this a legally valid electronic signature?", answer: "This tool creates a visual signature on the PDF. For legally binding e-signatures with audit trails, dedicated e-signature platforms like DocuSign may be required depending on your jurisdiction." },
+      { question: "Can I sign multiple pages?", answer: "Currently the signature is added to the last page. For multi-page signing, sign the document multiple times or use the PDF editor to add text signatures to specific pages." },
+      { question: "Is my signature stored anywhere?", answer: "No. Your signature is created and applied entirely in your browser. We never see or store your signature data." },
+    ],
+    alternatives: {
+      intro: "Signing PDFs electronically is essential for remote work and digital document workflows.",
+      tools: [
+        { name: "DocuSign", description: "Professional e-signature platform", differentiator: "Paid service. Legally binding with audit trails but requires account." },
+        { name: "Adobe Sign", description: "Adobe e-signature solution", differentiator: "Part of Adobe ecosystem. Paid subscription required." },
+      ],
+      whyUs: "Sign PDFs instantly for free. Type or draw your signature. No account, no uploads. Your signature stays completely private.",
+    },
+    useCases: [
+      { title: "Signing contracts", description: "Add your signature to rental agreements, freelance contracts, or business proposals." },
+      { title: "Approving documents", description: "Sign off on internal documents, expense reports, or approval forms." },
+      { title: "Academic submissions", description: "Sign honor pledges, thesis declarations, or recommendation forms." },
+    ],
+  },
+  "pdf-unlocker": {
+    toolSlug: "pdf-unlocker",
+    howTo: {
+      title: "How to Unlock a PDF Online",
+      steps: [
+        { title: "Open the PDF Unlocker", description: "Navigate to the tool. Works instantly with no signup." },
+        { title: "Upload your locked PDF", description: "Drag and drop the password-protected or restricted PDF file." },
+        { title: "Enter password if needed", description: "If the PDF requires a password to open, enter it. View-only restrictions are removed automatically." },
+        { title: "Download the unlocked PDF", description: "Your unrestricted PDF downloads with all protections removed." },
+      ],
+      tips: [
+        "PDFs with view-only restrictions (no printing, no copying) can often be unlocked without a password.",
+        "If the PDF requires a password to open, you must know the password. This tool cannot crack passwords.",
+        "The unlocked PDF preserves all original content, formatting, and images.",
+        "Once unlocked, you can freely print, copy text, and edit the document.",
+      ],
+    },
+    faq: [
+      { question: "Can it crack PDF passwords?", answer: "No. If a PDF requires a password to open, you must provide the correct password. The tool removes restrictions from PDFs you are authorized to access." },
+      { question: "What restrictions can it remove?", answer: "Print restrictions, copy restrictions, editing restrictions, and form-filling restrictions. These are owner-level permissions that can be removed without the owner password." },
+      { question: "Is this legal?", answer: "Removing restrictions from PDFs you own or have permission to modify is generally legal. Do not use this to bypass protections on documents you are not authorized to access." },
+    ],
+    alternatives: {
+      intro: "PDF unlocking is needed when documents have unnecessary restrictions that prevent legitimate use.",
+      tools: [
+        { name: "Smallpdf Unlock", description: "Online PDF unlocker", differentiator: "Uploads files to servers. Daily usage limits on free tier." },
+        { name: "iLovePDF Unlock", description: "Web-based PDF unlocker", differentiator: "Files uploaded to remote servers. Ads on free version." },
+      ],
+      whyUs: "Unlock PDFs instantly in your browser. No file uploads, no daily limits. Your sensitive documents stay completely private on your device.",
+    },
+    useCases: [
+      { title: "Printing restricted documents", description: "Remove print restrictions from PDFs that you need physical copies of." },
+      { title: "Copying text for research", description: "Unlock copy restrictions to extract quotes and references from academic papers." },
+      { title: "Editing received documents", description: "Remove editing restrictions from PDFs you need to modify or annotate." },
+    ],
+  },
+  "video-compressor": {
+    toolSlug: "video-compressor",
+    howTo: {
+      title: "How to Compress a Video Online",
+      steps: [
+        { title: "Open the Video Compressor", description: "Navigate to the tool. No installation or account needed." },
+        { title: "Upload your video", description: "Drag and drop an MP4, WebM, or MOV file." },
+        { title: "Choose compression level", description: "Select Light (best quality), Balanced (good compression), or Maximum (smallest file)." },
+        { title: "Download compressed video", description: "The tool re-encodes your video at the selected quality and downloads the smaller file." },
+      ],
+      tips: [
+        "Balanced mode is ideal for most uses. It typically reduces file size by 40-60% with minimal visible quality loss.",
+        "Maximum compression is best for sharing on messaging apps where file size limits are strict.",
+        "Light compression preserves the most quality and is best for archival or professional use.",
+        "The output format is WebM which is widely supported by browsers and media players.",
+      ],
+    },
+    faq: [
+      { question: "How much smaller will my video be?", answer: "Depends on the compression level. Light: 20-40% smaller. Balanced: 40-60% smaller. Maximum: 60-80% smaller. Results vary based on the source video." },
+      { question: "Will there be quality loss?", answer: "Some quality reduction is inherent in compression. Light mode preserves the most quality. For most viewers, Balanced mode is visually indistinguishable from the original." },
+      { question: "What output format is used?", answer: "The compressed video is saved as WebM format, which is supported by all modern browsers and most media players." },
+      { question: "Is there a file size limit?", answer: "No hard limit, but very large videos (over 500MB) may be slow to process since everything runs in your browser." },
+    ],
+    alternatives: {
+      intro: "Video compression is essential for sharing, uploading, and storing video content efficiently.",
+      tools: [
+        { name: "HandBrake", description: "Free desktop video compressor", differentiator: "Requires software installation. Powerful but complex interface." },
+        { name: "CloudConvert", description: "Online video converter", differentiator: "Uploads files to servers. Free tier has daily limits." },
+      ],
+      whyUs: "Compress videos entirely in your browser. No uploads to servers, no software to install. Choose your compression level and download instantly.",
+    },
+    useCases: [
+      { title: "Email attachments", description: "Compress videos to fit within email attachment size limits." },
+      { title: "Social media uploads", description: "Reduce video file size for faster uploading to social platforms." },
+      { title: "Messaging apps", description: "Compress videos for WhatsApp, Telegram, and other apps with file size restrictions." },
+      { title: "Storage savings", description: "Reduce video file sizes to save disk space on your device." },
+    ],
+  },
+  "essay-writer": {
+    toolSlug: "essay-writer",
+    howTo: {
+      title: "How to Generate an Essay with AI",
+      steps: [
+        { title: "Open the Essay Writer", description: "Navigate to the tool. No account or signup needed." },
+        { title: "Enter your topic", description: "Type or paste your essay topic or prompt. Be specific for better results." },
+        { title: "Choose tone and length", description: "Select academic, professional, casual, or persuasive tone. Choose short, medium, or long length." },
+        { title: "Generate and copy", description: "Click generate and your essay appears in seconds. Copy it to your clipboard or edit as needed." },
+      ],
+      tips: [
+        "Be specific with your topic. Instead of just a subject, include the angle or argument you want to explore.",
+        "Always review and edit AI-generated essays. Use them as a starting point, not a final submission.",
+        "Academic tone is best for school assignments. Professional tone works for business writing.",
+        "Try generating multiple versions with different tones to find the best fit for your needs.",
+      ],
+    },
+    faq: [
+      { question: "Is the generated essay unique?", answer: "Yes. Each essay is generated fresh by AI and is not copied from any existing source. However, always review and personalize the content." },
+      { question: "Can I use this for school assignments?", answer: "The tool is meant to help with brainstorming and drafting. Always check your institution policies on AI-assisted writing and properly cite AI assistance if required." },
+      { question: "How long are the generated essays?", answer: "Short is approximately 200 words, Medium is about 500 words, and Long is around 1000 words." },
+      { question: "What topics can it write about?", answer: "The AI can generate essays on virtually any topic including science, history, technology, philosophy, social issues, and more." },
+    ],
+    alternatives: {
+      intro: "AI essay writing tools help students and professionals draft content quickly.",
+      tools: [
+        { name: "ChatGPT", description: "General AI assistant", differentiator: "Requires OpenAI account. Not specialized for essay writing." },
+        { name: "QuillBot", description: "AI writing assistant", differentiator: "Requires account. Premium features behind paywall." },
+      ],
+      whyUs: "Generate essays instantly with no account. Choose tone and length. Free, private, and unlimited.",
+    },
+    useCases: [
+      { title: "Brainstorming", description: "Generate draft essays to get ideas flowing and overcome writer's block." },
+      { title: "Learning", description: "See how a well-structured essay on a topic is organized and argued." },
+      { title: "Content drafting", description: "Create first drafts for blog posts, articles, or reports that you can then refine." },
+    ],
+  },
+  "paragraph-generator": {
+    toolSlug: "paragraph-generator",
+    howTo: {
+      title: "How to Generate Paragraphs with AI",
+      steps: [
+        { title: "Open the Paragraph Generator", description: "Navigate to the tool. No signup or installation needed." },
+        { title: "Enter your topic", description: "Type the subject you want a paragraph about." },
+        { title: "Choose style and count", description: "Select informative, descriptive, narrative, or argumentative style. Choose how many paragraphs you need." },
+        { title: "Generate and copy", description: "Click generate and your paragraphs appear instantly. Copy or edit as needed." },
+      ],
+      tips: [
+        "Informative style works best for factual content. Descriptive is ideal for creative writing.",
+        "Generate multiple paragraphs at once to build a complete section of content.",
+        "Use the generated text as a starting point and add your own voice and specific details.",
+        "Argumentative style is great for persuasive essays and opinion pieces.",
+      ],
+    },
+    faq: [
+      { question: "How long are the generated paragraphs?", answer: "Each paragraph is typically 4-6 sentences long, well-structured and focused on the topic." },
+      { question: "Can I generate multiple paragraphs?", answer: "Yes. You can generate 1, 2, 3, or 5 paragraphs at once on any topic." },
+      { question: "What writing styles are available?", answer: "Informative (factual), Descriptive (vivid details), Narrative (storytelling), and Argumentative (persuasive with evidence)." },
+    ],
+    alternatives: {
+      intro: "AI paragraph generation helps writers, students, and content creators produce text quickly.",
+      tools: [
+        { name: "ChatGPT", description: "General AI assistant", differentiator: "Requires account. Not focused on paragraph generation." },
+        { name: "Copy.ai", description: "AI copywriting tool", differentiator: "Requires account. Free tier has word limits." },
+      ],
+      whyUs: "Generate well-written paragraphs instantly. Choose style, topic, and quantity. No account, no limits, completely free.",
+    },
+    useCases: [
+      { title: "Content creation", description: "Generate paragraphs for blog posts, articles, and website content." },
+      { title: "Academic writing", description: "Create draft paragraphs for essays, reports, and research papers." },
+      { title: "Product descriptions", description: "Generate descriptive paragraphs for e-commerce listings and marketing materials." },
+    ],
+  },
 };
 
 // Generate content for tools that don't have custom entries
