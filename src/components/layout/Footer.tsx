@@ -1,5 +1,4 @@
 import Link from "next/link";
-import NewsletterSignup from "@/components/NewsletterSignup";
 import { siteConfig } from "@/config/site";
 import { categories } from "@/config/tools";
 
@@ -110,12 +109,6 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-
-        <div className="mt-8 rounded-xl bg-slate-100 p-6 text-center">
-            <h3 className="text-sm font-semibold text-slate-900 mb-1">Subscribe to updates</h3>
-            <p className="text-xs text-slate-500 mb-3">Get notified when we add new tools.</p>
-            <NewsletterSignup variant="inline" />
-          </div>
         <div className="mt-10 border-t border-slate-200 pt-6">
           <p className="text-center text-sm text-slate-400">
             &copy; {currentYear} {siteConfig.name}. All rights reserved. All

@@ -589,23 +589,7 @@ export default function HomePage() {
 
       {/* Ad - before FAQ */}
       
-      {/* ===== NEWSLETTER ===== */}
-      {!search.trim() && (
-        <section className="border-t border-slate-100 bg-white py-12 sm:py-16">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 mb-4">
-              <svg className="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
-              <span className="text-xs font-semibold text-slate-600">Stay Updated</span>
-            </div>
-            <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Get notified when we add new tools</h2>
-            <p className="mt-2 text-sm text-slate-500 max-w-md mx-auto">No spam, ever. Just a quick email when we launch something useful.</p>
-            <div className="mt-6">
-              <NewsletterSignup variant="banner" />
-            </div>
-          </div>
-        </section>
-      )}
-
+      
       {/* Ad - before FAQ */}
       {!search.trim() && (
         <section className="py-4 border-t border-slate-100">
