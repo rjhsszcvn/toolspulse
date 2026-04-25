@@ -73,9 +73,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         {/* Ad after intro */}
-        <div className="mt-6 mb-2">
-          <AdBanner type="native" />
-        </div>
+        
 
         {/* Sections */}
         {post.content.sections.map((section, i) => (

@@ -56,6 +56,8 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#2563eb" />
         <meta name="google-site-verification" content="6vkJFnHwHifL5TpqvVaG4vZo0dnsW1eJ65qSe0TF8zc" />
+          <meta name="google-adsense-account" content="ca-pub-9121922395304175" />
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9121922395304175" crossOrigin="anonymous"></script>
       </head>
       <body className="min-h-screen bg-white text-slate-900 antialiased">
         <Analytics />

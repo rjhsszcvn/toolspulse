@@ -92,12 +92,6 @@ export default function ToolPageLayout({ tool, children }: ToolPageLayoutProps) 
         <AdBanner type="300x250" className="flex sm:hidden" />
       </div>
 
-      {/* Ad - between tool and content */}
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-4">
-        <AdBanner type="728x90" className="hidden sm:flex" />
-        <AdBanner type="300x250" className="flex sm:hidden" />
-      </div>
-
       {/* Visual Banner */}
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-4">
         <div className="rounded-2xl bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-500 p-6 sm:p-8 text-white relative overflow-hidden">
