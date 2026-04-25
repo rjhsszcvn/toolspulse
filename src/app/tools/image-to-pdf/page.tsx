@@ -30,19 +30,28 @@ export default function Page() {
       const pdf = await PDFDocument.create();
       for (const img of images) {
         try {
-          // Convert any image to PNG via canvas for maximum compatibility
-          const bitmap = await createImageBitmap(img.file);
-          const canvas = document.createElement("canvas");
-          canvas.width = bitmap.width;
-          canvas.height = bitmap.height;
-          const ctx = canvas.getContext("2d")!;
-          ctx.drawImage(bitmap, 0, 0);
-          
-          const pngBlob = await new Promise<Blob>((resolve, reject) => {
-            canvas.toBlob((b) => b ? resolve(b) : reject("Failed"), "image/png");
+          // Load image into an HTML Image element
+          const imageEl = await new Promise<HTMLImageElement>((resolve, reject) => {
+            const el = new Image();
+            el.onload = () => resolve(el);
+            el.onerror = () => reject("Failed to load " + img.name);
+            el.src = img.url;
           });
-          const pngBytes = await pngBlob.arrayBuffer();
-          const embedded = await pdf.embedPng(pngBytes);
+
+          // Draw to canvas and export as JPEG for reliable PDF embedding
+          const canvas = document.createElement("canvas");
+          canvas.width = imageEl.naturalWidth;
+          canvas.height = imageEl.naturalHeight;
+          const ctx = canvas.getContext("2d")!;
+          ctx.fillStyle = "#FFFFFF";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(imageEl, 0, 0);
+
+          const jpegBlob = await new Promise<Blob>((resolve, reject) => {
+            canvas.toBlob((b) => b ? resolve(b) : reject("Canvas export failed"), "image/jpeg", 0.95);
+          });
+          const jpegBytes = new Uint8Array(await jpegBlob.arrayBuffer());
+          const embedded = await pdf.embedJpg(jpegBytes);
           const page = pdf.addPage([embedded.width, embedded.height]);
           page.drawImage(embedded, { x: 0, y: 0, width: embedded.width, height: embedded.height });
         } catch (err) {
