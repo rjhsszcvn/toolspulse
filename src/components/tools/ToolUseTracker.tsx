@@ -6,6 +6,18 @@ export default function ToolUseTracker() {
   const tracked = useRef(false);
 
   useEffect(() => {
+    // Track this tool visit in recently used
+    const path = window.location.pathname;
+    const slug = path.replace("/tools/", "");
+    if (slug && slug !== path) {
+      try {
+        const recent = JSON.parse(localStorage.getItem("tp_recent_tools") || "[]");
+        const filtered = recent.filter((s: string) => s !== slug);
+        filtered.unshift(slug);
+        localStorage.setItem("tp_recent_tools", JSON.stringify(filtered.slice(0, 10)));
+      } catch {}
+    }
+
     if (tracked.current) return;
 
     const handleDone = () => {
