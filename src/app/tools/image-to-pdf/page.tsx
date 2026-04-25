@@ -29,15 +29,25 @@ export default function Page() {
     try {
       const pdf = await PDFDocument.create();
       for (const img of images) {
-        const bytes = await img.file.arrayBuffer();
-        let embedded;
-        if (img.file.type === "image/png") {
-          embedded = await pdf.embedPng(bytes);
-        } else {
-          embedded = await pdf.embedJpg(bytes);
+        try {
+          // Convert any image to PNG via canvas for maximum compatibility
+          const bitmap = await createImageBitmap(img.file);
+          const canvas = document.createElement("canvas");
+          canvas.width = bitmap.width;
+          canvas.height = bitmap.height;
+          const ctx = canvas.getContext("2d")!;
+          ctx.drawImage(bitmap, 0, 0);
+          
+          const pngBlob = await new Promise<Blob>((resolve, reject) => {
+            canvas.toBlob((b) => b ? resolve(b) : reject("Failed"), "image/png");
+          });
+          const pngBytes = await pngBlob.arrayBuffer();
+          const embedded = await pdf.embedPng(pngBytes);
+          const page = pdf.addPage([embedded.width, embedded.height]);
+          page.drawImage(embedded, { x: 0, y: 0, width: embedded.width, height: embedded.height });
+        } catch (err) {
+          console.error("Failed to embed image:", img.name, err);
         }
-        const page = pdf.addPage([embedded.width, embedded.height]);
-        page.drawImage(embedded, { x: 0, y: 0, width: embedded.width, height: embedded.height });
       }
       const pdfBytes = await pdf.save();
       const blob = new Blob([pdfBytes as BlobPart], { type: "application/pdf" });
@@ -45,7 +55,7 @@ export default function Page() {
       link.href = URL.createObjectURL(blob);
       link.download = "images-to-pdf-toolsepulse.pdf";
       link.click();
-    } catch { console.error("Conversion failed"); }
+    } catch (err) { console.error("Conversion failed:", err); alert("Failed to convert. Please try again or use different images."); }
     setProcessing(false);
   };
 
