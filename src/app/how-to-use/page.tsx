@@ -19,6 +19,7 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
   text: { bg: "bg-amber-100", text: "text-amber-600", border: "border-amber-200" },
   generator: { bg: "bg-indigo-100", text: "text-indigo-600", border: "border-indigo-200" },
   developer: { bg: "bg-violet-100", text: "text-violet-600", border: "border-violet-200" },
+  video: { bg: "bg-rose-100", text: "text-rose-600", border: "border-rose-200" },
   ai: { bg: "bg-pink-100", text: "text-pink-600", border: "border-pink-200" },
 };
 

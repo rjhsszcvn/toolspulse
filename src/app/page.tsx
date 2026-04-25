@@ -5,6 +5,7 @@ import Link from "next/link";
 import { tools, categories, type ToolCategory } from "@/config/tools";
 import { siteConfig } from "@/config/site";
 import AdBanner from "@/components/ads/AdBanner";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const categoryVisuals: Record<
   ToolCategory,
@@ -84,6 +85,14 @@ const categoryVisuals: Record<
     tagline: "JSON, colors & utilities",
     icon: <path d="M8 10l-3 2 3 2m8-4l3 2-3 2m-5-8l-2 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />,
   },
+  video: {
+    cardBg: "bg-white hover:bg-rose-50/50",
+    borderColor: "border-rose-200/60 hover:border-rose-300",
+    iconBg: "bg-rose-100",
+    iconColor: "text-rose-600",
+    tagline: "Compress, convert & edit",
+    icon: <path d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" stroke="currentColor" strokeWidth="1.5" fill="none" />,
+  },
   ai: {
     cardBg: "bg-white hover:bg-pink-50/50",
     borderColor: "border-pink-200/60 hover:border-pink-300",
@@ -102,6 +111,7 @@ const searchIconStyle: Record<ToolCategory, { bg: string; text: string }> = {
   text: { bg: "bg-amber-100", text: "text-amber-600" },
   generator: { bg: "bg-indigo-100", text: "text-indigo-600" },
   developer: { bg: "bg-violet-100", text: "text-violet-600" },
+  video: { bg: "bg-rose-100", text: "text-rose-600" },
   ai: { bg: "bg-pink-100", text: "text-pink-600" },
 };
 
@@ -517,8 +527,42 @@ export default function HomePage() {
         </section>
       )}
 
+      {/* ===== NEWSLETTER ===== */}
+      {!search.trim() && (
+        <section className="border-t border-slate-100 bg-white py-12 sm:py-16">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 mb-4">
+              <svg className="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
+              <span className="text-xs font-semibold text-slate-600">Stay Updated</span>
+            </div>
+            <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Get notified when we add new tools</h2>
+            <p className="mt-2 text-sm text-slate-500 max-w-md mx-auto">No spam, ever. Just a quick email when we launch something useful.</p>
+            <div className="mt-6">
+              <NewsletterSignup variant="banner" />
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Ad - before FAQ */}
       
+      {/* ===== NEWSLETTER ===== */}
+      {!search.trim() && (
+        <section className="border-t border-slate-100 bg-white py-12 sm:py-16">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 mb-4">
+              <svg className="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
+              <span className="text-xs font-semibold text-slate-600">Stay Updated</span>
+            </div>
+            <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Get notified when we add new tools</h2>
+            <p className="mt-2 text-sm text-slate-500 max-w-md mx-auto">No spam, ever. Just a quick email when we launch something useful.</p>
+            <div className="mt-6">
+              <NewsletterSignup variant="banner" />
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Ad - before FAQ */}
       {!search.trim() && (
         <section className="py-4 border-t border-slate-100">

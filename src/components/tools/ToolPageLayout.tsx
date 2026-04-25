@@ -13,6 +13,7 @@ const categoryIconColors: Record<string, string> = {
   text: "bg-yellow-100 text-yellow-600",
   developer: "bg-purple-100 text-purple-600",
   generator: "bg-blue-100 text-blue-600",
+  video: "bg-rose-100 text-rose-600",
   ai: "bg-pink-100 text-pink-600",
 };
 

@@ -1,4 +1,4 @@
-export type ToolCategory = "pdf" | "image" | "text" | "developer" | "generator" | "ai" | "converter" | "audio";
+export type ToolCategory = "pdf" | "image" | "text" | "developer" | "generator" | "video" | "ai" | "converter" | "audio";
 
 export interface Tool {
   id: string;
@@ -23,6 +23,7 @@ export const categories: Record<ToolCategory, { label: string; description: stri
   text: { label: "Text Tools", description: "Extract, format, and transform text", icon: "Type" },
   generator: { label: "Generators", description: "Generate QR codes, passwords, invoices, and more", icon: "Wand" },
   developer: { label: "Developer Tools", description: "JSON, color, and code utilities", icon: "Code" },
+  video: { label: "Video Tools", description: "Compress, convert, and edit videos", icon: "Film" },
   ai: { label: "AI-Powered", description: "Smart tools powered by artificial intelligence", icon: "Sparkles" },
 };
 
@@ -289,7 +290,7 @@ export const tools: Tool[] = [
     shortDescription: "Extract audio from video as MP3",
     slug: "mp4-to-mp3",
     relatedTools: ["mp3-converter", "audio-trimmer", "wav-converter", "video-to-gif"],
-    category: "converter",
+    category: "video",
     icon: "Music",
     isNew: true,
     isPopular: false,
@@ -331,12 +332,26 @@ export const tools: Tool[] = [
     shortDescription: "Convert video clips to animated GIFs",
     slug: "video-to-gif",
     relatedTools: ["mp4-to-mp3", "image-compressor", "image-cropper", "image-resizer"],
-    category: "converter",
+    category: "video",
     icon: "Film",
     isNew: true,
     isPopular: false,
     tier: 1,
     keywords: ["how to make gif from video", "turn video clip into gif", "create animated gif from mp4", "video to gif for discord", "make gif from video free no watermark", "convert short video to gif online"],
+  },
+  {
+    id: "video-compressor",
+    name: "Video Compressor",
+    description: "Compress video files to reduce size while maintaining quality. Supports MP4, WebM, MOV. Free, instant, processed in your browser.",
+    shortDescription: "Compress videos to smaller file size",
+    slug: "video-compressor",
+    category: "video",
+    icon: "Minimize2",
+    isNew: true,
+    isPopular: false,
+    tier: 1,
+    keywords: ["how to compress video file", "reduce video size for email", "make video smaller free", "compress mp4 online", "shrink video file size", "video compressor no upload"],
+    relatedTools: ["video-to-gif", "mp4-to-mp3", "image-compressor", "pdf-compressor"],
   },
   // Audio Tools
   {
