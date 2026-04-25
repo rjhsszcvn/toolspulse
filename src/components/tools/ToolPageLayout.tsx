@@ -2,6 +2,7 @@ import Link from "next/link";
 import { type Tool, categories, getToolBySlug } from "@/config/tools";
 import ToolJsonLd from "./ToolJsonLd";
 import ToolUseTracker from "./ToolUseTracker";
+import BugReport from "./BugReport";
 import AdBanner from "../ads/AdBanner";
 import { getToolContent } from "@/config/tool-content";
 
@@ -85,6 +86,7 @@ export default function ToolPageLayout({ tool, children }: ToolPageLayoutProps) 
       <div className="mx-auto max-w-4xl px-4 pb-8 sm:px-6 lg:px-8">
         {children}
         <ToolUseTracker />
+        <BugReport toolName={tool.name} />
       </div>
 
       {/* Ad - between tool and content */}
