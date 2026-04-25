@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { tools, categories, type ToolCategory } from "@/config/tools";
 import { siteConfig } from "@/config/site";
+import AdBanner from "@/components/ads/AdBanner";
 
 const categoryVisuals: Record<
   ToolCategory,
@@ -418,6 +419,24 @@ export default function HomePage() {
         </section>
       )}
 
+      {/* Ad - between popular and how it works */}
+      {!search.trim() && (
+        <section className="py-4">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6">
+            <AdBanner type="native" />
+          </div>
+        </section>
+      )}
+
+      {/* Ad - between popular and how it works */}
+      {!search.trim() && (
+        <section className="py-4">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6">
+            <AdBanner type="native" />
+          </div>
+        </section>
+      )}
+
       {/* ===== HOW IT WORKS ===== */}
       {!search.trim() && (
         <section className="py-12 sm:py-16 border-t border-slate-100">
@@ -503,6 +522,26 @@ export default function HomePage() {
                 );
               })}
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* Ad - before FAQ */}
+      {!search.trim() && (
+        <section className="py-4 border-t border-slate-100">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 flex justify-center">
+            <AdBanner type="728x90" className="hidden sm:flex" />
+            <AdBanner type="300x250" className="flex sm:hidden" />
+          </div>
+        </section>
+      )}
+
+      {/* Ad - before FAQ */}
+      {!search.trim() && (
+        <section className="py-4 border-t border-slate-100">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 flex justify-center">
+            <AdBanner type="728x90" className="hidden sm:flex" />
+            <AdBanner type="300x250" className="flex sm:hidden" />
           </div>
         </section>
       )}

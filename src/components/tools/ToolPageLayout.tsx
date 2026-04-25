@@ -2,6 +2,7 @@ import Link from "next/link";
 import { type Tool, categories, getToolBySlug } from "@/config/tools";
 import ToolJsonLd from "./ToolJsonLd";
 import ToolUseTracker from "./ToolUseTracker";
+import AdBanner from "../ads/AdBanner";
 import { getToolContent } from "@/config/tool-content";
 
 const categoryIconColors: Record<string, string> = {
@@ -83,6 +84,18 @@ export default function ToolPageLayout({ tool, children }: ToolPageLayoutProps) 
       <div className="mx-auto max-w-4xl px-4 pb-8 sm:px-6 lg:px-8">
         {children}
         <ToolUseTracker />
+      </div>
+
+      {/* Ad - between tool and content */}
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-4">
+        <AdBanner type="728x90" className="hidden sm:flex" />
+        <AdBanner type="300x250" className="flex sm:hidden" />
+      </div>
+
+      {/* Ad - between tool and content */}
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-4">
+        <AdBanner type="728x90" className="hidden sm:flex" />
+        <AdBanner type="300x250" className="flex sm:hidden" />
       </div>
 
       {/* Visual Banner */}
@@ -201,6 +214,16 @@ export default function ToolPageLayout({ tool, children }: ToolPageLayoutProps) 
                 </div>
               </div>
             )}
+
+            {/* Ad - between FAQ and alternatives */}
+            <div className="mb-12">
+              <AdBanner type="native" />
+            </div>
+
+            {/* Ad - between FAQ and alternatives */}
+            <div className="mb-12">
+              <AdBanner type="native" />
+            </div>
 
             {/* Alternatives Section */}
             {content.alternatives.tools.length > 0 && (
