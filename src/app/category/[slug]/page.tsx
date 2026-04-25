@@ -199,6 +199,31 @@ const categoryMeta: Record<
       </>
     ),
   },
+  video: {
+    headerBg: "from-rose-50 via-red-50 to-orange-50",
+    accent: "text-rose-600",
+    accentDark: "text-rose-700",
+    iconBg: "bg-rose-100",
+    badgeBg: "bg-rose-50 border-rose-200",
+    badgeText: "text-rose-700",
+    longDescription:
+      "Compress, convert, and transform video files directly in your browser. Extract audio from videos, create animated GIFs, and reduce file sizes — all processed locally on your device with no uploads to any server.",
+    howTo: [
+      { step: "Choose a video tool", desc: "Pick the tool that matches your task — compress, convert, or extract." },
+      { step: "Upload your video", desc: "Drag and drop your MP4, WebM, or MOV file." },
+      { step: "Download results", desc: "Get your compressed video, GIF, or audio file instantly." },
+    ],
+    icon: (
+      <path d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" stroke="currentColor" strokeWidth="1.5" fill="none" />
+    ),
+    pattern: (
+      <>
+        <rect x="75%" y="15%" width="30" height="20" rx="3" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.05" />
+        <polygon points="82%,20% 82%,30% 90%,25%" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.04" />
+        <rect x="85%" y="55%" width="25" height="17" rx="3" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.04" />
+      </>
+    ),
+  },
   ai: {
     headerBg: "from-pink-50 via-rose-50 to-fuchsia-50",
     accent: "text-pink-600",
