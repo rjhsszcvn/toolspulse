@@ -6,6 +6,7 @@ export default function BugReport({ toolName }: { toolName: string }) {
   const [open, setOpen] = useState(false);
   const [type, setType] = useState("");
   const [details, setDetails] = useState("");
+  const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
   const presets = [
@@ -18,21 +19,28 @@ export default function BugReport({ toolName }: { toolName: string }) {
     "Other issue",
   ];
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!type) return;
-    
-    const subject = encodeURIComponent("Bug Report: " + toolName + " - " + type);
-    const body = encodeURIComponent(
-      "Tool: " + toolName +
-      "\nIssue: " + type +
-      "\nDetails: " + (details || "N/A") +
-      "\nBrowser: " + navigator.userAgent +
-      "\nDevice: " + (window.innerWidth <= 768 ? "Mobile" : "Desktop") +
-      "\nURL: " + window.location.href +
-      "\nTime: " + new Date().toISOString()
-    );
-    
-    window.open("mailto:secretsafe.cc@gmail.com?subject=" + subject + "&body=" + body, "_blank");
+    setSending(true);
+
+    try {
+      await fetch("https://formspree.io/f/mdayjdvl", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          _subject: "Bug Report: " + toolName + " - " + type,
+          tool: toolName,
+          issue: type,
+          details: details || "N/A",
+          browser: navigator.userAgent,
+          device: window.innerWidth <= 768 ? "Mobile" : "Desktop",
+          page: window.location.href,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+    } catch {}
+
+    setSending(false);
     setSent(true);
     setTimeout(() => { setSent(false); setOpen(false); setType(""); setDetails(""); }, 3000);
   };
@@ -44,7 +52,7 @@ export default function BugReport({ toolName }: { toolName: string }) {
         className="fixed bottom-4 right-4 z-50 flex items-center gap-1.5 rounded-full bg-slate-800 px-3 py-1.5 text-[11px] font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors shadow-lg"
       >
         <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 12.75c1.148 0 2.278.08 3.383.237 1.037.146 1.866.966 1.866 2.013 0 3.728-2.35 6.75-5.25 6.75S6.75 18.728 6.75 15c0-1.046.83-1.867 1.866-2.013A24.204 24.204 0 0 1 12 12.75Zm0 0c2.883 0 5.647.508 8.207 1.44a23.91 23.91 0 0 1-1.152 6.06M12 12.75c-2.883 0-5.647.508-8.208 1.44.125 2.104.52 4.136 1.153 6.06M12 12.75a2.25 2.25 0 0 0 2.248-2.354M12 12.75a2.25 2.25 0 0 1-2.248-2.354M12 8.25c.995 0 1.971-.08 2.922-.236.403-.066.74-.358.795-.762a3.778 3.778 0 0 0-.399-2.25M12 8.25c-.995 0-1.97-.08-2.922-.236-.402-.066-.74-.358-.795-.762a3.734 3.734 0 0 1 .4-2.253M12 8.25a2.25 2.25 0 0 0-2.248 2.146M12 8.25a2.25 2.25 0 0 1 2.248 2.146M8.683 5a6.032 6.032 0 0 1-1.155-1.002c.07-.63.27-1.222.574-1.747m.581 2.749A3.75 3.75 0 0 1 15.318 5m0 0c.427-.283.815-.62 1.155-.999a4.471 4.471 0 0 0-.575-1.752M4.921 6a24.048 24.048 0 0 0-.392 3.314c1.668.546 3.416.914 5.223 1.082M19.08 6c.205 1.08.337 2.187.392 3.314a23.882 23.882 0 0 1-5.223 1.082" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
         </svg>
         Report a bug
       </button>
@@ -61,9 +69,12 @@ export default function BugReport({ toolName }: { toolName: string }) {
       </div>
 
       {sent ? (
-        <div className="flex items-center gap-2 py-4 text-sm text-emerald-600 font-medium">
-          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
-          Thanks! We'll look into it.
+        <div className="flex flex-col items-center gap-2 py-6">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100">
+            <svg className="h-6 w-6 text-emerald-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+          </div>
+          <p className="text-sm font-semibold text-emerald-700">Report received!</p>
+          <p className="text-xs text-slate-500 text-center">Thanks for helping us improve. We will look into this.</p>
         </div>
       ) : (
         <>
@@ -89,10 +100,15 @@ export default function BugReport({ toolName }: { toolName: string }) {
 
           <button
             onClick={handleSubmit}
-            disabled={!type}
+            disabled={!type || sending}
             className="w-full rounded-lg bg-slate-900 px-4 py-2 text-xs font-semibold text-white hover:bg-slate-800 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            Send Report
+            {sending ? (
+              <span className="flex items-center justify-center gap-2">
+                <span className="h-3 w-3 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                Sending...
+              </span>
+            ) : "Send Report"}
           </button>
         </>
       )}
