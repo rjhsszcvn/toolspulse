@@ -58,6 +58,7 @@ export default function RootLayout({
         <meta name="google-site-verification" content="6vkJFnHwHifL5TpqvVaG4vZo0dnsW1eJ65qSe0TF8zc" />
           <meta name="google-adsense-account" content="ca-pub-9121922395304175" />
           <meta name="monetag" content="727599b1138ea5f8b1653c786e61d496" />
+          <script dangerouslySetInnerHTML={{ __html: `(function(s){s.dataset.zone='10930460',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))` }} />
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9121922395304175" crossOrigin="anonymous"></script>
       </head>
       <body className="min-h-screen bg-white text-slate-900 antialiased">
