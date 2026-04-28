@@ -19,18 +19,18 @@ const categoryVisuals: Record<
   }
 > = {
   pdf: {
-    cardBg: "bg-white hover:bg-red-50/50",
-    borderColor: "border-red-200/60 hover:border-red-300",
-    iconBg: "bg-red-100",
-    iconColor: "text-red-600",
+    cardBg: "bg-gradient-to-br from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700",
+    borderColor: "border-transparent",
+    iconBg: "bg-white/20",
+    iconColor: "text-white",
     tagline: "Merge, compress & convert",
     icon: <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 2l5 5h-5V4zm-5 9h8m-8 4h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />,
   },
   image: {
-    cardBg: "bg-white hover:bg-emerald-50/50",
-    borderColor: "border-emerald-200/60 hover:border-emerald-300",
-    iconBg: "bg-emerald-100",
-    iconColor: "text-emerald-600",
+    cardBg: "bg-gradient-to-br from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700",
+    borderColor: "border-transparent",
+    iconBg: "bg-white/20",
+    iconColor: "text-white",
     tagline: "Resize, compress & edit",
     icon: (
       <>
@@ -41,26 +41,26 @@ const categoryVisuals: Record<
     ),
   },
   converter: {
-    cardBg: "bg-white hover:bg-blue-50/50",
-    borderColor: "border-blue-200/60 hover:border-blue-300",
-    iconBg: "bg-blue-100",
-    iconColor: "text-blue-600",
+    cardBg: "bg-gradient-to-br from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700",
+    borderColor: "border-transparent",
+    iconBg: "bg-white/20",
+    iconColor: "text-white",
     tagline: "Any format, instantly",
     icon: <path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />,
   },
   audio: {
-    cardBg: "bg-white hover:bg-orange-50/50",
-    borderColor: "border-orange-200/60 hover:border-orange-300",
-    iconBg: "bg-orange-100",
-    iconColor: "text-orange-600",
+    cardBg: "bg-gradient-to-br from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700",
+    borderColor: "border-transparent",
+    iconBg: "bg-white/20",
+    iconColor: "text-white",
     tagline: "Convert, trim & transform",
     icon: <path d="M9 18V5l12-2v13M9 18a3 3 0 11-6 0 3 3 0 016 0zm12-2a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" strokeWidth="1.5" fill="none" />,
   },
   text: {
-    cardBg: "bg-white hover:bg-amber-50/50",
-    borderColor: "border-amber-200/60 hover:border-amber-300",
-    iconBg: "bg-amber-100",
-    iconColor: "text-amber-600",
+    cardBg: "bg-gradient-to-br from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700",
+    borderColor: "border-transparent",
+    iconBg: "bg-white/20",
+    iconColor: "text-white",
     tagline: "Extract, count & process",
     icon: (
       <>
@@ -70,34 +70,34 @@ const categoryVisuals: Record<
     ),
   },
   generator: {
-    cardBg: "bg-white hover:bg-indigo-50/50",
-    borderColor: "border-indigo-200/60 hover:border-indigo-300",
-    iconBg: "bg-indigo-100",
-    iconColor: "text-indigo-600",
+    cardBg: "bg-gradient-to-br from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700",
+    borderColor: "border-transparent",
+    iconBg: "bg-white/20",
+    iconColor: "text-white",
     tagline: "QR codes, invoices & more",
     icon: <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinejoin="round" />,
   },
   developer: {
-    cardBg: "bg-white hover:bg-violet-50/50",
-    borderColor: "border-violet-200/60 hover:border-violet-300",
-    iconBg: "bg-violet-100",
-    iconColor: "text-violet-600",
+    cardBg: "bg-gradient-to-br from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700",
+    borderColor: "border-transparent",
+    iconBg: "bg-white/20",
+    iconColor: "text-white",
     tagline: "JSON, colors & utilities",
     icon: <path d="M8 10l-3 2 3 2m8-4l3 2-3 2m-5-8l-2 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />,
   },
   video: {
-    cardBg: "bg-white hover:bg-rose-50/50",
-    borderColor: "border-rose-200/60 hover:border-rose-300",
-    iconBg: "bg-rose-100",
-    iconColor: "text-rose-600",
+    cardBg: "bg-gradient-to-br from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700",
+    borderColor: "border-transparent",
+    iconBg: "bg-white/20",
+    iconColor: "text-white",
     tagline: "Compress, convert & edit",
     icon: <path d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" stroke="currentColor" strokeWidth="1.5" fill="none" />,
   },
   ai: {
-    cardBg: "bg-white hover:bg-pink-50/50",
-    borderColor: "border-pink-200/60 hover:border-pink-300",
-    iconBg: "bg-pink-100",
-    iconColor: "text-pink-600",
+    cardBg: "bg-gradient-to-br from-pink-500 to-fuchsia-600 hover:from-pink-600 hover:to-fuchsia-700",
+    borderColor: "border-transparent",
+    iconBg: "bg-white/20",
+    iconColor: "text-white",
     tagline: "Smart, AI-powered tools",
     icon: <path d="M9.5 15L9 18.75l-.5-3.75a4.5 4.5 0 00-3-3L2.25 12l3.25-.5a4.5 4.5 0 003-3L9 5.25l.5 3.25a4.5 4.5 0 003 3l3.25.5-3.25.5a4.5 4.5 0 00-3 3zM18 8.5l-.25 1-.25-1a3 3 0 00-2-2l-1-.25 1-.25a3 3 0 002-2L18 3l.25 1a3 3 0 002 2l1 .25-1 .25a3 3 0 00-2 2z" stroke="currentColor" strokeWidth="1.2" fill="none" />,
   },
@@ -461,16 +461,16 @@ export default function HomePage() {
                   <Link
                     key={key}
                     href={"/category/" + key}
-                    className={"group relative rounded-2xl border p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg " + vis.cardBg + " " + vis.borderColor}
+                    className={"group relative rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl shadow-lg overflow-hidden " + vis.cardBg + " " + vis.borderColor}
                   >
                     <div className={"flex h-11 w-11 items-center justify-center rounded-xl mb-4 " + vis.iconBg + " " + vis.iconColor}>
                       <svg width="22" height="22" viewBox="0 0 24 24">{vis.icon}</svg>
                     </div>
-                    <h3 className="text-sm font-bold text-slate-900">{cat.label}</h3>
-                    <p className="mt-0.5 text-xs text-slate-500">{vis.tagline}</p>
+                    <h3 className="text-sm font-bold text-white">{cat.label}</h3>
+                    <p className="mt-0.5 text-xs text-white/70">{vis.tagline}</p>
                     <div className="mt-3 flex items-center justify-between">
-                      <span className="text-[11px] font-semibold text-slate-400">{catTools.length} tools</span>
-                      <svg className="h-4 w-4 text-slate-300 group-hover:text-blue-500 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+                      <span className="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-semibold text-white">{catTools.length} tools</span>
+                      <svg className="h-4 w-4 text-white/50 group-hover:text-white group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
                     </div>
                   </Link>
                 );
@@ -484,20 +484,35 @@ export default function HomePage() {
       {!search.trim() && (
         <section className="border-t border-slate-100 bg-slate-50/50 py-12 sm:py-16">
           <div className="mx-auto max-w-5xl px-4 sm:px-6">
-            <h2 className="text-lg font-bold text-slate-900 mb-6">Most popular</h2>
-            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-              {tools.filter(t => t.isPopular).slice(0, 6).map((tool) => {
+            <div className="flex items-center gap-3 mb-8">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-orange-500">
+                <svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" /></svg>
+              </div>
+              <div>
+                <h2 className="text-lg font-bold text-slate-900">Most Popular Tools</h2>
+                <p className="text-xs text-slate-500">Loved by thousands of users</p>
+              </div>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {tools.filter(t => t.isPopular).slice(0, 6).map((tool, i) => {
                 const s = searchIconStyle[tool.category];
                 const vis = categoryVisuals[tool.category];
                 return (
-                  <Link key={tool.id} href={"/tools/" + tool.slug} className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 hover:shadow-md hover:border-slate-300 transition-all">
-                    <div className={"flex h-11 w-11 items-center justify-center rounded-xl flex-shrink-0 " + s.bg + " " + s.text}>
-                      <svg width="20" height="20" viewBox="0 0 24 24">{vis.icon}</svg>
+                  <Link key={tool.id} href={"/tools/" + tool.slug} className="group relative flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 hover:shadow-xl hover:border-slate-300 hover:-translate-y-0.5 transition-all duration-300">
+                    <div className="absolute top-3 right-3">
+                      <span className="flex items-center gap-1 rounded-full bg-amber-50 px-2 py-0.5 text-[9px] font-bold text-amber-600 uppercase">
+                        <svg className="h-2.5 w-2.5" fill="currentColor" viewBox="0 0 24 24"><path d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" /></svg>
+                        Popular
+                      </span>
+                    </div>
+                    <div className={"flex h-12 w-12 items-center justify-center rounded-xl flex-shrink-0 " + s.bg + " " + s.text + " group-hover:scale-110 transition-transform duration-300"}>
+                      <svg width="22" height="22" viewBox="0 0 24 24">{vis.icon}</svg>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">{tool.name}</h3>
+                      <h3 className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors">{tool.name}</h3>
                       <p className="text-xs text-slate-500 mt-0.5 truncate">{tool.shortDescription}</p>
                     </div>
+                    <svg className="h-4 w-4 text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
                   </Link>
                 );
               })}
