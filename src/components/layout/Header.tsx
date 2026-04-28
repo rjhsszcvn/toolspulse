@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { siteConfig } from "@/config/site";
-import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -63,7 +62,6 @@ export default function Header() {
           >
             About
           </Link>
-          <LanguageSwitcher />
         </nav>
 
         <button
