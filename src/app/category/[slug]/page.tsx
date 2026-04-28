@@ -20,12 +20,12 @@ const categoryMeta: Record<
   }
 > = {
   pdf: {
-    headerBg: "from-red-50 via-rose-50 to-orange-50",
-    accent: "text-red-600",
-    accentDark: "text-red-700",
-    iconBg: "bg-red-100",
-    badgeBg: "bg-red-50 border-red-200",
-    badgeText: "text-red-700",
+    headerBg: "from-red-500 via-rose-500 to-red-600",
+    accent: "text-white/60",
+    accentDark: "text-white",
+    iconBg: "bg-white/20",
+    badgeBg: "bg-white/20 border-white/30",
+    badgeText: "text-white",
     longDescription:
       "Work with PDFs without leaving your browser. Convert documents to and from PDF format, compress oversized files for easy sharing, and merge multiple PDFs into one — all processed locally on your device for complete privacy.",
     howTo: [
@@ -44,12 +44,12 @@ const categoryMeta: Record<
     ),
   },
   image: {
-    headerBg: "from-emerald-50 via-green-50 to-teal-50",
-    accent: "text-emerald-600",
-    accentDark: "text-emerald-700",
-    iconBg: "bg-emerald-100",
-    badgeBg: "bg-emerald-50 border-emerald-200",
-    badgeText: "text-emerald-700",
+    headerBg: "from-emerald-500 via-green-500 to-teal-600",
+    accent: "text-white/60",
+    accentDark: "text-white",
+    iconBg: "bg-white/20",
+    badgeBg: "bg-white/20 border-white/30",
+    badgeText: "text-white",
     longDescription:
       "Optimize your images for the web, social media, and print. Compress without visible quality loss, resize to exact dimensions, or remove backgrounds with AI — all without uploading your photos to any server.",
     howTo: [
@@ -96,12 +96,12 @@ const categoryMeta: Record<
     ),
   },
   audio: {
-    headerBg: "from-orange-50 via-amber-50 to-yellow-50",
-    accent: "text-orange-600",
-    accentDark: "text-orange-700",
-    iconBg: "bg-orange-100",
-    badgeBg: "bg-orange-50 border-orange-200",
-    badgeText: "text-orange-700",
+    headerBg: "from-orange-500 via-amber-500 to-orange-600",
+    accent: "text-white/60",
+    accentDark: "text-white",
+    iconBg: "bg-white/20",
+    badgeBg: "bg-white/20 border-white/30",
+    badgeText: "text-white",
     longDescription:
       "Handle all your audio tasks right in the browser. Convert between MP3, WAV, OGG and other formats, trim audio to the perfect length, and adjust quality settings — no software installation required.",
     howTo: [
@@ -200,12 +200,12 @@ const categoryMeta: Record<
     ),
   },
   video: {
-    headerBg: "from-rose-50 via-red-50 to-orange-50",
-    accent: "text-rose-600",
-    accentDark: "text-rose-700",
-    iconBg: "bg-rose-100",
-    badgeBg: "bg-rose-50 border-rose-200",
-    badgeText: "text-rose-700",
+    headerBg: "from-rose-500 via-pink-500 to-rose-600",
+    accent: "text-white/60",
+    accentDark: "text-white",
+    iconBg: "bg-white/20",
+    badgeBg: "bg-white/20 border-white/30",
+    badgeText: "text-white",
     longDescription:
       "Compress, convert, and transform video files directly in your browser. Extract audio from videos, create animated GIFs, and reduce file sizes — all processed locally on your device with no uploads to any server.",
     howTo: [
@@ -225,12 +225,12 @@ const categoryMeta: Record<
     ),
   },
   ai: {
-    headerBg: "from-pink-50 via-rose-50 to-fuchsia-50",
-    accent: "text-pink-600",
-    accentDark: "text-pink-700",
-    iconBg: "bg-pink-100",
-    badgeBg: "bg-pink-50 border-pink-200",
-    badgeText: "text-pink-700",
+    headerBg: "from-pink-500 via-fuchsia-500 to-purple-600",
+    accent: "text-white/60",
+    accentDark: "text-white",
+    iconBg: "bg-white/20",
+    badgeBg: "bg-white/20 border-white/30",
+    badgeText: "text-white",
     longDescription:
       "Leverage artificial intelligence for tasks that need a smarter touch. Rewrite text with different tones, upscale blurry images to sharp clarity, or catch grammar mistakes — powered by AI models running where they can best serve you.",
     howTo: [
@@ -277,7 +277,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
         </svg>
 
         <div className="relative mx-auto max-w-5xl px-4 pt-8 pb-12 sm:px-6 sm:pt-12 sm:pb-16">
-          <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-slate-600 mb-6 transition-colors">
+          <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-white/60 hover:text-white mb-6 transition-colors">
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
@@ -295,7 +295,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
                   {categoryTools.length} tools
                 </span>
               </div>
-              <p className="mt-3 max-w-2xl text-sm text-slate-500 leading-relaxed sm:text-base">
+              <p className="mt-3 max-w-2xl text-sm text-white/70 leading-relaxed sm:text-base">
                 {meta.longDescription}
               </p>
             </div>
