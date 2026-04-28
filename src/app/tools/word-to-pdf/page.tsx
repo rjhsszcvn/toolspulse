@@ -3,6 +3,8 @@
 import { useState, useRef, useCallback } from "react";
 import mammoth from "mammoth";
 import { getToolBySlug } from "@/config/tools";
+import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
+import { saveAs } from "file-saver";
 import ToolPageLayout from "@/components/tools/ToolPageLayout";
 
 const tool = getToolBySlug("word-to-pdf")!;
@@ -63,7 +65,7 @@ export default function WordToPDFPage() {
     [convertFile]
   );
 
-  const downloadPDF = () => {
+  const downloadPDF = async () => {
     if (!previewRef.current) return;
 
     const printWindow = window.open("", "_blank");
