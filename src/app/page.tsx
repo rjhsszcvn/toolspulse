@@ -532,26 +532,43 @@ export default function HomePage() {
 
       {/* ===== HOW IT WORKS ===== */}
       {!search.trim() && (
-        <section className="py-12 sm:py-16 border-t border-slate-100">
+        <section className="py-14 sm:py-20 border-t border-slate-100 bg-gradient-to-b from-white to-slate-50">
           <div className="mx-auto max-w-5xl px-4 sm:px-6">
-            <div className="text-center mb-10">
-              <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">How it works</h2>
-              <p className="mt-2 text-sm text-slate-500">Three steps. No signup. No uploads.</p>
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 mb-4 shadow-sm">
+                <svg className="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+                <span className="text-xs font-semibold text-slate-600">Simple as 1-2-3</span>
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">How it works</h2>
+              <p className="mt-2 text-sm text-slate-500">Three steps. No signup. No uploads. Just results.</p>
             </div>
-            <div className="grid gap-6 sm:grid-cols-3">
-              {[
-                { step: "1", title: "Pick a tool", desc: "Browse by category or search. Every tool is free with no limits.", icon: "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" },
-                { step: "2", title: "Use it instantly", desc: "Upload your file or enter your data. Processing happens in your browser.", icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" },
-                { step: "3", title: "Download results", desc: "Get your output immediately. Nothing was uploaded. Your data stayed private.", icon: "M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" },
-              ].map((s) => (
-                <div key={s.step} className="text-center">
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 mb-4">
-                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d={s.icon} /></svg>
+            <div className="relative">
+              {/* Connecting line */}
+              <div className="hidden sm:block absolute top-12 left-[20%] right-[20%] h-0.5 bg-gradient-to-r from-blue-200 via-cyan-200 to-teal-200" />
+              <div className="grid gap-8 sm:grid-cols-3 relative">
+                {[
+                  { step: "1", title: "Pick a tool", desc: "Browse by category or search. Every tool is free with no limits.", icon: "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z", gradient: "from-blue-500 to-blue-600" },
+                  { step: "2", title: "Use it instantly", desc: "Upload your file or enter your data. Processing happens entirely in your browser.", icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z", gradient: "from-cyan-500 to-cyan-600" },
+                  { step: "3", title: "Download results", desc: "Get your output immediately. Nothing was uploaded. Your data stayed completely private.", icon: "M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3", gradient: "from-teal-500 to-emerald-600" },
+                ].map((s, i) => (
+                  <div key={s.step} className="relative text-center group">
+                    <div className={"inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br text-white mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300 " + s.gradient}>
+                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d={s.icon} /></svg>
+                    </div>
+                    {/* Arrow between steps */}
+                    {i < 2 && (
+                      <div className="hidden sm:flex absolute top-10 -right-4 z-10">
+                        <svg className="h-6 w-6 text-slate-300" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                      </div>
+                    )}
+                    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                      <div className={"inline-flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br text-white text-xs font-bold mb-3 " + s.gradient}>{s.step}</div>
+                      <h3 className="text-base font-bold text-slate-900">{s.title}</h3>
+                      <p className="mt-2 text-sm text-slate-500 leading-relaxed">{s.desc}</p>
+                    </div>
                   </div>
-                  <h3 className="text-sm font-bold text-slate-900">{s.title}</h3>
-                  <p className="mt-1.5 text-xs text-slate-500 leading-relaxed max-w-xs mx-auto">{s.desc}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
